@@ -520,17 +520,19 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       bottom: 0; left: 0; right: 0;
       background: #fff;
       border-top: 2px solid var(--brand);
-      padding: 12px 20px;
+      padding: 10px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
       z-index: 200;
       box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
     }
-    .sticky-price { font-family: 'Baloo 2', sans-serif; }
-    .sticky-price .old { font-size: 13px; color: var(--muted); text-decoration: line-through; }
-    .sticky-price .new { font-size: 22px; font-weight: 800; color: var(--brand); }
+    .sticky-price { font-family: 'Baloo 2', sans-serif; flex-shrink: 0; }
+    .sticky-price .old { font-size: 11px; color: var(--muted); text-decoration: line-through; }
+    .sticky-price .new { font-size: 20px; font-weight: 800; color: var(--brand); line-height: 1.1; }
+    .sticky-bar .sticky-timer-wrap { font-size: 11px; color: var(--brand); font-weight: 700; text-align: center; flex: 1; }
+    .sticky-bar .btn-primary { flex-shrink: 0; font-size: 14px; padding: 12px 18px; white-space: nowrap; }
 
     /* ── UTILS ───────────────────────────────────── */
     .text-center { text-align: center; }
@@ -542,9 +544,10 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     .justify-center { justify-content: center; }
     .flex-wrap { flex-wrap: wrap; }
 
-    @media(max-width:600px) {
-      .sticky-bar { flex-direction: column; gap: 8px; }
-      .sticky-bar .btn-primary { width: 100%; text-align: center; }
+    /* Mobile sticky bar stays horizontal always - no column stacking */
+    @media(max-width:400px) {
+      .sticky-price .new { font-size: 17px; }
+      .sticky-bar .btn-primary { font-size: 13px; padding: 11px 14px; }
     }
 
     /* ── EXIT INTENT POPUP ───────────────────────── */
@@ -739,6 +742,77 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.5; transform: scale(1.4); }
     }
+    /* ── SCROLL ANIMATIONS ───────────────────────── */
+    .anim-fade {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .anim-fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .anim-fade-left {
+      opacity: 0;
+      transform: translateX(-32px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .anim-fade-left.visible { opacity: 1; transform: translateX(0); }
+    .anim-fade-right {
+      opacity: 0;
+      transform: translateX(32px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .anim-fade-right.visible { opacity: 1; transform: translateX(0); }
+    .anim-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .anim-scale.visible { opacity: 1; transform: scale(1); }
+
+    /* Stagger delay helpers */
+    .delay-1 { transition-delay: 0.1s !important; }
+    .delay-2 { transition-delay: 0.2s !important; }
+    .delay-3 { transition-delay: 0.3s !important; }
+    .delay-4 { transition-delay: 0.4s !important; }
+    .delay-5 { transition-delay: 0.5s !important; }
+
+    /* ── MOBILE PADDING FIX — reduce body space for sticky bar ── */
+    body { padding-bottom: 64px; }
+
+    /* ── HERO MOBILE IMPROVEMENTS ────────────────── */
+    @media(max-width:600px) {
+      .hero { padding: 36px 16px 32px; }
+      .live-stats { gap: 18px; padding: 12px 14px; }
+      .stat-num { font-size: 18px; }
+      .timer-digits { font-size: 26px; }
+      .hero-buy-btn { width: 100%; font-size: 16px; padding: 16px 24px; }
+      .btn-whatsapp { width: 100%; justify-content: center; }
+    }
+
+    /* ── GENERAL MOBILE IMPROVEMENTS ─────────────── */
+    @media(max-width:480px) {
+      section { padding: 40px 16px; }
+      .feat-card { padding: 20px 16px; }
+      .price-card { padding: 28px 18px; }
+      .testi-card { padding: 18px 16px; }
+      .faq-q { font-size: 14px; padding: 14px 16px; }
+    }
+
+    /* ── HERO BUTTON PULSE ANIMATION ─────────────── */
+    @keyframes btnPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(255,107,0,0.45); }
+      50% { box-shadow: 0 4px 36px rgba(255,107,0,0.75), 0 0 0 8px rgba(255,107,0,0.12); }
+    }
+    .hero-buy-btn { animation: btnPulse 2.2s ease-in-out infinite; }
+    .hero-buy-btn:hover { animation: none; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,107,0,0.6); }
+
+    /* ── HEADER MOBILE ───────────────────────────── */
+    @media(max-width:400px) {
+      .logo { font-size: 17px; }
+      .trust-badge-small { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -774,18 +848,18 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
 
 <!-- ── HERO ─────────────────────────────────────────────── -->
 <div class="hero">
-  <span class="hero-tag">🚀 ecomeasy number #1 tool</span>
-  <h1>Meesho Auto Listing,<br><span class="highlight">Extention</span></h1>
-  <p>Manual listing mein ghante barbaad ho rahe hain? 10 listings banane mein pura din chala jaata hai — ab nahi! Humara tool sirf 1 minute mein 10 listings auto-create karta hai. 🚀</p>
+  <span class="hero-tag anim-fade visible" style="transition-delay:0.1s">🚀 ecomeasy number #1 tool</span>
+  <h1 class="anim-fade visible" style="transition-delay:0.2s">Meesho Auto Listing,<br><span class="highlight">Extention</span></h1>
+  <p class="anim-fade visible" style="transition-delay:0.3s">Manual listing mein ghante barbaad ho rahe hain? 10 listings banane mein pura din chala jaata hai — ab nahi! Humara tool sirf 1 minute mein 10 listings auto-create karta hai. 🚀</p>
 
   <!-- LIVE VIEWERS COUNTER -->
-  <div class="live-viewers">
+  <div class="live-viewers anim-fade visible" style="transition-delay:0.35s">
     <div class="live-dot"></div>
     <span id="viewerCount">23</span> log abhi is page pe hain
   </div>
 
   <!-- LIVE STATS — static, credible numbers -->
-  <div class="live-stats">
+  <div class="live-stats anim-fade visible" style="transition-delay:0.4s">
     <div class="stat-item">
       <div class="stat-num">2,847</div>
       <div class="stat-label">Happy Users</div>
@@ -801,16 +875,16 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   </div>
 
   <!-- SESSION TIMER — real, non-looping -->
-  <div class="timer-box">
+  <div class="timer-box anim-fade visible" style="transition-delay:0.5s">
     <div class="timer-label">⏰ Aapke liye offer valid hai sirf:</div>
     <div class="timer-digits" id="timerDisplay">29:59</div>
     <div class="timer-note">Yeh timer sirf aapke is session ke liye hai</div>
   </div>
 
-  <button class="btn-primary" onclick="startPayment()">
-    ₹199 mein Abhi Kharido →
+  <button class="btn-primary hero-buy-btn" onclick="startPayment()">
+    🚀 Abhi Kharido — ₹199 Only
   </button>
-  <div style="margin-top:12px;">
+  <div style="margin-top:14px;">
     <a href="https://wa.me/919213631880?text=Hi%2C%20tool%20ke%20baare%20mein%20puchna%20tha" class="btn-whatsapp" style="font-size:14px;padding:11px 24px;">
       💬 Pehle Baat Karo — Free
     </a>
@@ -826,7 +900,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     <h2 class="section-title">Kya Aap Bhi manual listing karke thak gye ho?</h2>
     <p class="section-sub">Agar haan, toh ye tool specifically aapke liye bana hai</p>
     <div class="ps-grid">
-      <div class="ps-card problem">
+      <div class="ps-card problem anim-fade-left">
         <h3>❌ Pehle Ki Situation</h3>
         <ul>
           <li><span>😓</span> <span>Ek listing upload karne mein bahut time lagta tha</span></li>
@@ -835,7 +909,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
           <li><span>😓</span> <span>Manual listing ki wajah se growth slow ho rahi thi</span></li>
         </ul>
       </div>
-      <div class="ps-card solution">
+      <div class="ps-card solution anim-fade-right">
         <h3>✅ Meesho autolisting tool ke Baad</h3>
         <ul>
             <li><span>🚀</span> <span>1 click mein multiple product listings create</span></li>
@@ -857,37 +931,37 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     
     <div class="features-grid">
       
-      <div class="feat-card">
+      <div class="feat-card anim-fade delay-1">
         <div class="feat-icon">⚡</div>
         <h3>1-Click Auto Listing</h3>
         <p>Sirf ek click mein multiple product listings create karo — no manual मेहनत.</p>
       </div>
 
-      <div class="feat-card">
+      <div class="feat-card anim-fade delay-2">
         <div class="feat-icon">📝</div>
         <h3>Auto Product Fill</h3>
         <p>Title, description, category, size, color — sab details automatically fill.</p>
       </div>
 
-      <div class="feat-card">
+      <div class="feat-card anim-fade delay-3">
         <div class="feat-icon">🖼️</div>
         <h3>Image Auto Upload</h3>
         <p>Product images instantly upload ho jaati hain bina baar-baar select kiye.</p>
       </div>
 
-      <div class="feat-card">
+      <div class="feat-card anim-fade delay-4">
         <div class="feat-icon">🚀</div>
         <h3>Bulk Listing Speed</h3>
         <p>10 minute mein 20–30 listings create karke visibility boost karo.</p>
       </div>
 
-      <div class="feat-card">
+      <div class="feat-card anim-fade delay-5">
         <div class="feat-icon">💰</div>
         <h3>Shipping Cost Optimization</h3>
         <p>Different listings test karke low shipping cost aur better margins pao.</p>
       </div>
 
-      <div class="feat-card">
+      <div class="feat-card anim-fade delay-5">
         <div class="feat-icon">📈</div>
         <h3>Higher Visibility</h3>
         <p>Zyada listings = zyada impressions = zyada clicks = zyada orders.</p>
@@ -976,7 +1050,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     
     <div class="testi-grid">
 
-      <div class="testi-card">
+      <div class="testi-card anim-fade delay-1">
         <div class="testi-header">
           <div class="testi-avatar" style="background:#3b82f6;">R</div>
           <div>
@@ -1060,7 +1134,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     <h2 class="section-title">Ek Baar Ki Keemat, Lifetime Faida</h2>
     <p class="section-sub">No subscription · No hidden charges · Instant access</p>
 
-    <div class="price-card">
+    <div class="price-card anim-scale">
       <span class="price-badge">🔥 Limited Time Offer</span>
       <div class="price-original">Regular price: ₹999</div>
       <div class="price-current">₹199</div>
@@ -1212,11 +1286,11 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
 <!-- ── STICKY BUY BAR ────────────────────────────────────── -->
 <div class="sticky-bar">
   <div class="sticky-price">
-    <div class="old">Regular ₹999</div>
-    <div class="new">₹199 Only</div>
+    <div class="old">₹999</div>
+    <div class="new">₹199</div>
   </div>
-  <div style="text-align:center;font-size:12px;color:#ff6b00;font-weight:700;">
-    ⏰ <span id="stickyTimer">29:59</span> bacha hai
+  <div class="sticky-timer-wrap">
+    ⏰ <span id="stickyTimer">29:59</span> bacha
   </div>
   <button class="btn-primary" onclick="startPayment()">🚀 Abhi Kharido</button>
 </div>
@@ -1422,7 +1496,22 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     var rzp = new Razorpay(options);
     rzp.open();
   }
+  /* ── SCROLL ANIMATIONS ── */
+  (function() {
+    var els = document.querySelectorAll('.anim-fade, .anim-fade-left, .anim-fade-right, .anim-scale');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function(el) { el.classList.add('visible'); });
+      return;
+    }
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function(el) { obs.observe(el); });
+  })();
 </script>
-
-</body>
 </html>
