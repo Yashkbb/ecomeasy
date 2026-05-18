@@ -601,9 +601,210 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     .mt-4 { margin-top: 16px; }
     .mt-6 { margin-top: 24px; }
 
+    /* ── SCROLL ANIMATIONS ───────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.6s cubic-bezier(.22,1,.36,1), transform 0.6s cubic-bezier(.22,1,.36,1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.6s cubic-bezier(.22,1,.36,1), transform 0.6s cubic-bezier(.22,1,.36,1);
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.6s cubic-bezier(.22,1,.36,1), transform 0.6s cubic-bezier(.22,1,.36,1);
+    }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 0.5s ease, transform 0.5s cubic-bezier(.34,1.56,.64,1);
+    }
+    .reveal-scale.visible { opacity: 1; transform: scale(1); }
+    .delay-1 { transition-delay: 0.08s; }
+    .delay-2 { transition-delay: 0.16s; }
+    .delay-3 { transition-delay: 0.24s; }
+    .delay-4 { transition-delay: 0.32s; }
+    .delay-5 { transition-delay: 0.40s; }
+    .delay-6 { transition-delay: 0.48s; }
+
+    /* ── WA FLOATING BUTTON ──────────────────────── */
+    .wa-float {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      z-index: 9990;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25d366;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.55);
+      text-decoration: none;
+      animation: wa-pulse 2.5s ease-in-out infinite;
+      transition: transform .2s;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.55), 0 0 0 0 rgba(37,211,102,0.4); }
+      50% { box-shadow: 0 4px 20px rgba(37,211,102,0.55), 0 0 0 14px rgba(37,211,102,0); }
+    }
+    .wa-float-label {
+      position: fixed;
+      bottom: 100px;
+      right: 86px;
+      z-index: 9989;
+      background: #fff;
+      color: #166534;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 20px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+      white-space: nowrap;
+      animation: wa-label-fade 4s ease-in-out infinite;
+    }
+    .wa-float-label::after {
+      content: '';
+      position: absolute;
+      right: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 6px solid transparent;
+      border-left-color: #fff;
+      border-right: 0;
+    }
+    @keyframes wa-label-fade {
+      0%, 80%, 100% { opacity: 1; }
+      90% { opacity: 0.3; }
+    }
+
+    /* ── WA NUDGE POPUP ──────────────────────────── */
+    .wa-nudge {
+      position: fixed;
+      bottom: 90px;
+      left: 16px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.16);
+      border-left: 4px solid #25d366;
+      z-index: 9988;
+      max-width: 270px;
+      display: none;
+      animation: slideInLeft .4s cubic-bezier(.34,1.56,.64,1);
+    }
+    .wa-nudge.show { display: block; }
+    @keyframes slideInLeft {
+      from { transform: translateX(-300px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    .wa-nudge-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+    .wa-nudge-title { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+    .wa-nudge-close {
+      background: none;
+      border: none;
+      font-size: 18px;
+      color: #94a3b8;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0;
+    }
+    .wa-nudge-body { font-size: 12px; color: #64748b; margin-bottom: 12px; line-height: 1.5; }
+    .wa-nudge-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #25d366;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 16px;
+      border-radius: 30px;
+      text-decoration: none;
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ── BUYER SCREENSHOTS SECTION ───────────────── */
+    .proof-screenshots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .proof-img-card {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      transition: transform .2s;
+    }
+    .proof-img-card:hover { transform: scale(1.02); }
+    .proof-img-card img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* ── MOBILE RESPONSIVE ───────────────────────── */
     @media(max-width:600px) {
-      .sticky-bar { flex-direction: column; gap: 8px; }
-      .sticky-bar .btn-primary { width: 100%; text-align: center; }
+      .sticky-bar { flex-direction: row; padding: 10px 14px; gap: 8px; align-items: center; }
+      .sticky-price .old { display: none; }
+      .sticky-price .new { font-size: 18px; }
+      .sticky-timer-text { display: none; }
+      .sticky-bar .btn-primary { font-size: 14px; padding: 11px 18px; white-space: nowrap; }
+      .hero { padding: 36px 16px 32px; }
+      .hero h1 { font-size: 26px; }
+      .hero p { font-size: 14px; }
+      .live-stats { gap: 16px; padding: 12px 16px; }
+      .stat-num { font-size: 18px; }
+      .timer-digits { font-size: 26px; }
+      .ps-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .feat-card { padding: 16px 14px; }
+      .feat-icon { font-size: 22px; }
+      .feat-card h3 { font-size: 13px; }
+      .feat-card p { font-size: 12px; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .price-card { padding: 28px 20px; }
+      .price-current { font-size: 42px; }
+      .trust-chip { font-size: 11px; padding: 5px 10px; }
+      .founder-card { flex-direction: column; }
+      .founder-avatar { width: 60px; height: 60px; font-size: 24px; }
+      section { padding: 40px 16px; }
+      .section-title { font-size: 22px; }
+      .faq-q { font-size: 14px; padding: 14px 16px; }
+      footer { padding-bottom: 80px; }
+      .sp-notif { max-width: 240px; font-size: 11px; bottom: 72px; }
+      .prepay-trust { padding: 16px; }
+      .prepay-row { font-size: 12px; }
+      .wa-box { padding: 24px 16px; }
+      .trust-badge-small { display: none; }
+      header { padding: 12px 16px; }
+      .proof-screenshots { grid-template-columns: 1fr; }
+    }
+    @media(max-width:380px) {
+      .hero h1 { font-size: 22px; }
+      .features-grid { grid-template-columns: 1fr; }
     }
 
     /* ── EXIT INTENT POPUP ───────────────────────── */
@@ -740,18 +941,22 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     <span>⭐ 5/5 average rating (412 reviews)</span>
     <span>🔒 Secure payment via Razorpay</span>
     <span>📞 WhatsApp support available</span>
+    <span>🌐 Official site: ecomeasy.store</span>
     <span>💼 Works for Pc & mobile both</span>
     <span>✅ 2,847 log is tool ko buy kra hain</span>
     <span>⭐ 5/5 average rating (412 reviews)</span>
     <span>🔒 Secure payment via Razorpay</span>
     <span>📞 WhatsApp support available</span>
+    <span>🌐 Official site: ecomeasy.store</span>
     <span>💼 Works for Pc & mobile both</span>
   </div>
 </div>
 
 <!-- ── HEADER ───────────────────────────────────────────── -->
 <header>
-  <div class="logo">ECOMEASY<span>TOOL</span></div>
+  <div class="logo">ECOMEASY<span>TOOL</span>
+    <div style="font-size:10px;font-weight:600;color:#64748b;letter-spacing:0.5px;margin-top:-2px;">ecomeasy.store</div>
+  </div>
   <div class="header-right">
     <span class="trust-badge-small">✅ 2,847+ Users</span>
     <a href="https://wa.me/919213631880?text=Hi%2C%20tool%20ke%20baare%20mein%20puchna%20tha" 
@@ -819,7 +1024,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     </a>
   </div>
   <div style="margin-top:12px;font-size:13px;color:#94a3b8;">
-    🔒 Razorpay secured · Instant access · No subscription
+    🔒 Razorpay secured · ⚡ Instant access · 🌐 ecomeasy.store
   </div>
 </div>
 
@@ -929,19 +1134,31 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
 <section class="founder">
   <div class="container">
     <h2 class="section-title">Kisne Banaya Ye Tool?</h2>
-    <p class="section-sub">Ek Indian seller ki real journey</p>
+    <p class="section-sub">Real Indian seller — koi fake identity nahi</p>
     <div class="founder-card">
-      <div class="founder-avatar">👨‍💻</div>
+      <img 
+        src="https://i.ibb.co/fzFBtgC9/335608843-920585562478021-5775171358319821299-n.jpg" 
+        alt="Founder Photo"
+        id="founderImg"
+        style="width:90px;height:90px;border-radius:50%;object-fit:cover;flex-shrink:0;border:3px solid #ff6b00;box-shadow:0 4px 12px rgba(255,107,0,0.3);"
+        onerror="this.style.display='none';document.getElementById('founderEmoji').style.display='flex';"
+      />
+      <div class="founder-avatar" id="founderEmoji" style="display:none;">👨‍💻</div>
       <div class="founder-text">
-        <h3>ecomeasy</h3>
-        <div class="role">Founder, Meesho Auto Listing Tool · E-commerce Seller</div>
+        <h3>ecomeasy — Founder</h3>
+        <div class="role">Meesho Seller since 2022 · ecomeasy.store</div>
         <p>
           "Jab maine selling start ki thi, har product ki listing manually karne mein bahut time lagta tha. 
           Same details baar-baar fill karni padti thi, aur competitors zyada listings karke orders le jaate the. 
-          Tab maine सोचा ki is process ko automate karna hi पड़ेगा. 
+          Tab maine socha ki is process ko automate karna hi padega. 
           Multiple testing aur real seller experience ke baad maine ye tool banaya — 
           taaki har seller kam time mein zyada listings create kare, visibility badhaye, aur sales scale kar sake."
         </p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;">
+          <span style="background:#dcfce7;color:#166534;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;">✅ Real Seller</span>
+          <span style="background:#fff3e8;color:#cc5500;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;">🌐 ecomeasy.store</span>
+          <span style="background:#eff6ff;color:#1d4ed8;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;">📞 +91 92136 31880</span>
+        </div>
         <div class="signature">— ecomeasy ✍️</div>
       </div>
     </div>
@@ -1006,17 +1223,99 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   </div>
 </section>
 
+<!-- ── REAL BUYER PROOF SCREENSHOTS ───────────────────────────── -->
+<section style="background:#0f172a;padding:48px 20px;">
+  <div class="container">
+    <h2 class="section-title" style="color:#fff;">Real Buyers ke Real Messages 📱</h2>
+    <p class="section-sub" style="color:#94a3b8;">Ye fake nahi hain — actual WhatsApp conversations</p>
+
+    <div class="proof-screenshots">
+      <div class="proof-img-card">
+        <img 
+          src="https://i.ibb.co/q3jg21yF/Screenshot-2026-05-19-000248.png" 
+          alt="Buyer Review Screenshot 1"
+          loading="lazy"
+        />
+      </div>
+      <div class="proof-img-card">
+        <img 
+          src="https://i.ibb.co/3mNZzf8n/Screenshot-2026-05-19-000253.png" 
+          alt="Buyer Review Screenshot 2"
+          loading="lazy"
+        />
+      </div>
+      <div class="proof-img-card">
+        <img 
+          src="https://i.ibb.co/9xHK54V/Screenshot-2026-05-19-000257.png" 
+          alt="Buyer Review Screenshot 3"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <p style="text-align:center;color:#64748b;font-size:12px;margin-top:20px;">
+      Aur bhi proof dekhne ke liye WhatsApp karo: 
+      <a href="https://wa.me/919213631880" style="color:#fbbf24;font-weight:700;">+91 92136 31880</a>
+    </p>
+  </div>
+</section>
+
 <!-- ── WHATSAPP SUPPORT ─────────────────────────────────── -->
 <div class="wa-section">
   <div class="wa-box">
     <div class="wa-icon">💬</div>
     <h2>Kharidne Se Pehle Koi Sawaal?</h2>
     <p>Seedha WhatsApp karo — hum real humans hain, bots nahi. Aapke saare doubts clear karenge before you spend a single rupee.</p>
-    <a href="https://wa.me/919213631880?text=Hi%2C%20AI%20Job%20Pro%20ke%20baare%20mein%20kuch%20puchna%20tha" 
+    <a href="https://wa.me/919213631880?text=Hi%2C%20Meesho%20Auto%20Listing%20tool%20ke%20baare%20mein%20kuch%20puchna%20tha" 
        class="btn-whatsapp">
       <span>💬</span> WhatsApp Par Baat Karo
     </a>
     <div class="wa-timings">Available: Mon–Sat, 10 AM – 8 PM IST</div>
+  </div>
+</div>
+
+<!-- ── ANTI-SCAM TRUST BANNER ───────────────────────────── -->
+<div style="background:#fefce8;border-top:3px solid #fbbf24;border-bottom:3px solid #fbbf24;padding:28px 20px;">
+  <div style="max-width:680px;margin:0 auto;text-align:center;">
+    <div style="font-size:22px;margin-bottom:8px;">🛡️</div>
+    <h3 style="font-family:'Baloo 2',sans-serif;font-size:20px;font-weight:800;color:#1a1a2e;margin-bottom:12px;">
+      Ye Scam Nahi Hai — Proof Dekho
+    </h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:16px;">
+      <div style="background:#fff;border-radius:12px;padding:16px;border:1.5px solid #e2e8f0;">
+        <div style="font-size:20px;margin-bottom:6px;">🌐</div>
+        <div style="font-size:13px;font-weight:700;color:#1a1a2e;">Official Website</div>
+        <div style="font-size:12px;color:#64748b;margin-top:4px;">ecomeasy.store<br>Registered domain</div>
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:16px;border:1.5px solid #e2e8f0;">
+        <div style="font-size:20px;margin-bottom:6px;">🔒</div>
+        <div style="font-size:13px;font-weight:700;color:#1a1a2e;">Razorpay Gateway</div>
+        <div style="font-size:12px;color:#64748b;margin-top:4px;">RBI regulated<br>India ka #1 payment</div>
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:16px;border:1.5px solid #e2e8f0;">
+        <div style="font-size:20px;margin-bottom:6px;">📞</div>
+        <div style="font-size:13px;font-weight:700;color:#1a1a2e;">Real Phone Number</div>
+        <div style="font-size:12px;color:#64748b;margin-top:4px;">+91 92136 31880<br>Call/WhatsApp karo</div>
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:16px;border:1.5px solid #e2e8f0;">
+        <div style="font-size:20px;margin-bottom:6px;">↩️</div>
+        <div style="font-size:13px;font-weight:700;color:#1a1a2e;">7-Day Guarantee</div>
+        <div style="font-size:12px;color:#64748b;margin-top:4px;">Kaam na kare toh<br>full refund milega</div>
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:16px;border:1.5px solid #e2e8f0;">
+        <div style="font-size:20px;margin-bottom:6px;">👥</div>
+        <div style="font-size:13px;font-weight:700;color:#1a1a2e;">2,847+ Buyers</div>
+        <div style="font-size:12px;color:#64748b;margin-top:4px;">Real sellers ne<br>already kharida hai</div>
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:16px;border:1.5px solid #e2e8f0;">
+        <div style="font-size:20px;margin-bottom:6px;">📱</div>
+        <div style="font-size:13px;font-weight:700;color:#1a1a2e;">Instant Access</div>
+        <div style="font-size:12px;color:#64748b;margin-top:4px;">Payment ke turant<br>baad milta hai</div>
+      </div>
+    </div>
+    <p style="margin-top:16px;font-size:13px;color:#64748b;">
+      Phir bhi doubt ho toh pehle WhatsApp karo, phir kharido — koi pressure nahi 🙏
+    </p>
   </div>
 </div>
 
@@ -1040,14 +1339,42 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
         <li><span class="icon">✓</span><span>WhatsApp support included</span></li>
         <li><span class="icon">✓</span><span>Lifetime access — no renewal</span></li>
       </ul>
+      <!-- GUARANTEE BADGE — bold, above buy button -->
+      <div style="background:linear-gradient(135deg,#dcfce7,#bbf7d0);border:2px solid #4ade80;
+        border-radius:14px;padding:16px 20px;margin-bottom:16px;
+        display:flex;align-items:center;gap:14px;text-align:left;">
+        <span style="font-size:36px;flex-shrink:0;">🛡️</span>
+        <div>
+          <div style="font-size:15px;font-weight:800;color:#14532d;line-height:1.2;">
+            7-Day Money Back Guarantee
+          </div>
+          <div style="font-size:12px;color:#166534;margin-top:3px;font-weight:600;">
+            Kaam na kare toh poora ₹199 wapas — zero sawaal
+          </div>
+        </div>
+      </div>
+
       <button class="btn-primary" onclick="startPayment()" style="width:100%;font-size:18px;padding:18px;">
         🚀 Abhi Kharido — ₹199 Only
       </button>
+
+      <!-- UPI PAYMENT ICONS -->
+      <div style="text-align:center;margin-top:16px;">
+        <div style="font-size:11px;color:#94a3b8;margin-bottom:8px;letter-spacing:0.5px;text-transform:uppercase;">Accepted payments</div>
+        <div style="display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;">
+          <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;color:#fff;">🟦 UPI</span>
+          <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;color:#4ade80;">G Pay</span>
+          <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;color:#6fa8e8;">PhonePe</span>
+          <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;color:#00b9f1;">Paytm</span>
+          <span style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;color:#cbd5e1;">Cards</span>
+        </div>
+      </div>
       <div class="trust-row">
         <span class="trust-chip">🔒 Razorpay Secured</span>
         <span class="trust-chip">⚡ Instant Access</span>
         <span class="trust-chip">📞 Support Included</span>
         <span class="trust-chip">✅ 2,847+ Buyers</span>
+        <span class="trust-chip">🌐 ecomeasy.store</span>
       </div>
     </div>
     <div class="prepay-trust">
@@ -1067,6 +1394,21 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
         <span>📧</span>
         <span>7-day issue resolution guarantee — aapka paisa safe hai</span>
       </div>
+      <div class="prepay-row">
+        <span>🌐</span>
+        <span>Official website: <strong>ecomeasy.store</strong> — ye ek registered domain hai</span>
+      </div>
+    </div>
+
+    <!-- REFUND POLICY BOX -->
+    <div style="max-width:440px;margin:20px auto 0;background:#fff8f0;border:1.5px solid #ffd9b3;border-radius:16px;padding:20px 24px;">
+      <h4 style="font-size:14px;font-weight:800;color:#cc5500;margin-bottom:10px;">📋 Hamaari Clear Policy</h4>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
+        <li style="font-size:13px;color:#1e293b;display:flex;gap:8px;"><span>✅</span><span><strong>Instant delivery</strong> — payment ke baad WhatsApp pe tool link milega</span></li>
+        <li style="font-size:13px;color:#1e293b;display:flex;gap:8px;"><span>✅</span><span><strong>7-day refund</strong> — agar tool aapke PC pe kaam na kare</span></li>
+        <li style="font-size:13px;color:#1e293b;display:flex;gap:8px;"><span>✅</span><span><strong>No hidden charges</strong> — ek baar ₹199 bas</span></li>
+        <li style="font-size:13px;color:#1e293b;display:flex;gap:8px;"><span>✅</span><span><strong>Support available</strong> — Mon–Sat 10AM–8PM WhatsApp pe</span></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -1136,14 +1478,24 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
 </section>
 
 <footer>
-  <p style="font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;">Meesho auto listing tool</p>
+  <p style="font-size:18px;font-weight:800;color:#fff;margin-bottom:4px;font-family:'Baloo 2',sans-serif;">ECOMEASY<span style="color:#ff6b00;">TOOL</span></p>
+  <p style="color:#fbbf24;font-size:13px;font-weight:600;margin-bottom:12px;">🌐 ecomeasy.store</p>
   <p>India's most trusted Meesho autolisting tool</p>
+  <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:16px;margin-bottom:16px;">
+    <span style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:6px 14px;font-size:12px;">🔒 Razorpay Secured</span>
+    <span style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:6px 14px;font-size:12px;">✅ 2,847+ Happy Buyers</span>
+    <span style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:6px 14px;font-size:12px;">🇮🇳 Made in India</span>
+  </div>
   <p style="margin-top:8px;">
     📞 Support: <a href="https://wa.me/919213631880">+91 92136 31880</a> · 
     Mon–Sat 10AM–8PM IST
   </p>
-  <p style="margin-top:16px;font-size:12px;">
-    © 2026 ecomeasy · All rights reserved · Made in India 🇮🇳
+  <p style="margin-top:8px;">
+    🌐 <a href="https://ecomeasy.store" style="color:#fbbf24;">ecomeasy.store</a>
+  </p>
+  <p style="margin-top:16px;font-size:12px;color:#64748b;">
+    © 2026 ecomeasy · All rights reserved · 
+    <a href="https://ecomeasy.store" style="color:#64748b;">ecomeasy.store</a>
   </p>
 </footer>
 
@@ -1153,10 +1505,19 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     <div class="old">Regular ₹999</div>
     <div class="new">₹199 Only</div>
   </div>
-  <div style="text-align:center;font-size:12px;color:#ff6b00;font-weight:700;">
+  <div class="sticky-timer-text" style="text-align:center;font-size:12px;color:#ff6b00;font-weight:700;">
     ⏰ <span id="stickyTimer">29:59</span> bacha hai
   </div>
-  <button class="btn-primary" onclick="startPayment()">🚀 Abhi Kharido</button>
+  <div style="display:flex;gap:8px;align-items:center;">
+    <a href="https://wa.me/919213631880?text=Hi%2C%20tool%20ke%20baare%20mein%20puchna%20tha"
+       target="_blank"
+       style="display:inline-flex;align-items:center;gap:5px;background:#25d366;color:#fff;
+              font-size:13px;font-weight:700;padding:11px 14px;border-radius:50px;
+              text-decoration:none;white-space:nowrap;box-shadow:0 3px 12px rgba(37,211,102,0.4);">
+      💬 Poochho
+    </a>
+    <button class="btn-primary" onclick="startPayment()" style="white-space:nowrap;">🚀 Kharido</button>
+  </div>
 </div>
 
 <!-- ── SOCIAL PROOF NOTIFICATION ────────────────────────── -->
@@ -1185,6 +1546,29 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     </button>
     <span class="exit-skip" onclick="closeExit()">Nahi chahiye, jaata hoon →</span>
   </div>
+</div>
+
+<!-- ── WHATSAPP FLOATING BUTTON ──────────────────────────── -->
+<div class="wa-float-label">💬 Koi doubt? Free mein poochho</div>
+<a href="https://wa.me/919213631880?text=Hi%2C%20tool%20ke%20baare%20mein%20puchna%20tha"
+   target="_blank"
+   class="wa-float"
+   aria-label="WhatsApp pe baat karo">💬</a>
+
+<!-- ── WHATSAPP NUDGE POPUP ──────────────────────────────── -->
+<div class="wa-nudge" id="waNudge">
+  <div class="wa-nudge-head">
+    <div class="wa-nudge-title">💬 Koi doubt hai?</div>
+    <button class="wa-nudge-close" onclick="document.getElementById('waNudge').style.display='none'">✕</button>
+  </div>
+  <div class="wa-nudge-body">
+    Free mein WhatsApp pe pooch lo — koi pressure nahi. Real human jawab dega, bot nahi 🙏
+  </div>
+  <a href="https://wa.me/919213631880?text=Hi%2C%20Meesho%20tool%20ke%20baare%20mein%20puchna%20tha"
+     target="_blank"
+     class="wa-nudge-btn">
+    💬 WhatsApp Karo — Free
+  </a>
 </div>
 
 <!-- ── SCRIPTS ───────────────────────────────────────────── -->
@@ -1304,6 +1688,40 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       const el = document.getElementById('viewerCount');
       if (el) el.textContent = current;
     }, 4500);
+  })();
+
+  /* ── WHATSAPP NUDGE — 45 second baad show karo ── */
+  (function() {
+    var nudgeShown = false;
+    setTimeout(function() {
+      if (!nudgeShown) {
+        nudgeShown = true;
+        var nudge = document.getElementById('waNudge');
+        nudge.classList.add('show');
+        nudge.style.display = 'block';
+        setTimeout(function() {
+          if (nudge.style.display !== 'none') {
+            nudge.style.opacity = '0';
+            nudge.style.transition = 'opacity 0.5s ease';
+            setTimeout(function() { nudge.style.display = 'none'; }, 500);
+          }
+        }, 12000);
+      }
+    }, 45000);
+  })();
+
+  /* ── SCROLL REVEAL ANIMATIONS ── */
+  (function() {
+    var revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function(el) { observer.observe(el); });
   })();
 
   /* ── RAZORPAY PAYMENT ── */
