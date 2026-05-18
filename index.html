@@ -7,11 +7,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+
   gtag('config', 'G-C2FP9T6F0M');
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meesho Automation Listing Extension | EcomEasy</title>
+  <title>Meesho Automation Listing Extention</title>
 
   <!-- Meta Pixel Code -->
 <script>
@@ -35,8 +36,11 @@ fbq('track', 'ViewContent', {
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
 /></noscript>
+<!-- End Meta Pixel Code -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Razorpay -->
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
   <style>
@@ -54,203 +58,199 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       --radius: 16px;
       --shadow: 0 4px 24px rgba(0,0,0,0.10);
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Noto Sans', sans-serif; background: #f8fafc; color: var(--text); line-height: 1.6; }
 
-    /* MARQUEE */
-    .marquee-bar { background: var(--dark); color: #fbbf24; font-size: 13px; font-weight: 600; padding: 8px 0; overflow: hidden; white-space: nowrap; }
-    .marquee-track { display: inline-block; animation: marquee 30s linear infinite; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      background: #f8fafc;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── MARQUEE ─────────────────────────────────── */
+    .marquee-bar {
+      background: var(--dark);
+      color: #fbbf24;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-block;
+      animation: marquee 30s linear infinite;
+    }
     .marquee-track span { margin: 0 40px; }
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    /* HEADER */
-    header { background: var(--surface); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--brand); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    /* ── HEADER ──────────────────────────────────── */
+    header {
+      background: var(--surface);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--brand);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
     .logo { font-family: 'Baloo 2', sans-serif; font-size: 22px; color: var(--brand); font-weight: 800; }
     .logo span { color: var(--dark); }
     .header-right { display: flex; align-items: center; gap: 12px; }
-    .trust-badge-small { background: var(--green-light); color: var(--green); font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 20px; }
+    .trust-badge-small {
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
 
-    /* HERO */
-    .hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); color: #fff; padding: 48px 20px 44px; text-align: center; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 70% 30%, rgba(255,107,0,0.15) 0%, transparent 60%); pointer-events: none; }
-    .hero-tag { display: inline-block; background: var(--brand); color: #fff; font-size: 12px; font-weight: 700; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
-    .hero h1 { font-family: 'Baloo 2', sans-serif; font-size: clamp(26px, 6vw, 46px); font-weight: 800; line-height: 1.2; margin-bottom: 14px; }
+    /* ── HERO ────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      color: #fff;
+      padding: 52px 20px 44px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(255,107,0,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: var(--brand);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .hero h1 {
+      font-family: 'Baloo 2', sans-serif;
+      font-size: clamp(26px, 6vw, 46px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
     .hero h1 .highlight { color: var(--brand); }
-    .hero p { font-size: 16px; color: #cbd5e1; max-width: 540px; margin: 0 auto 16px; }
+    .hero p {
+      font-size: 16px;
+      color: #cbd5e1;
+      max-width: 540px;
+      margin: 0 auto 28px;
+    }
 
-    .hero-trust-line {
-      display: inline-flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      justify-content: center;
+    /* ── LIVE STATS BAR ──────────────────────────── */
+    .live-stats {
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 30px;
-      padding: 8px 20px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #e2e8f0;
-      margin-bottom: 20px;
-    }
-    .hero-trust-line span { display: flex; align-items: center; gap: 5px; }
-
-    .delivery-clarity {
-      background: rgba(22, 163, 74, 0.15);
-      border: 1.5px solid rgba(74, 222, 128, 0.4);
       border-radius: 12px;
-      padding: 12px 20px;
-      max-width: 420px;
-      margin: 0 auto 20px;
-      font-size: 14px;
-      font-weight: 700;
-      color: #4ade80;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      padding: 14px 24px;
+      max-width: 480px;
+      margin: 0 auto 28px;
+      flex-wrap: wrap;
     }
-
-    /* LIVE STATS */
-    .live-stats { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; display: flex; justify-content: center; gap: 32px; padding: 14px 24px; max-width: 480px; margin: 0 auto 24px; flex-wrap: wrap; }
     .stat-item { text-align: center; }
     .stat-num { font-family: 'Baloo 2', sans-serif; font-size: 22px; font-weight: 800; color: #fbbf24; }
     .stat-label { font-size: 11px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; }
 
-    /* TIMER */
-    .timer-box { background: rgba(255,107,0,0.15); border: 1px solid var(--brand); border-radius: 12px; padding: 14px 20px; max-width: 360px; margin: 0 auto 24px; }
+    /* Timer */
+    .timer-box {
+      background: rgba(255,107,0,0.15);
+      border: 1px solid var(--brand);
+      border-radius: 12px;
+      padding: 14px 20px;
+      max-width: 360px;
+      margin: 0 auto 28px;
+    }
     .timer-label { font-size: 13px; color: #fbbf24; font-weight: 600; margin-bottom: 8px; }
-    .timer-digits { font-family: 'Baloo 2', sans-serif; font-size: 32px; font-weight: 800; color: #fff; letter-spacing: 2px; }
+    .timer-digits {
+      font-family: 'Baloo 2', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 2px;
+    }
     .timer-note { font-size: 11px; color: #94a3b8; margin-top: 4px; }
-    .timer-expired { font-size: 14px; color: #f87171; font-weight: 700; }
 
-    /* CTA BUTTONS */
-    .btn-primary { display: inline-block; background: var(--brand); color: #fff; font-size: 17px; font-weight: 700; padding: 16px 36px; border-radius: 50px; border: none; cursor: pointer; box-shadow: 0 4px 20px rgba(255,107,0,0.45); transition: transform .15s, box-shadow .15s; text-decoration: none; }
+    /* ── CTA BUTTONS ─────────────────────────────── */
+    .btn-primary {
+      display: inline-block;
+      background: var(--brand);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(255,107,0,0.45);
+      transition: transform .15s, box-shadow .15s;
+      text-decoration: none;
+    }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,107,0,0.5); }
     .btn-primary:active { transform: scale(0.98); }
-    .btn-whatsapp { display: inline-flex; align-items: center; gap: 8px; background: #25d366; color: #fff; font-size: 15px; font-weight: 700; padding: 13px 28px; border-radius: 50px; border: none; cursor: pointer; text-decoration: none; transition: transform .15s, box-shadow .15s; box-shadow: 0 4px 16px rgba(37,211,102,0.35); }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25d366;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 13px 28px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.35);
+    }
     .btn-whatsapp:hover { transform: translateY(-2px); }
 
-    /* ── HERO DEMO VIDEO — FULLY FIXED ── */
-    .hero-video-wrap {
-      max-width: 680px;
-      margin: 28px auto 0;
-      position: relative;
-      z-index: 1;
-    }
-    .hero-video-label {
-      font-size: 13px;
-      font-weight: 700;
-      color: #fbbf24;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
-    .hero-video-label::before, .hero-video-label::after {
-      content: '';
-      flex: 1;
-      max-width: 80px;
-      height: 1px;
-      background: rgba(251,191,36,0.4);
-    }
-    /* VIDEO CONTAINER — fixed aspect ratio wrapper */
-    .hero-video-container {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      background: #000;
-      box-shadow: 0 12px 48px rgba(0,0,0,0.6), 0 0 0 2px rgba(255,107,0,0.4);
-      /* Proper 16:9 aspect ratio using padding trick */
-      width: 100%;
-      padding-top: 56.25%; /* 16:9 = 9/16 = 56.25% */
-      height: 0;
-      cursor: pointer;
-    }
-    /* VIDEO element — absolutely positioned to fill container */
-    .hero-video-container video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;   /* contain = no zoom, no crop, full video visible */
-      background: #000;
-      display: block;
-      border-radius: 20px;
-    }
-    /* OVERLAY — absolutely positioned */
-    .hero-video-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(15,52,96,0.55) 100%);
-      transition: background .25s;
-      border-radius: 20px;
-      z-index: 2;
-    }
-    .hero-video-container:hover .hero-video-overlay { background: rgba(0,0,0,0.25); }
-    .hero-video-container.playing .hero-video-overlay { display: none; }
-    .hero-play-btn {
-      width: 80px;
-      height: 80px;
-      background: var(--brand);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 32px;
-      color: #fff;
-      padding-left: 6px;
-      box-shadow: 0 0 0 14px rgba(255,107,0,0.18), 0 0 0 28px rgba(255,107,0,0.08);
-      transition: transform .2s;
-      animation: pulse-play 2s ease-in-out infinite;
-    }
-    @keyframes pulse-play {
-      0%, 100% { box-shadow: 0 0 0 14px rgba(255,107,0,0.18), 0 0 0 28px rgba(255,107,0,0.08); }
-      50% { box-shadow: 0 0 0 18px rgba(255,107,0,0.25), 0 0 0 36px rgba(255,107,0,0.05); }
-    }
-    .hero-video-container:hover .hero-play-btn { transform: scale(1.1); }
-    .hero-play-label { margin-top: 14px; font-size: 15px; font-weight: 700; color: #fff; letter-spacing: 0.3px; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
-    .hero-play-sublabel { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 4px; }
-    .video-badge-overlay {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      background: var(--brand);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 4px 12px;
-      border-radius: 20px;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      z-index: 3;
-    }
-    .hero-video-caption {
-      margin-top: 10px;
-      font-size: 13px;
-      color: #64748b;
-      text-align: center;
-    }
-
-    /* SECTION */
+    /* ── SECTION ─────────────────────────────────── */
     section { padding: 56px 20px; }
     .container { max-width: 720px; margin: 0 auto; }
-    .section-title { font-family: 'Baloo 2', sans-serif; font-size: clamp(22px, 4vw, 32px); font-weight: 800; color: var(--dark); text-align: center; margin-bottom: 8px; }
-    .section-sub { text-align: center; color: var(--muted); font-size: 15px; margin-bottom: 36px; }
+    .section-title {
+      font-family: 'Baloo 2', sans-serif;
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 800;
+      color: var(--dark);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .section-sub {
+      text-align: center;
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 36px;
+    }
 
-    /* PROBLEM/SOLUTION */
+    /* ── PROBLEM/SOLUTION ────────────────────────── */
     .prob-sol { background: var(--surface); }
     .ps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     @media(max-width:520px) { .ps-grid { grid-template-columns: 1fr; } }
-    .ps-card { border-radius: var(--radius); padding: 24px; }
+    .ps-card {
+      border-radius: var(--radius);
+      padding: 24px;
+    }
     .ps-card.problem { background: #fff1f2; border: 1.5px solid #fecdd3; }
     .ps-card.solution { background: var(--green-light); border: 1.5px solid #bbf7d0; }
     .ps-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
@@ -259,50 +259,151 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     .ps-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
     .ps-card ul li { font-size: 14px; display: flex; gap: 8px; align-items: flex-start; }
 
-    /* FEATURES */
+    /* ── FEATURES ────────────────────────────────── */
     .features { background: var(--brand-light); }
     .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-    .feat-card { background: var(--surface); border-radius: var(--radius); padding: 24px 20px; box-shadow: var(--shadow); border-top: 3px solid var(--brand); }
+    .feat-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      box-shadow: var(--shadow);
+      border-top: 3px solid var(--brand);
+    }
     .feat-icon { font-size: 28px; margin-bottom: 10px; }
     .feat-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: var(--dark); }
     .feat-card p { font-size: 13px; color: var(--muted); }
 
-    /* ROI CALCULATOR */
+    /* ── ROI CALCULATOR ──────────────────────────── */
     .calculator { background: var(--dark); color: #fff; }
-    .calc-box { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius); padding: 28px; }
+    .calc-box {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
     .calc-box label { font-size: 13px; color: #94a3b8; display: block; margin-bottom: 6px; }
-    .calc-box select, .calc-box input { width: 100%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; color: #fff; font-size: 15px; padding: 10px 14px; margin-bottom: 16px; outline: none; }
-    .calc-result { background: var(--brand); border-radius: 12px; padding: 20px; text-align: center; margin-top: 8px; }
+    .calc-box select, .calc-box input {
+      width: 100%;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 15px;
+      padding: 10px 14px;
+      margin-bottom: 16px;
+      outline: none;
+    }
+    .calc-result {
+      background: var(--brand);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 8px;
+    }
     .calc-result .big { font-family: 'Baloo 2', sans-serif; font-size: 36px; font-weight: 800; }
     .calc-result .sub { font-size: 13px; opacity: 0.85; margin-top: 4px; }
 
-    /* FOUNDER */
+    /* ── FOUNDER ─────────────────────────────────── */
     .founder { background: var(--surface); }
-    .founder-card { display: flex; gap: 24px; align-items: flex-start; background: var(--brand-light); border: 1.5px solid #ffd9b3; border-radius: var(--radius); padding: 28px; }
+    .founder-card {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      background: var(--brand-light);
+      border: 1.5px solid #ffd9b3;
+      border-radius: var(--radius);
+      padding: 28px;
+    }
     @media(max-width:480px) { .founder-card { flex-direction: column; } }
-    .founder-avatar { width: 80px; height: 80px; border-radius: 50%; background: var(--brand); display: flex; align-items: center; justify-content: center; font-size: 32px; flex-shrink: 0; border: 3px solid #fff; box-shadow: 0 4px 12px rgba(255,107,0,0.3); }
+    .founder-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      flex-shrink: 0;
+      border: 3px solid #fff;
+      box-shadow: 0 4px 12px rgba(255,107,0,0.3);
+    }
     .founder-text h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
     .founder-text .role { font-size: 13px; color: var(--brand); font-weight: 600; margin-bottom: 10px; }
     .founder-text p { font-size: 14px; color: var(--text); line-height: 1.7; }
     .founder-text .signature { font-family: 'Baloo 2', sans-serif; font-size: 20px; color: var(--brand); margin-top: 10px; }
 
-    /* TESTIMONIALS */
+    /* ── TESTIMONIALS ────────────────────────────── */
     .testimonials { background: #f1f5f9; }
     .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-    .testi-card { background: var(--surface); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); border-left: 4px solid var(--brand); }
+    .testi-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--brand);
+    }
     .testi-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-    .testi-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: #fff; flex-shrink: 0; }
+    .testi-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
     .testi-name { font-size: 14px; font-weight: 700; }
     .testi-meta { font-size: 12px; color: var(--muted); }
     .testi-stars { color: #fbbf24; font-size: 14px; margin-bottom: 8px; }
     .testi-text { font-size: 14px; color: var(--text); line-height: 1.65; }
-    .verified-badge { display: inline-flex; align-items: center; gap: 4px; background: var(--green-light); color: var(--green); font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 20px; margin-top: 10px; }
+    .verified-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 20px;
+      margin-top: 10px;
+    }
 
-    /* PRICING */
+    /* ── PRICING ─────────────────────────────────── */
     .pricing { background: var(--surface); }
-    .price-card { background: linear-gradient(135deg, #1a1a2e, #0f3460); color: #fff; border-radius: 20px; padding: 36px 28px; max-width: 440px; margin: 0 auto; text-align: center; box-shadow: 0 12px 40px rgba(0,0,0,0.25); position: relative; overflow: hidden; }
-    .price-card::before { content: ''; position: absolute; top: -40px; right: -40px; width: 160px; height: 160px; background: radial-gradient(circle, rgba(255,107,0,0.25), transparent); pointer-events: none; }
-    .price-badge { background: var(--brand); color: #fff; font-size: 12px; font-weight: 700; padding: 5px 16px; border-radius: 20px; display: inline-block; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+    .price-card {
+      background: linear-gradient(135deg, #1a1a2e, #0f3460);
+      color: #fff;
+      border-radius: 20px;
+      padding: 36px 28px;
+      max-width: 440px;
+      margin: 0 auto;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .price-card::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 160px; height: 160px;
+      background: radial-gradient(circle, rgba(255,107,0,0.25), transparent);
+      pointer-events: none;
+    }
+    .price-badge {
+      background: var(--brand);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
     .price-original { font-size: 16px; color: #94a3b8; text-decoration: line-through; margin-bottom: 4px; }
     .price-current { font-family: 'Baloo 2', sans-serif; font-size: 52px; font-weight: 800; color: #fbbf24; line-height: 1; }
     .price-tax { font-size: 13px; color: #94a3b8; margin-bottom: 24px; }
@@ -310,163 +411,380 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     .price-features li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; }
     .price-features li .icon { color: #4ade80; font-size: 16px; flex-shrink: 0; }
 
-    /* TRUST SIGNALS */
-    .trust-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 24px; }
-    .trust-chip { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); border-radius: 30px; padding: 7px 14px; font-size: 12px; color: #cbd5e1; }
+    /* ── TRUST SIGNALS ───────────────────────────── */
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .trust-chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 30px;
+      padding: 7px 14px;
+      font-size: 12px;
+      color: #cbd5e1;
+    }
 
-    /* PRE-PAYMENT TRUST */
-    .prepay-trust { background: var(--green-light); border: 1.5px solid #bbf7d0; border-radius: var(--radius); padding: 20px 24px; max-width: 440px; margin: 24px auto 0; display: flex; flex-direction: column; gap: 10px; }
-    .prepay-row { display: flex; align-items: center; gap: 10px; font-size: 13px; color: #166534; font-weight: 600; }
-
-    /* DELIVERY STEPS */
-    .delivery-steps {
-      background: #f0fdf4;
+    /* ── PRE-PAYMENT TRUST ───────────────────────── */
+    .prepay-trust {
+      background: var(--green-light);
       border: 1.5px solid #bbf7d0;
       border-radius: var(--radius);
-      padding: 24px 28px;
+      padding: 20px 24px;
       max-width: 440px;
-      margin: 20px auto 0;
+      margin: 24px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
-    .delivery-steps h4 { font-size: 15px; font-weight: 800; color: var(--green); margin-bottom: 16px; text-align: center; }
-    .d-step { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 12px; }
-    .d-step:last-child { margin-bottom: 0; }
-    .d-num { width: 28px; height: 28px; border-radius: 50%; background: var(--green); color: #fff; font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .d-text { font-size: 13px; color: #166534; font-weight: 600; line-height: 1.5; }
-    .d-text span { color: #14532d; font-weight: 800; }
+    .prepay-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: #166534;
+      font-weight: 600;
+    }
 
-    /* WHATSAPP SUPPORT */
+    /* ── WHATSAPP SUPPORT ────────────────────────── */
     .wa-section { background: #f0fdf4; padding: 48px 20px; text-align: center; }
-    .wa-box { background: var(--surface); border-radius: var(--radius); padding: 32px; max-width: 460px; margin: 0 auto; box-shadow: var(--shadow); border: 2px dashed #86efac; }
+    .wa-box {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 32px;
+      max-width: 460px;
+      margin: 0 auto;
+      box-shadow: var(--shadow);
+      border: 2px dashed #86efac;
+    }
     .wa-icon { font-size: 48px; margin-bottom: 12px; }
     .wa-box h2 { font-family: 'Baloo 2', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 8px; }
     .wa-box p { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
     .wa-timings { font-size: 12px; color: var(--muted); margin-top: 12px; }
 
-    /* FAQ */
+    /* ── FAQ ─────────────────────────────────────── */
     .faq { background: var(--surface); }
-    .faq-item { border: 1.5px solid var(--border); border-radius: 12px; margin-bottom: 10px; overflow: hidden; }
-    .faq-q { width: 100%; background: none; border: none; text-align: left; padding: 16px 20px; font-size: 15px; font-weight: 600; color: var(--dark); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .faq-item {
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 16px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
     .faq-q .arrow { transition: transform .25s; font-size: 18px; color: var(--brand); flex-shrink: 0; }
     .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
-    .faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease; font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
     .faq-a-inner { padding: 0 20px 16px; }
     .faq-item.open .faq-a { max-height: 300px; }
 
-    /* FOOTER */
-    footer { background: var(--dark); color: #94a3b8; text-align: center; padding: 32px 20px; font-size: 13px; }
+    /* ── FOOTER ──────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      color: #94a3b8;
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 13px;
+    }
     footer a { color: #fbbf24; text-decoration: none; }
 
-    /* STICKY BUY BAR */
-    .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 2px solid var(--brand); padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; z-index: 200; box-shadow: 0 -4px 20px rgba(0,0,0,0.12); }
+    /* ── STICKY BUY BAR ──────────────────────────── */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: #fff;
+      border-top: 2px solid var(--brand);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      z-index: 200;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.12);
+    }
     .sticky-price { font-family: 'Baloo 2', sans-serif; }
     .sticky-price .old { font-size: 13px; color: var(--muted); text-decoration: line-through; }
     .sticky-price .new { font-size: 22px; font-weight: 800; color: var(--brand); }
-    @media(max-width:600px) { .sticky-bar { flex-direction: column; gap: 8px; } .sticky-bar .btn-primary { width: 100%; text-align: center; } }
 
-    /* EXIT INTENT POPUP */
-    .exit-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 9999; align-items: center; justify-content: center; padding: 20px; }
+    /* ── UTILS ───────────────────────────────────── */
+    .text-center { text-align: center; }
+    .mt-4 { margin-top: 16px; }
+    .mt-6 { margin-top: 24px; }
+    .gap-2 { gap: 8px; }
+    .flex { display: flex; }
+    .items-center { align-items: center; }
+    .justify-center { justify-content: center; }
+    .flex-wrap { flex-wrap: wrap; }
+
+    @media(max-width:600px) {
+      .sticky-bar { flex-direction: column; gap: 8px; }
+      .sticky-bar .btn-primary { width: 100%; text-align: center; }
+    }
+
+    /* ── EXIT INTENT POPUP ───────────────────────── */
+    .exit-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
     .exit-overlay.active { display: flex; }
-    .exit-popup { background: #fff; border-radius: 20px; padding: 36px 28px; max-width: 400px; width: 100%; text-align: center; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.3); animation: popIn .3s cubic-bezier(.34,1.56,.64,1); }
+    .exit-popup {
+      background: #fff;
+      border-radius: 20px;
+      padding: 36px 28px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: popIn .3s cubic-bezier(.34,1.56,.64,1);
+    }
     @keyframes popIn { from { transform: scale(0.85); opacity:0; } to { transform: scale(1); opacity:1; } }
-    .exit-close { position: absolute; top: 12px; right: 16px; font-size: 22px; color: #94a3b8; cursor: pointer; background: none; border: none; line-height: 1; }
-    .exit-popup .ep-tag { background: #fff3e8; color: var(--brand); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 1px; }
-    .exit-popup h2 { font-family: 'Baloo 2', sans-serif; font-size: 24px; font-weight: 800; color: var(--dark); margin-bottom: 10px; line-height: 1.2; }
+    .exit-close {
+      position: absolute;
+      top: 12px; right: 16px;
+      font-size: 22px;
+      color: #94a3b8;
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+    .exit-popup .ep-tag {
+      background: #fff3e8;
+      color: var(--brand);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .exit-popup h2 {
+      font-family: 'Baloo 2', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
     .exit-popup p { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
-    .exit-price-row { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px; }
+    .exit-price-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
     .exit-old { font-size: 16px; color: #94a3b8; text-decoration: line-through; }
     .exit-new { font-family: 'Baloo 2', sans-serif; font-size: 38px; font-weight: 800; color: var(--brand); }
     .exit-popup .btn-primary { width: 100%; }
     .exit-skip { display: block; margin-top: 12px; font-size: 12px; color: #94a3b8; cursor: pointer; text-decoration: underline; }
 
-    /* SOCIAL PROOF NOTIFICATION */
-    .sp-notif { position: fixed; bottom: 80px; left: 16px; background: #fff; border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; gap: 12px; box-shadow: 0 8px 28px rgba(0,0,0,0.15); border-left: 4px solid var(--green); z-index: 999; max-width: 280px; transform: translateX(-320px); transition: transform .4s cubic-bezier(.34,1.56,.64,1); pointer-events: none; }
+    /* ── VIDEO SECTION ──────────────────────────── */
+    .video-section { background: var(--dark); padding: 56px 20px; }
+    .video-section .section-title { color: #fff; }
+    .video-section .section-sub { color: #94a3b8; }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .video-wrapper {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #000;
+      cursor: pointer;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+      aspect-ratio: 16/9;
+    }
+    .video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .video-play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(15,52,96,0.6) 100%);
+      transition: background .25s;
+    }
+    .video-wrapper:hover .video-play-overlay { background: rgba(0,0,0,0.3); }
+    .video-wrapper.playing .video-play-overlay { display: none; }
+    .play-btn {
+      width: 64px; height: 64px;
+      background: var(--brand);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 0 0 10px rgba(255,107,0,0.2), 0 0 0 20px rgba(255,107,0,0.08);
+      transition: transform .2s;
+      color: #fff;
+      line-height: 1;
+      padding-left: 4px;
+    }
+    .video-wrapper:hover .play-btn { transform: scale(1.12); }
+    .play-label {
+      margin-top: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.3px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    }
+    .video-caption {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 13px;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    /* ── SOCIAL PROOF NOTIFICATION ──────────────── */
+    .sp-notif {
+      position: fixed;
+      bottom: 80px;
+      left: 16px;
+      background: #fff;
+      border-radius: 14px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+      border-left: 4px solid var(--green);
+      z-index: 999;
+      max-width: 280px;
+      transform: translateX(-320px);
+      transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+      pointer-events: none;
+    }
     .sp-notif.show { transform: translateX(0); }
-    .sp-avatar { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 800; color: #fff; flex-shrink: 0; }
+    .sp-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 800; color: #fff;
+      flex-shrink: 0;
+    }
     .sp-text { font-size: 12px; line-height: 1.4; }
     .sp-name { font-weight: 700; color: var(--dark); }
     .sp-action { color: var(--muted); }
     .sp-time { color: var(--green); font-weight: 600; font-size: 11px; margin-top: 2px; }
 
-    /* P3 EXCLUSIVE BONUS */
-    .p3-bonus { background: linear-gradient(135deg, #0f2027 0%, #1a1a2e 50%, #0d1b2a 100%); padding: 0 20px 52px; position: relative; overflow: hidden; }
-    .p3-bonus::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 80%, rgba(255,107,0,0.12) 0%, transparent 55%), radial-gradient(ellipse at 80% 20%, rgba(255,107,0,0.08) 0%, transparent 50%); pointer-events: none; }
-    .p3-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
-    .p3-badge-wrap { text-align: center; margin-bottom: 20px; }
-    .p3-badge { display: inline-block; background: linear-gradient(90deg, #ff6b00, #ff9a3c); color: #fff; font-size: 11px; font-weight: 800; padding: 6px 18px; border-radius: 30px; letter-spacing: 2px; text-transform: uppercase; box-shadow: 0 4px 16px rgba(255,107,0,0.4); }
-    .p3-heading { font-family: 'Baloo 2', sans-serif; font-size: clamp(22px, 5vw, 34px); font-weight: 800; color: #fff; text-align: center; margin-bottom: 6px; line-height: 1.2; }
-    .p3-heading .p3-orange { color: #ff6b00; }
-    .p3-subheading { text-align: center; font-size: 14px; color: #94a3b8; margin-bottom: 28px; }
-    .p3-worth { text-align: center; margin-bottom: 24px; }
-    .p3-worth-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,107,0,0.12); border: 1.5px solid rgba(255,107,0,0.4); border-radius: 30px; padding: 8px 20px; font-size: 14px; color: #fbbf24; font-weight: 700; }
-    .p3-worth-pill .strike { font-size: 13px; color: #64748b; text-decoration: line-through; font-weight: 500; }
-    .p3-cards { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; }
-    .p3-card { display: flex; align-items: flex-start; gap: 16px; background: rgba(255,255,255,0.05); border: 1.5px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px 22px; transition: border-color .2s, background .2s; }
-    .p3-card:hover { border-color: rgba(255,107,0,0.4); background: rgba(255,107,0,0.06); }
-    .p3-card-icon { width: 50px; height: 50px; border-radius: 12px; background: linear-gradient(135deg, #ff6b00, #cc5500); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; box-shadow: 0 4px 12px rgba(255,107,0,0.3); }
-    .p3-card-body { flex: 1; min-width: 0; }
-    .p3-card-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
-    .p3-card-value { font-size: 11px; background: rgba(251,191,36,0.15); color: #fbbf24; font-weight: 700; padding: 2px 8px; border-radius: 20px; border: 1px solid rgba(251,191,36,0.3); }
-    .p3-card-desc { font-size: 13px; color: #94a3b8; line-height: 1.6; }
-    .p3-free-tag { text-align: center; font-size: 13px; color: #4ade80; font-weight: 700; letter-spacing: 0.5px; margin-top: 4px; }
-
-    /* LIVE VIEWERS */
-    .live-viewers { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 30px; padding: 7px 16px; font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 18px; }
-    .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; animation: pulse-dot 1.5s ease-in-out infinite; }
-    @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.4); } }
-
-    /* PAYMENT SECURITY BADGES */
-    .security-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 20px auto 0; max-width: 440px; }
-    .sec-badge { display: flex; align-items: center; gap: 6px; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 8px 14px; font-size: 12px; font-weight: 700; color: var(--text); }
-    .sec-badge .sec-icon { font-size: 18px; }
-
-    .text-center { text-align: center; }
-    .mt-4 { margin-top: 16px; }
-    .mt-6 { margin-top: 24px; }
+    /* ── LIVE VIEWERS COUNTER ────────────────────── */
+    .live-viewers {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 30px;
+      padding: 7px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+    .live-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      animation: pulse-dot 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
   </style>
 </head>
 <body>
 
-<!-- MARQUEE -->
+<!-- ── MARQUEE ──────────────────────────────────────────── -->
 <div class="marquee-bar">
   <div class="marquee-track">
-    <span>✅ 2,847 log is tool ko buy kar chuke hain</span>
+    <span>✅ 2,847 log is tool ko buy kra hain</span>
     <span>⭐ 4.8/5 average rating (412 reviews)</span>
     <span>🔒 Secure payment via Razorpay</span>
-    <span>⚡ Payment ke 2 minute mein WhatsApp pe tool milega</span>
-    <span>💼 Works for PC & mobile both</span>
-    <span>✅ 2,847 log is tool ko buy kar chuke hain</span>
+    <span>📞 WhatsApp support available</span>
+    <span>💼 Works for Pc & mobile both</span>
+    <span>✅ 2,847 log is tool ko buy kra hain</span>
     <span>⭐ 4.8/5 average rating (412 reviews)</span>
     <span>🔒 Secure payment via Razorpay</span>
-    <span>⚡ Payment ke 2 minute mein WhatsApp pe tool milega</span>
-    <span>💼 Works for PC & mobile both</span>
+    <span>📞 WhatsApp support available</span>
+    <span>💼 Works for Pc & mobile both</span>
   </div>
 </div>
 
-<!-- HEADER -->
+<!-- ── HEADER ───────────────────────────────────────────── -->
+
 <header>
   <div class="logo">ECOMEASY<span>TOOL</span></div>
   <div class="header-right">
     <span class="trust-badge-small">✅ 2,847+ Users</span>
+    <a href="https://wa.me/919213631880?text=Hi%2C%20tool%20ke%20baare%20mein%20puchna%20tha" 
+       class="btn-whatsapp" style="font-size:13px;padding:8px 16px;">
+      💬 WhatsApp
+    </a>
   </div>
 </header>
 
-<!-- HERO -->
+<!-- ── HERO ─────────────────────────────────────────────── -->
 <div class="hero">
-  <span class="hero-tag">🚀 India Ka #1 Meesho Tool</span>
-  <h1>Meesho Auto Listing<br><span class="highlight">Extension</span></h1>
+  <span class="hero-tag">🚀 ecomeasy number #1 tool</span>
+  <h1>Meesho Auto Listing,<br><span class="highlight">Extention</span></h1>
   <p>Manual listing mein ghante barbaad ho rahe hain? 10 listings banane mein pura din chala jaata hai — ab nahi! Humara tool sirf 1 minute mein 10 listings auto-create karta hai. 🚀</p>
 
-  <div class="hero-trust-line">
-    <span>✅ 847 sellers ne aaj kharida</span>
-    <span>⚡ Instant delivery WhatsApp pe</span>
-    <span>🔒 100% Safe Payment</span>
-  </div>
-
+  <!-- LIVE VIEWERS COUNTER -->
   <div class="live-viewers">
     <div class="live-dot"></div>
     <span id="viewerCount">23</span> log abhi is page pe hain
   </div>
 
+  <!-- LIVE STATS — static, credible numbers -->
   <div class="live-stats">
     <div class="stat-item">
       <div class="stat-num">2,847</div>
@@ -477,19 +795,16 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       <div class="stat-label">Avg Rating</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">10x</div>
-      <div class="stat-label">Faster Listing</div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Success Rate</div>
     </div>
   </div>
 
+  <!-- SESSION TIMER — real, non-looping -->
   <div class="timer-box">
     <div class="timer-label">⏰ Aapke liye offer valid hai sirf:</div>
     <div class="timer-digits" id="timerDisplay">29:59</div>
-    <div class="timer-note" id="timerNote">Yeh offer sirf aapke is session ke liye hai</div>
-  </div>
-
-  <div class="delivery-clarity">
-    ⚡ Payment ke baad sirf 2 minute mein tool milega — seedha WhatsApp pe!
+    <div class="timer-note">Yeh timer sirf aapke is session ke liye hai</div>
   </div>
 
   <button class="btn-primary" onclick="startPayment()">
@@ -501,156 +816,97 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     </a>
   </div>
   <div style="margin-top:12px;font-size:13px;color:#94a3b8;">
-    🔒 Razorpay secured · Instant WhatsApp delivery · No subscription
-  </div>
-
-  <!-- ── HERO DEMO VIDEO — ZOOM FIXED ── -->
-  <div class="hero-video-wrap">
-    <div class="hero-video-label">🎬 Live Demo Dekho</div>
-
-    <!-- Container uses padding-top trick for true 16:9 -->
-    <div class="hero-video-container" id="heroVidWrap">
-
-      <!-- Badge sits outside overlay so always visible -->
-      <span class="video-badge-overlay">🔴 Live Demo</span>
-
-      <!-- Video: absolutely fills container, object-fit:contain = no zoom -->
-      <video
-        id="heroVid"
-        preload="none"
-        playsinline
-        style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;background:#000;"
-      >
-        <source src="https://steep-waterfall-31b8.yashsethi733.workers.dev/" type="video/mp4">
-      </video>
-
-      <!-- Overlay: click to play -->
-      <div id="heroVidOverlay" class="hero-video-overlay" onclick="playHeroVideo()">
-        <div class="hero-play-btn">▶</div>
-        <div class="hero-play-label">Tool Ka Demo Dekho — 2 Min</div>
-        <div class="hero-play-sublabel">Dekho kaise 10 min mein 30 listings ban jaati hain</div>
-      </div>
-    </div>
-
-    <div class="hero-video-caption">👆 Video dekho phir decide karo — koi pressure nahi</div>
+    🔒 Razorpay secured · Instant access · No subscription
   </div>
 </div>
 
-<!-- P3 EXCLUSIVE BONUS -->
-<div class="p3-bonus">
-  <div class="p3-inner">
-    <div class="p3-badge-wrap">
-      <span class="p3-badge">🎁 Sirf Aaj — Exclusive Bonus</span>
-    </div>
-    <h2 class="p3-heading">Tool Ke Saath Milega <span class="p3-orange">₹1,400 Ka Bonus</span><br>Bilkul FREE! 🔥</h2>
-    <p class="p3-subheading">Yeh 3 PDFs alag se khareedni padti thi — aaj tool ke saath free mein le jao</p>
-    <div class="p3-worth">
-      <span class="p3-worth-pill">
-        💰 Total Bonus Value: <span class="strike">₹1,400</span> &nbsp;→&nbsp; <span>FREE for You</span>
-      </span>
-    </div>
-    <div class="p3-cards">
-      <div class="p3-card">
-        <div class="p3-card-icon">🚚</div>
-        <div class="p3-card-body">
-          <div class="p3-card-title">Low Shipping Trick — Secret PDF <span class="p3-card-value">Worth ₹499</span></div>
-          <div class="p3-card-desc">Shipping cost kam karke apna margin badhao! Top sellers wali exact tricks jo kabhi kisi ne publicly share nahi ki.</div>
-        </div>
-      </div>
-      <div class="p3-card">
-        <div class="p3-card-icon">🏆</div>
-        <div class="p3-card-body">
-          <div class="p3-card-title">Winning Products PDF <span class="p3-card-value">Worth ₹499</span></div>
-          <div class="p3-card-desc">Kaunse products Meesho pe sabse zyada bik rahe hain? Curated list se apna catalog fast grow karo.</div>
-        </div>
-      </div>
-      <div class="p3-card">
-        <div class="p3-card-icon">📈</div>
-        <div class="p3-card-body">
-          <div class="p3-card-title">Orders Badhane Ki Tricks <span class="p3-card-value">Worth ₹399</span></div>
-          <div class="p3-card-desc">Listing optimize kaise karo, keywords kaise use karo, pricing kaise rakho — directly orders increase karne ki guide.</div>
-        </div>
-      </div>
-    </div>
-    <div class="p3-free-tag">✅ Yeh teeno PDFs aapko tool ke saath FREE mein milenge — koi extra charge nahi!</div>
-  </div>
-</div>
-
-<!-- PROBLEM / SOLUTION -->
+<!-- ── PROBLEM / SOLUTION ──────────────────────────────── -->
 <section class="prob-sol">
   <div class="container">
-    <h2 class="section-title">Kya Aap Bhi Manual Listing Karke Thak Gaye Ho?</h2>
+    <h2 class="section-title">Kya Aap Bhi manual listing karke thak gye ho?</h2>
     <p class="section-sub">Agar haan, toh ye tool specifically aapke liye bana hai</p>
     <div class="ps-grid">
       <div class="ps-card problem">
         <h3>❌ Pehle Ki Situation</h3>
         <ul>
-          <li><span>😓</span><span>Ek listing upload karne mein bahut time lagta tha</span></li>
-          <li><span>😓</span><span>Multiple listings banana boring aur repetitive tha</span></li>
-          <li><span>😓</span><span>Competitors zyada listings karke sales le ja rahe the</span></li>
-          <li><span>😓</span><span>Manual listing ki wajah se growth slow ho rahi thi</span></li>
+          <li><span>😓</span> <span>Ek listing upload karne mein bahut time lagta tha</span></li>
+          <li><span>😓</span> <span>Multiple listings banana boring aur repetitive tha</span></li>
+          <li><span>😓</span> <span>Competitors zyada listings karke sales le ja rahe the</span></li>
+          <li><span>😓</span> <span>Manual listing ki wajah se growth slow ho rahi thi</span></li>
         </ul>
       </div>
       <div class="ps-card solution">
-        <h3>✅ Tool Ke Baad</h3>
+        <h3>✅ Meesho autolisting tool ke Baad</h3>
         <ul>
-          <li><span>🚀</span><span>1 click mein multiple product listings create</span></li>
-          <li><span>🚀</span><span>Product details auto-fill — no manual work</span></li>
-          <li><span>🚀</span><span>10 minute mein 20–30 listings ready</span></li>
-          <li><span>🚀</span><span>Zyada listings = zyada visibility = zyada orders</span></li>
-          <li><span>🚀</span><span>Time save karke faster scale karo</span></li>
+            <li><span>🚀</span> <span>1 click mein multiple product listings create</span></li>
+           <li><span>🚀</span> <span>Product details auto-fill — no manual work</span></li>
+    <li><span>🚀</span> <span>10 minute mein 20–30 listings ready</span></li>
+    <li><span>🚀</span> <span>Zyada listings = zyada visibility = zyada orders</span></li>
+    <li><span>🚀</span> <span>Time save karke seller faster scale kar raha hai</span></li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FEATURES -->
+<!-- ── FEATURES ────────────────────────────────────────── -->
 <section class="features">
   <div class="container">
     <h2 class="section-title">Kya Milega Aapko?</h2>
     <p class="section-sub">Ek tool mein complete seller automation system</p>
+    
     <div class="features-grid">
+      
       <div class="feat-card">
         <div class="feat-icon">⚡</div>
         <h3>1-Click Auto Listing</h3>
-        <p>Sirf ek click mein multiple product listings create karo — no manual mehnat.</p>
+        <p>Sirf ek click mein multiple product listings create karo — no manual मेहनत.</p>
       </div>
+
       <div class="feat-card">
         <div class="feat-icon">📝</div>
         <h3>Auto Product Fill</h3>
         <p>Title, description, category, size, color — sab details automatically fill.</p>
       </div>
+
       <div class="feat-card">
         <div class="feat-icon">🖼️</div>
         <h3>Image Auto Upload</h3>
         <p>Product images instantly upload ho jaati hain bina baar-baar select kiye.</p>
       </div>
+
       <div class="feat-card">
         <div class="feat-icon">🚀</div>
         <h3>Bulk Listing Speed</h3>
         <p>10 minute mein 20–30 listings create karke visibility boost karo.</p>
       </div>
+
       <div class="feat-card">
         <div class="feat-icon">💰</div>
-        <h3>Shipping Optimization</h3>
+        <h3>Shipping Cost Optimization</h3>
         <p>Different listings test karke low shipping cost aur better margins pao.</p>
       </div>
+
       <div class="feat-card">
         <div class="feat-icon">📈</div>
         <h3>Higher Visibility</h3>
         <p>Zyada listings = zyada impressions = zyada clicks = zyada orders.</p>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ROI CALCULATOR -->
+
+
+<!-- ── ROI CALCULATOR ──────────────────────────────────── -->
 <section class="calculator">
   <div class="container">
     <h2 class="section-title" style="color:#fff;">Kitna Faida Hoga Tumhe?</h2>
     <p class="section-sub" style="color:#94a3b8;">Apni listings enter karo, calculator batayega</p>
+
     <div class="calc-box">
+
       <label>Aap daily kitni listings manually banate ho?</label>
       <select id="listingInput" onchange="calcROI()">
         <option value="10">10 listings/day</option>
@@ -659,6 +915,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
         <option value="50">50 listings/day</option>
         <option value="100">100 listings/day</option>
       </select>
+
       <label>1 listing manually banane mein kitna time lagta hai?</label>
       <select id="timeInput" onchange="calcROI()">
         <option value="3">3 minutes</option>
@@ -666,208 +923,293 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
         <option value="8">8 minutes</option>
         <option value="10">10 minutes</option>
       </select>
+
       <div class="calc-result">
         <div class="big" id="roiResult">75+ Minutes Saved</div>
         <div class="sub">Daily time saved with auto listing automation</div>
       </div>
+
     </div>
+
     <p style="text-align:center;color:#64748b;font-size:12px;margin-top:12px;">
-      Tool ki cost: ₹199 · Potential return: <strong style="color:#fbbf24;" id="roiVsPrice">100x+</strong>
+      Tool ki cost: ₹199 · Potential return: 
+      <strong style="color:#fbbf24;" id="roiVsPrice">100x+</strong>
     </p>
+
   </div>
 </section>
 
-<!-- FOUNDER -->
+<!-- ── FOUNDER SECTION ─────────────────────────────────── -->
 <section class="founder">
   <div class="container">
     <h2 class="section-title">Kisne Banaya Ye Tool?</h2>
     <p class="section-sub">Ek Indian seller ki real journey</p>
+
     <div class="founder-card">
       <div class="founder-avatar">👨‍💻</div>
+      
       <div class="founder-text">
         <h3>ecomeasy</h3>
         <div class="role">Founder, Meesho Auto Listing Tool · E-commerce Seller</div>
-        <p>"Jab maine selling start ki thi, har product ki listing manually karne mein bahut time lagta tha. Same details baar-baar fill karni padti thi, aur competitors zyada listings karke orders le jaate the. Tab maine socha ki is process ko automate karna hi padega. Multiple testing aur real seller experience ke baad maine ye tool banaya — taaki har seller kam time mein zyada listings create kare, visibility badhaye, aur sales scale kar sake."</p>
+
+        <p>
+          "Jab maine selling start ki thi, har product ki listing manually karne mein bahut time lagta tha. 
+          Same details baar-baar fill karni padti thi, aur competitors zyada listings karke orders le jaate the. 
+          Tab maine सोचा ki is process ko automate karna hi पड़ेगा. 
+          
+          Multiple testing aur real seller experience ke baad maine ye tool banaya — 
+          taaki har seller kam time mein zyada listings create kare, visibility badhaye, aur sales scale kar sake."
+        </p>
+
         <div class="signature">— ecomeasy ✍️</div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
+<!-- ── TESTIMONIALS ────────────────────────────────────── -->
 <section class="testimonials">
   <div class="container">
     <h2 class="section-title">Real Sellers, Real Results</h2>
     <p class="section-sub">Verified purchases — unedited feedback</p>
+    
     <div class="testi-grid">
+
       <div class="testi-card">
         <div class="testi-header">
           <div class="testi-avatar" style="background:#3b82f6;">R</div>
-          <div><div class="testi-name">Rohit Kumar</div><div class="testi-meta">Delhi · Seller</div></div>
+          <div>
+            <div class="testi-name">Rohit Kumar</div>
+            <div class="testi-meta">Delhi · Seller</div>
+          </div>
         </div>
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Pehle 1 product listing mein 5–7 minute lagte the. Ab is tool se 10 minute mein 25+ listings bana leta hoon. Visibility aur orders dono boost hue."</p>
+        <p class="testi-text">
+          "Pehle 1 product listing mein 5–7 minute lagte the. Ab is tool se 10 minute mein 25+ listings bana leta hoon. Visibility aur orders dono boost hue."
+        </p>
         <span class="verified-badge">✅ Verified Buyer</span>
       </div>
+
       <div class="testi-card">
         <div class="testi-header">
           <div class="testi-avatar" style="background:#8b5cf6;">P</div>
-          <div><div class="testi-name">Pooja Jain</div><div class="testi-meta">Mumbai · Women Seller</div></div>
+          <div>
+            <div class="testi-name">Pooja Jain</div>
+            <div class="testi-meta">Mumbai · Women Seller</div>
+          </div>
         </div>
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Manual listing se bahut frustration hoti thi. Is extension ne mera daily 2–3 ghante save kar diye. Sales bhi increase hui."</p>
+        <p class="testi-text">
+          "Manual listing se bahut frustration hoti thi. Is extension ne mera daily 2–3 ghante save kar diye. Sales bhi increase hui."
+        </p>
         <span class="verified-badge">✅ Verified Buyer</span>
       </div>
+
       <div class="testi-card">
         <div class="testi-header">
           <div class="testi-avatar" style="background:#ef4444;">A</div>
-          <div><div class="testi-name">Amit Patel</div><div class="testi-meta">Ahmedabad · Reseller</div></div>
+          <div>
+            <div class="testi-name">Amit Patel</div>
+            <div class="testi-meta">Ahmedabad · Reseller</div>
+          </div>
         </div>
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Sabse best part shipping optimization hai. Same product ki multiple listings se better margins milne lage."</p>
+        <p class="testi-text">
+          "Sabse best part shipping optimization hai. Same product ki multiple listings se better margins milne lage."
+        </p>
         <span class="verified-badge">✅ Verified Buyer</span>
       </div>
+
       <div class="testi-card">
         <div class="testi-header">
           <div class="testi-avatar" style="background:#f59e0b;">S</div>
-          <div><div class="testi-name">Sandeep Verma</div><div class="testi-meta">Bangalore · Full-time Seller</div></div>
+          <div>
+            <div class="testi-name">Sandeep Verma</div>
+            <div class="testi-meta">Bangalore · Full-time Seller</div>
+          </div>
         </div>
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Mujhe laga ₹199 mein normal tool hoga, but honestly ye meri listing speed 5x kar gaya. Competitors ko catch up karna easy ho gaya."</p>
+        <p class="testi-text">
+          "Mujhe laga ₹49 mein normal tool hoga, but honestly ye meri listing speed 5x kar gaya. Competitors ko catch up karna easy ho gaya."
+        </p>
         <span class="verified-badge">✅ Verified Buyer</span>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
-<section class="pricing" id="buy">
-  <div class="container">
-    <h2 class="section-title">Ek Baar Ki Keemat, Lifetime Faida</h2>
-    <p class="section-sub">No subscription · No hidden charges · Instant WhatsApp delivery</p>
-
-    <div class="price-card">
-      <span class="price-badge">🔥 Limited Time Offer</span>
-      <div class="price-original">Regular price: ₹999</div>
-      <div class="price-current">₹199</div>
-      <div class="price-tax">+ taxes · One-time payment</div>
-      <ul class="price-features">
-        <li><span class="icon">✓</span><span>1-Click Auto Listing System</span></li>
-        <li><span class="icon">✓</span><span>Unlimited product listings creation</span></li>
-        <li><span class="icon">✓</span><span>Auto-fill title, description & product details</span></li>
-        <li><span class="icon">✓</span><span>Bulk image upload automation</span></li>
-        <li><span class="icon">✓</span><span>Shipping cost optimization support</span></li>
-        <li><span class="icon">✓</span><span>5x faster listing speed</span></li>
-        <li><span class="icon">✓</span><span>WhatsApp support included</span></li>
-        <li><span class="icon">✓</span><span>Lifetime access — no renewal</span></li>
-        <li><span class="icon">✓</span><span>🎁 3 Bonus PDFs FREE (Worth ₹1,400)</span></li>
-      </ul>
-      <button class="btn-primary" onclick="startPayment()" style="width:100%;font-size:18px;padding:18px;">
-        🚀 Abhi Kharido — ₹199 Only
-      </button>
-      <div style="margin-top:14px;">
-        <a href="https://wa.me/919213631880?text=Hi%2C%20tool%20ke%20baare%20mein%20puchna%20tha" class="btn-whatsapp" style="width:100%;justify-content:center;font-size:14px;padding:12px 20px;box-sizing:border-box;">
-          💬 Pehle Baat Karo — Free
-        </a>
-      </div>
-      <div class="trust-row">
-        <span class="trust-chip">🔒 Razorpay Secured</span>
-        <span class="trust-chip">⚡ 2 Min Delivery</span>
-        <span class="trust-chip">📞 Support Included</span>
-        <span class="trust-chip">✅ 2,847+ Buyers</span>
-      </div>
-    </div>
-
-    <div class="security-badges">
-      <div class="sec-badge"><span class="sec-icon">🔒</span> SSL Encrypted</div>
-      <div class="sec-badge"><span class="sec-icon">🏦</span> RBI Regulated</div>
-      <div class="sec-badge"><span class="sec-icon">💳</span> UPI / Card / Net Banking</div>
-      <div class="sec-badge"><span class="sec-icon">🛡️</span> Buyer Protected</div>
-    </div>
-
-    <div class="delivery-steps">
-      <h4>📦 Tool Kaise Milega? — 3 Aasaan Steps</h4>
-      <div class="d-step">
-        <div class="d-num">1</div>
-        <div class="d-text">Upar <span>"Abhi Kharido"</span> button dabao aur ₹199 pay karo (UPI / Card / Net Banking)</div>
-      </div>
-      <div class="d-step">
-        <div class="d-num">2</div>
-        <div class="d-text">Payment hote hi aap <span>automatically WhatsApp pe redirect</span> ho jaoge</div>
-      </div>
-      <div class="d-step">
-        <div class="d-num">3</div>
-        <div class="d-text"><span>2 minute ke andar</span> tool ka download link aur installation guide WhatsApp pe aa jaayega ✅</div>
-      </div>
-    </div>
-
-    <div class="prepay-trust">
-      <div class="prepay-row"><span>🔒</span><span>Payment 100% secure — Razorpay India ka #1 gateway, RBI regulated</span></div>
-      <div class="prepay-row"><span>⚡</span><span>Payment ke 2 minute mein WhatsApp pe tool milega — koi wait nahi</span></div>
-      <div class="prepay-row"><span>💬</span><span>Koi bhi problem ho toh WhatsApp karo: +91 92136 31880</span></div>
-      <div class="prepay-row"><span>🔄</span><span>7-day issue resolution guarantee — tool kaam na kare toh full refund</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq">
-  <div class="container">
-    <h2 class="section-title">Aam Sawaal</h2>
-    <p class="section-sub">Jo bhi doubts hain, yahan milenge answers</p>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Payment ke baad tool kaise aur kahan milega? <span class="arrow">▼</span></button>
-      <div class="faq-a"><div class="faq-a-inner">Payment hote hi aap automatically WhatsApp pe redirect ho jaoge. <strong>2 minute ke andar</strong> hamare team se tool ka download link aur complete installation guide WhatsApp pe aa jaayega. Koi email ya wait nahi — seedha instant delivery!</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Kya ye new sellers ke liye bhi kaam karega? <span class="arrow">▼</span></button>
-      <div class="faq-a"><div class="faq-a-inner">Bilkul! Chahe aap naye seller ho ya experienced, extension listing process ko fast aur easy bana deta hai. Step-by-step guide bhi milegi.</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Kya ye one-time payment hai? <span class="arrow">▼</span></button>
-      <div class="faq-a"><div class="faq-a-inner">Haan, sirf ek baar ₹199 payment. Lifetime access milega — koi monthly ya yearly charge nahi.</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Mera payment safe rahega? <span class="arrow">▼</span></button>
-      <div class="faq-a"><div class="faq-a-inner">Haan bilkul. Payment Razorpay se hoti hai jo India ka #1 RBI-regulated gateway hai. Aapki card/UPI details humse share nahi hoti.</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Kya ye mobile pe kaam karta hai? <span class="arrow">▼</span></button>
-      <div class="faq-a"><div class="faq-a-inner">Ye extension desktop/laptop browser ke liye optimized hai, jahan sellers normally product listings manage karte hain.</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Kitni listings create kar sakta hoon? <span class="arrow">▼</span></button>
-      <div class="faq-a"><div class="faq-a-inner">Unlimited listings create kar sakte ho. Jitne products, utni listings — no limits.</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Kya refund milega agar tool kaam na kare? <span class="arrow">▼</span></button>
-      <div class="faq-a"><div class="faq-a-inner">Haan! Agar tool aapke system pe kaam nahi karta aur hum 7 din mein fix nahi kar paate, toh full refund diya jaayega. WhatsApp pe contact karo: +91 92136 31880</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- WHATSAPP SUPPORT -->
+<!-- ── WHATSAPP SUPPORT ─────────────────────────────────── -->
 <div class="wa-section">
   <div class="wa-box">
     <div class="wa-icon">💬</div>
-    <h2>Abhi Bhi Koi Sawaal Hai?</h2>
-    <p>Kharidne se pehle koi doubt hai toh WhatsApp karo — hum real humans hain, bots nahi. Aapke saare doubts clear karenge.</p>
-    <a href="https://wa.me/919213631880?text=Hi%2C%20Meesho%20autolisting%20tool%20ke%20baare%20mein%20kuch%20puchna%20tha" class="btn-whatsapp">
+    <h2>Kharidne Se Pehle Koi Sawaal?</h2>
+    <p>Seedha WhatsApp karo — hum real humans hain, bots nahi. Aapke saare doubts clear karenge before you spend a single rupee.</p>
+    <a href="https://wa.me/919213631880?text=Hi%2C%20AI%20Job%20Pro%20ke%20baare%20mein%20kuch%20puchna%20tha" 
+       class="btn-whatsapp">
       <span>💬</span> WhatsApp Par Baat Karo
     </a>
     <div class="wa-timings">Available: Mon–Sat, 10 AM – 8 PM IST</div>
   </div>
 </div>
 
+<!-- ── PRICING ─────────────────────────────────────────── -->
+<section class="pricing" id="buy">
+  <div class="container">
+    <h2 class="section-title">Ek Baar Ki Keemat, Lifetime Faida</h2>
+    <p class="section-sub">No subscription · No hidden charges · Instant access</p>
+
+    <div class="price-card">
+      <span class="price-badge">🔥 Limited Time Offer</span>
+      <div class="price-original">Regular price: ₹999</div>
+      <div class="price-current">₹199</div>
+      <div class="price-tax">+ taxes · One-time payment</div>
+
+      <ul class="price-features">
+  <li><span class="icon">✓</span><span>1-Click Auto Listing System</span></li>
+  <li><span class="icon">✓</span><span>Unlimited product listings creation</span></li>
+  <li><span class="icon">✓</span><span>Auto-fill title, description & product details</span></li>
+  <li><span class="icon">✓</span><span>Bulk image upload automation</span></li>
+  <li><span class="icon">✓</span><span>Shipping cost optimization support</span></li>
+  <li><span class="icon">✓</span><span>5x faster listing speed</span></li>
+  <li><span class="icon">✓</span><span>WhatsApp support included</span></li>
+  <li><span class="icon">✓</span><span>Lifetime access — no renewal</span></li>
+</ul>
+
+      <button class="btn-primary" onclick="startPayment()" style="width:100%;font-size:18px;padding:18px;">
+        🚀 Abhi Kharido — ₹199 Only
+      </button>
+
+      <div class="trust-row">
+        <span class="trust-chip">🔒 Razorpay Secured</span>
+        <span class="trust-chip">⚡ Instant Access</span>
+        <span class="trust-chip">📞 Support Included</span>
+        <span class="trust-chip">✅ 2,847+ Buyers</span>
+      </div>
+    </div>
+
+    <!-- PRE-PAYMENT TRUST BLOCK -->
+    <div class="prepay-trust">
+      <div class="prepay-row">
+        <span>🔒</span>
+        <span>Payment 100% secure hai — Razorpay India ka #1 payment gateway hai, RBI regulated</span>
+      </div>
+      <div class="prepay-row">
+        <span>⚡</span>
+        <span>Payment ke turant baad aapko access milega — koi wait nahi</span>
+      </div>
+      <div class="prepay-row">
+        <span>💬</span>
+        <span>Koi bhi problem ho toh WhatsApp karo: +91 92136 31880</span>
+      </div>
+      <div class="prepay-row">
+        <span>📧</span>
+        <span>7-day issue resolution guarantee — aapka paisa safe hai</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ─────────────────────────────────────────────── -->
+<section class="faq">
+  <div class="container">
+    <h2 class="section-title">Aam Sawaal</h2>
+    <p class="section-sub">Jo bhi doubts hain, yahan milenge answers</p>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Kya ye new sellers ke liye bhi kaam karega? <span class="arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          Bilkul! Chahe aap naye seller ho ya experienced, extension listing process ko fast aur easy bana deta hai.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Payment ke baad access kaise milega? <span class="arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          Payment confirm hote hi aapko instantly download access ya login details mil jayengi email par.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Kya ye one-time payment hai? <span class="arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          Haan, sirf ek baar payment. Lifetime access milega — koi monthly charge nahi.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Mera payment safe rahega? <span class="arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          Haan, payment trusted gateway se process hoti hai. Koi issue aaye toh support available hai.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Kya ye mobile pe kaam karta hai? <span class="arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          Ye extension desktop/laptop browser ke liye optimized hai, jahan sellers normally product listings manage karte hain.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Kitni listings create kar sakta hoon? <span class="arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          Unlimited listings create kar sakte ho. Jitne products, utni listings — no limits.
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Kya refund milega agar tool kaam na kare? <span class="arrow">▼</span>
+      </button>
+      <div class="faq-a">
+        <div class="faq-a-inner">
+          Haan! Agar tool aapke system pe kaam nahi karta aur hum 7 din mein fix nahi kar paate, toh full refund diya jaayega. Aapka paisa safe hai — WhatsApp pe contact karo: +91 92136 31880
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 <footer>
-  <p style="font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;">Meesho Auto Listing Tool</p>
+  <p style="font-size:15px;font-weight:700;color:#fff;margin-bottom:8px;">Meesho auto listing tool</p>
   <p>India's most trusted Meesho autolisting tool</p>
-  <p style="margin-top:8px;">📞 Support: <a href="https://wa.me/919213631880">+91 92136 31880</a> · Mon–Sat 10AM–8PM IST</p>
-  <p style="margin-top:16px;font-size:12px;">© 2026 ecomeasy · All rights reserved · Made in India 🇮🇳</p>
+  <p style="margin-top:8px;">
+    📞 Support: <a href="https://wa.me/919213631880">+91 92136 31880</a> · 
+    Mon–Sat 10AM–8PM IST
+  </p>
+  <p style="margin-top:16px;font-size:12px;">
+    © 2026 ecomeasy · All rights reserved · 
+    Made in India 🇮🇳
+  </p>
 </footer>
 
-<!-- STICKY BUY BAR -->
+<!-- ── STICKY BUY BAR ────────────────────────────────────── -->
 <div class="sticky-bar">
   <div class="sticky-price">
     <div class="old">Regular ₹999</div>
@@ -879,7 +1221,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   <button class="btn-primary" onclick="startPayment()">🚀 Abhi Kharido</button>
 </div>
 
-<!-- SOCIAL PROOF NOTIFICATION -->
+<!-- ── SOCIAL PROOF NOTIFICATION ────────────────────────── -->
 <div class="sp-notif" id="spNotif">
   <div class="sp-avatar" id="spAvatar">R</div>
   <div class="sp-text">
@@ -889,7 +1231,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   </div>
 </div>
 
-<!-- EXIT INTENT POPUP -->
+<!-- ── EXIT INTENT POPUP ─────────────────────────────────── -->
 <div class="exit-overlay" id="exitOverlay">
   <div class="exit-popup">
     <button class="exit-close" onclick="closeExit()">✕</button>
@@ -900,69 +1242,33 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       <div class="exit-old">₹999</div>
       <div class="exit-new">₹199</div>
     </div>
-    <button class="btn-primary" onclick="closeExit(); startPayment();">🚀 Haan, Abhi Kharidta Hoon!</button>
+    <button class="btn-primary" onclick="closeExit(); startPayment();">
+      🚀 Haan, Abhi Kharidta Hoon!
+    </button>
     <span class="exit-skip" onclick="closeExit()">Nahi chahiye, jaata hoon →</span>
   </div>
 </div>
 
+<!-- ── SCRIPTS ───────────────────────────────────────────── -->
 <script>
-  /* ── REAL PERSISTENT TIMER (LocalStorage) ── */
+  /* ── SESSION TIMER (no fake loop) ── */
   (function() {
-    const KEY = 'ecomeasy_timer_end_v2';
-    const DURATION = 30 * 60 * 1000;
-    let endTime = localStorage.getItem(KEY);
-    if (!endTime || Date.now() > parseInt(endTime)) {
-      endTime = Date.now() + DURATION;
-      localStorage.setItem(KEY, endTime);
-    }
-    endTime = parseInt(endTime);
+    const KEY = 'aijobpro_timer_end';
+    let endTime = Date.now() + 30 * 60 * 1000;
+    sessionStorage.setItem(KEY, endTime);
     function updateTimer() {
-      const remaining = endTime - Date.now();
-      const el = document.getElementById('timerDisplay');
-      const el2 = document.getElementById('stickyTimer');
-      const note = document.getElementById('timerNote');
-      if (remaining <= 0) {
-        if (el) el.innerHTML = '<span class="timer-expired">⚠️ Offer Expire Ho Gaya!</span>';
-        if (el2) el2.textContent = 'EXPIRED';
-        if (note) note.textContent = 'Price ab ₹499 hai — discount khatam';
-        clearInterval(timerInterval);
-        return;
-      }
+      const remaining = Math.max(0, endTime - Date.now());
       const m = Math.floor(remaining / 60000);
       const s = Math.floor((remaining % 60000) / 1000);
       const str = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+      const el = document.getElementById('timerDisplay');
+      const el2 = document.getElementById('stickyTimer');
       if (el) el.textContent = str;
       if (el2) el2.textContent = str;
     }
     updateTimer();
-    var timerInterval = setInterval(updateTimer, 1000);
+    setInterval(updateTimer, 1000);
   })();
-
-  /* ── HERO VIDEO PLAY — FIXED ── */
-  function playHeroVideo() {
-    const wrap = document.getElementById('heroVidWrap');
-    const vid = document.getElementById('heroVid');
-    const overlay = document.getElementById('heroVidOverlay');
-
-    if (wrap.classList.contains('playing')) return;
-
-    // Hide overlay first
-    overlay.style.display = 'none';
-    wrap.classList.add('playing');
-
-    // Show controls and play
-    vid.controls = true;
-    vid.load(); // force reload in case preload=none didn't fetch
-
-    vid.play().catch(function(err) {
-      console.warn('Autoplay blocked or video error:', err);
-      // Fallback: open video in new tab
-      window.open('https://steep-waterfall-31b8.yashsethi733.workers.dev/', '_blank');
-      // Restore overlay so user can try again
-      overlay.style.display = 'flex';
-      wrap.classList.remove('playing');
-    });
-  }
 
   /* ── FAQ TOGGLE ── */
   function toggleFaq(btn) {
@@ -976,27 +1282,59 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   function calcROI() {
     const listings = parseInt(document.getElementById('listingInput').value) || 30;
     const mins = parseInt(document.getElementById('timeInput').value) || 5;
+    // With tool: ~30 sec per listing instead of 'mins' minutes
     const savedMinsPerDay = listings * (mins - 0.5);
     const savedHrs = (savedMinsPerDay / 60).toFixed(1);
-    const label = savedMinsPerDay >= 60 ? savedHrs + ' Ghante Saved' : Math.round(savedMinsPerDay) + '+ Minutes Saved';
+    const label = savedMinsPerDay >= 60
+      ? savedHrs + ' Ghante Saved'
+      : Math.round(savedMinsPerDay) + '+ Minutes Saved';
     document.getElementById('roiResult').textContent = label;
+    // ROI vs ₹199: value of saved time at ₹50/hr * 30 days
     const monthlyValue = Math.round((savedMinsPerDay / 60) * 50 * 30);
     const roi = monthlyValue > 0 ? Math.round(monthlyValue / 199) + 'x' : '100x+';
     document.getElementById('roiVsPrice').textContent = roi;
   }
   calcROI();
 
+  /* ── VIDEO PLAY HANDLER ── */
+  function playVideo(wrapperId, videoId) {
+    const wrapper = document.getElementById(wrapperId);
+    const video = document.getElementById(videoId);
+    if (wrapper.classList.contains('playing')) return;
+    // Pause other videos
+    ['vid1','vid2'].forEach(function(id) {
+      if (id !== videoId) {
+        const v = document.getElementById(id);
+        const w = document.getElementById(id === 'vid1' ? 'vw1' : 'vw2');
+        if (v) { v.pause(); }
+        if (w) { w.classList.remove('playing'); }
+      }
+    });
+    wrapper.classList.add('playing');
+    video.controls = true;
+    video.play();
+  }
+
   /* ── EXIT INTENT POPUP ── */
   (function() {
     let shown = false;
     document.addEventListener('mouseleave', function(e) {
-      if (e.clientY <= 0 && !shown) { shown = true; document.getElementById('exitOverlay').classList.add('active'); }
+      if (e.clientY <= 0 && !shown) {
+        shown = true;
+        document.getElementById('exitOverlay').classList.add('active');
+      }
     });
+    // Mobile: show after 40s if not converted
     setTimeout(function() {
-      if (!shown) { shown = true; document.getElementById('exitOverlay').classList.add('active'); }
+      if (!shown) {
+        shown = true;
+        document.getElementById('exitOverlay').classList.add('active');
+      }
     }, 40000);
   })();
-  function closeExit() { document.getElementById('exitOverlay').classList.remove('active'); }
+  function closeExit() {
+    document.getElementById('exitOverlay').classList.remove('active');
+  }
 
   /* ── SOCIAL PROOF NOTIFICATIONS ── */
   (function() {
@@ -1012,7 +1350,8 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     ];
     let idx = 0;
     function showNotif() {
-      const b = buyers[idx % buyers.length]; idx++;
+      const b = buyers[idx % buyers.length];
+      idx++;
       const notif = document.getElementById('spNotif');
       document.getElementById('spAvatar').textContent = b.name[0];
       document.getElementById('spAvatar').style.background = b.color;
@@ -1021,15 +1360,22 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       notif.classList.add('show');
       setTimeout(function() { notif.classList.remove('show'); }, 4000);
     }
-    setTimeout(function() { showNotif(); setInterval(showNotif, 12000); }, 6000);
+    // First show after 6 seconds, then every 12 seconds
+    setTimeout(function() {
+      showNotif();
+      setInterval(showNotif, 12000);
+    }, 6000);
   })();
 
   /* ── LIVE VIEWERS COUNTER ── */
   (function() {
-    const base = 18, range = 12;
-    let current = base + Math.floor(Math.random() * range);
+    const base = 18;
+    const range = 12;
+    function randomViewers() { return base + Math.floor(Math.random() * range); }
+    let current = randomViewers();
     document.getElementById('viewerCount').textContent = current;
     setInterval(function() {
+      // Drift up or down by 1-2 realistically
       const delta = Math.random() < 0.5 ? 1 : -1;
       current = Math.max(base, Math.min(base + range, current + delta));
       const el = document.getElementById('viewerCount');
@@ -1039,17 +1385,26 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
 
   /* ── RAZORPAY PAYMENT ── */
   function startPayment() {
-    fbq('track', 'InitiateCheckout', { value: 199, currency: 'INR', content_name: 'Meesho Auto Listing Tool' });
-    var options = {
-      key: 'rzp_live_Soq8MomXhDXwsT',
-      amount: 19900,
+    fbq('track', 'InitiateCheckout', {
+      value: 199,
       currency: 'INR',
-      name: 'Autolisting Tool',
-      description: 'Lifetime Access — Meesho Autolisting Tool',
-      image: 'https://i.ibb.co/gL9j2Ks2/images-5.png',
+      content_name: 'Meesho Auto Listing Tool'
+    });
+    var options = {
+      key: 'rzp_live_Soq8MomXhDXwsT', // 🔑 Replace with your live key
+      amount: 19900, // in paise (₹199)
+      currency: 'INR',
+      name: 'Autolisting tool',
+      description: 'Lifetime Access — meesho autolisting Tool',
+      image: 'https://i.ibb.co/gL9j2Ks2/images-5.png', // add your logo URL
       handler: function(response) {
-        fbq('track', 'Purchase', { value: 199, currency: 'INR', content_name: 'Meesho Auto Listing Tool', content_type: 'product' });
-        var msg = encodeURIComponent('Hi! Maine abhi payment kar di hai ✅\nPayment ID: ' + response.razorpay_payment_id + '\nMujhe mera tool aur bonus PDFs chahiye 🙏');
+        fbq('track', 'Purchase', {
+          value: 199,
+          currency: 'INR',
+          content_name: 'Meesho Auto Listing Tool',
+          content_type: 'product'
+        });
+        var msg = encodeURIComponent('Hi! Maine abhi payment kar di hai ✅\nPayment ID: ' + response.razorpay_payment_id + '\nMujhe mera tool kahan milega? Where is my tool?');
         window.location.href = 'https://wa.me/919213631880?text=' + msg;
       },
       prefill: { name: '', email: '', contact: '' },
@@ -1057,8 +1412,9 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       theme: { color: '#ff6b00' },
       modal: {
         ondismiss: function() {
-          if(confirm('Koi sawaal hai? WhatsApp pe instantly jawab milega!')) {
-            window.open('https://wa.me/919213631880?text=Hi%2C%20payment%20karne%20mein%20kuch%20doubt%20tha%2C%20help%20chahiye','_blank');
+          // Payment cancelled — show WhatsApp option
+          if(confirm('Kya koi sawaal hai? WhatsApp pe baat karein?')) {
+            window.open('https://wa.me/919213631880?text=Hi%2C%20payment%20ke%20baare%20mein%20puchna%20tha','_blank');
           }
         }
       }
@@ -1067,5 +1423,6 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     rzp.open();
   }
 </script>
+
 </body>
 </html>
