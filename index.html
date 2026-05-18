@@ -78,7 +78,6 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     .hero h1 .highlight { color: var(--brand); }
     .hero p { font-size: 16px; color: #cbd5e1; max-width: 540px; margin: 0 auto 16px; }
 
-    /* HERO TRUST LINE — NEW */
     .hero-trust-line {
       display: inline-flex;
       align-items: center;
@@ -96,7 +95,6 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     }
     .hero-trust-line span { display: flex; align-items: center; gap: 5px; }
 
-    /* DELIVERY CLARITY BOX — NEW */
     .delivery-clarity {
       background: rgba(22, 163, 74, 0.15);
       border: 1.5px solid rgba(74, 222, 128, 0.4);
@@ -121,7 +119,6 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     .timer-label { font-size: 13px; color: #fbbf24; font-weight: 600; margin-bottom: 8px; }
     .timer-digits { font-family: 'Baloo 2', sans-serif; font-size: 32px; font-weight: 800; color: #fff; letter-spacing: 2px; }
     .timer-note { font-size: 11px; color: #94a3b8; margin-top: 4px; }
-    /* Expired state */
     .timer-expired { font-size: 14px; color: #f87171; font-weight: 700; }
 
     /* CTA BUTTONS */
@@ -131,7 +128,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     .btn-whatsapp { display: inline-flex; align-items: center; gap: 8px; background: #25d366; color: #fff; font-size: 15px; font-weight: 700; padding: 13px 28px; border-radius: 50px; border: none; cursor: pointer; text-decoration: none; transition: transform .15s, box-shadow .15s; box-shadow: 0 4px 16px rgba(37,211,102,0.35); }
     .btn-whatsapp:hover { transform: translateY(-2px); }
 
-    /* ── HERO DEMO VIDEO SECTION — NEW ──────── */
+    /* ── HERO DEMO VIDEO — FULLY FIXED ── */
     .hero-video-wrap {
       max-width: 680px;
       margin: 28px auto 0;
@@ -157,30 +154,46 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       height: 1px;
       background: rgba(251,191,36,0.4);
     }
+    /* VIDEO CONTAINER — fixed aspect ratio wrapper */
     .hero-video-container {
       position: relative;
       border-radius: 20px;
       overflow: hidden;
       background: #000;
       box-shadow: 0 12px 48px rgba(0,0,0,0.6), 0 0 0 2px rgba(255,107,0,0.4);
-      aspect-ratio: 16/9;
+      /* Proper 16:9 aspect ratio using padding trick */
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 = 9/16 = 56.25% */
+      height: 0;
       cursor: pointer;
     }
-    .hero-video-container iframe {
+    /* VIDEO element — absolutely positioned to fill container */
+    .hero-video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      border: none;
+      object-fit: contain;   /* contain = no zoom, no crop, full video visible */
+      background: #000;
       display: block;
+      border-radius: 20px;
     }
+    /* OVERLAY — absolutely positioned */
     .hero-video-overlay {
       position: absolute;
-      inset: 0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(15,52,96,0.55) 100%);
       transition: background .25s;
+      border-radius: 20px;
+      z-index: 2;
     }
     .hero-video-container:hover .hero-video-overlay { background: rgba(0,0,0,0.25); }
     .hero-video-container.playing .hero-video-overlay { display: none; }
@@ -206,7 +219,6 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     .hero-video-container:hover .hero-play-btn { transform: scale(1.1); }
     .hero-play-label { margin-top: 14px; font-size: 15px; font-weight: 700; color: #fff; letter-spacing: 0.3px; text-shadow: 0 2px 6px rgba(0,0,0,0.5); }
     .hero-play-sublabel { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 4px; }
-    /* Video badge overlay */
     .video-badge-overlay {
       position: absolute;
       top: 14px;
@@ -219,6 +231,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       border-radius: 20px;
       letter-spacing: 0.5px;
       text-transform: uppercase;
+      z-index: 3;
     }
     .hero-video-caption {
       margin-top: 10px;
@@ -305,7 +318,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     .prepay-trust { background: var(--green-light); border: 1.5px solid #bbf7d0; border-radius: var(--radius); padding: 20px 24px; max-width: 440px; margin: 24px auto 0; display: flex; flex-direction: column; gap: 10px; }
     .prepay-row { display: flex; align-items: center; gap: 10px; font-size: 13px; color: #166534; font-weight: 600; }
 
-    /* ── DELIVERY STEPS — NEW ──────────────── */
+    /* DELIVERY STEPS */
     .delivery-steps {
       background: #f0fdf4;
       border: 1.5px solid #bbf7d0;
@@ -314,33 +327,10 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       max-width: 440px;
       margin: 20px auto 0;
     }
-    .delivery-steps h4 {
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--green);
-      margin-bottom: 16px;
-      text-align: center;
-    }
-    .d-step {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      margin-bottom: 12px;
-    }
+    .delivery-steps h4 { font-size: 15px; font-weight: 800; color: var(--green); margin-bottom: 16px; text-align: center; }
+    .d-step { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 12px; }
     .d-step:last-child { margin-bottom: 0; }
-    .d-num {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--green);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
+    .d-num { width: 28px; height: 28px; border-radius: 50%; background: var(--green); color: #fff; font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .d-text { font-size: 13px; color: #166534; font-weight: 600; line-height: 1.5; }
     .d-text span { color: #14532d; font-weight: 800; }
 
@@ -424,30 +414,11 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; animation: pulse-dot 1.5s ease-in-out infinite; }
     @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.4); } }
 
-    /* PAYMENT SECURITY BADGES — NEW */
-    .security-badges {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin: 20px auto 0;
-      max-width: 440px;
-    }
-    .sec-badge {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: #f8fafc;
-      border: 1.5px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 8px 14px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--text);
-    }
+    /* PAYMENT SECURITY BADGES */
+    .security-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 20px auto 0; max-width: 440px; }
+    .sec-badge { display: flex; align-items: center; gap: 6px; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 8px 14px; font-size: 12px; font-weight: 700; color: var(--text); }
     .sec-badge .sec-icon { font-size: 18px; }
 
-    /* UTILS */
     .text-center { text-align: center; }
     .mt-4 { margin-top: 16px; }
     .mt-6 { margin-top: 24px; }
@@ -485,20 +456,17 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   <h1>Meesho Auto Listing<br><span class="highlight">Extension</span></h1>
   <p>Manual listing mein ghante barbaad ho rahe hain? 10 listings banane mein pura din chala jaata hai — ab nahi! Humara tool sirf 1 minute mein 10 listings auto-create karta hai. 🚀</p>
 
-  <!-- HERO TRUST LINE — NEW -->
   <div class="hero-trust-line">
     <span>✅ 847 sellers ne aaj kharida</span>
     <span>⚡ Instant delivery WhatsApp pe</span>
     <span>🔒 100% Safe Payment</span>
   </div>
 
-  <!-- LIVE VIEWERS COUNTER -->
   <div class="live-viewers">
     <div class="live-dot"></div>
     <span id="viewerCount">23</span> log abhi is page pe hain
   </div>
 
-  <!-- LIVE STATS -->
   <div class="live-stats">
     <div class="stat-item">
       <div class="stat-num">2,847</div>
@@ -514,14 +482,12 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     </div>
   </div>
 
-  <!-- SESSION TIMER -->
   <div class="timer-box">
     <div class="timer-label">⏰ Aapke liye offer valid hai sirf:</div>
     <div class="timer-digits" id="timerDisplay">29:59</div>
     <div class="timer-note" id="timerNote">Yeh offer sirf aapke is session ke liye hai</div>
   </div>
 
-  <!-- DELIVERY CLARITY — NEW -->
   <div class="delivery-clarity">
     ⚡ Payment ke baad sirf 2 minute mein tool milega — seedha WhatsApp pe!
   </div>
@@ -538,20 +504,34 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     🔒 Razorpay secured · Instant WhatsApp delivery · No subscription
   </div>
 
-  <!-- ── HERO DEMO VIDEO — NEW ── -->
+  <!-- ── HERO DEMO VIDEO — ZOOM FIXED ── -->
   <div class="hero-video-wrap">
     <div class="hero-video-label">🎬 Live Demo Dekho</div>
-    <div class="hero-video-container" id="heroVidWrap" onclick="playHeroVideo()">
-      <video id="heroVid" preload="none" playsinline poster="">
+
+    <!-- Container uses padding-top trick for true 16:9 -->
+    <div class="hero-video-container" id="heroVidWrap">
+
+      <!-- Badge sits outside overlay so always visible -->
+      <span class="video-badge-overlay">🔴 Live Demo</span>
+
+      <!-- Video: absolutely fills container, object-fit:contain = no zoom -->
+      <video
+        id="heroVid"
+        preload="none"
+        playsinline
+        style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;background:#000;"
+      >
         <source src="https://steep-waterfall-31b8.yashsethi733.workers.dev/" type="video/mp4">
       </video>
-      <div id="heroVidOverlay" class="hero-video-overlay">
-        <span class="video-badge-overlay">🔴 Live Demo</span>
+
+      <!-- Overlay: click to play -->
+      <div id="heroVidOverlay" class="hero-video-overlay" onclick="playHeroVideo()">
         <div class="hero-play-btn">▶</div>
         <div class="hero-play-label">Tool Ka Demo Dekho — 2 Min</div>
         <div class="hero-play-sublabel">Dekho kaise 10 min mein 30 listings ban jaati hain</div>
       </div>
     </div>
+
     <div class="hero-video-caption">👆 Video dekho phir decide karo — koi pressure nahi</div>
   </div>
 </div>
@@ -798,7 +778,6 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       </div>
     </div>
 
-    <!-- PAYMENT SECURITY BADGES — NEW -->
     <div class="security-badges">
       <div class="sec-badge"><span class="sec-icon">🔒</span> SSL Encrypted</div>
       <div class="sec-badge"><span class="sec-icon">🏦</span> RBI Regulated</div>
@@ -806,7 +785,6 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       <div class="sec-badge"><span class="sec-icon">🛡️</span> Buyer Protected</div>
     </div>
 
-    <!-- DELIVERY STEPS — NEW -->
     <div class="delivery-steps">
       <h4>📦 Tool Kaise Milega? — 3 Aasaan Steps</h4>
       <div class="d-step">
@@ -823,7 +801,6 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       </div>
     </div>
 
-    <!-- PRE-PAYMENT TRUST -->
     <div class="prepay-trust">
       <div class="prepay-row"><span>🔒</span><span>Payment 100% secure — Razorpay India ka #1 gateway, RBI regulated</span></div>
       <div class="prepay-row"><span>⚡</span><span>Payment ke 2 minute mein WhatsApp pe tool milega — koi wait nahi</span></div>
@@ -843,32 +820,26 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       <button class="faq-q" onclick="toggleFaq(this)">Payment ke baad tool kaise aur kahan milega? <span class="arrow">▼</span></button>
       <div class="faq-a"><div class="faq-a-inner">Payment hote hi aap automatically WhatsApp pe redirect ho jaoge. <strong>2 minute ke andar</strong> hamare team se tool ka download link aur complete installation guide WhatsApp pe aa jaayega. Koi email ya wait nahi — seedha instant delivery!</div></div>
     </div>
-
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Kya ye new sellers ke liye bhi kaam karega? <span class="arrow">▼</span></button>
       <div class="faq-a"><div class="faq-a-inner">Bilkul! Chahe aap naye seller ho ya experienced, extension listing process ko fast aur easy bana deta hai. Step-by-step guide bhi milegi.</div></div>
     </div>
-
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Kya ye one-time payment hai? <span class="arrow">▼</span></button>
       <div class="faq-a"><div class="faq-a-inner">Haan, sirf ek baar ₹199 payment. Lifetime access milega — koi monthly ya yearly charge nahi.</div></div>
     </div>
-
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Mera payment safe rahega? <span class="arrow">▼</span></button>
       <div class="faq-a"><div class="faq-a-inner">Haan bilkul. Payment Razorpay se hoti hai jo India ka #1 RBI-regulated gateway hai. Aapki card/UPI details humse share nahi hoti.</div></div>
     </div>
-
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Kya ye mobile pe kaam karta hai? <span class="arrow">▼</span></button>
       <div class="faq-a"><div class="faq-a-inner">Ye extension desktop/laptop browser ke liye optimized hai, jahan sellers normally product listings manage karte hain.</div></div>
     </div>
-
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Kitni listings create kar sakta hoon? <span class="arrow">▼</span></button>
       <div class="faq-a"><div class="faq-a-inner">Unlimited listings create kar sakte ho. Jitne products, utni listings — no limits.</div></div>
     </div>
-
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Kya refund milega agar tool kaam na kare? <span class="arrow">▼</span></button>
       <div class="faq-a"><div class="faq-a-inner">Haan! Agar tool aapke system pe kaam nahi karta aur hum 7 din mein fix nahi kar paate, toh full refund diya jaayega. WhatsApp pe contact karo: +91 92136 31880</div></div>
@@ -876,7 +847,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   </div>
 </section>
 
-<!-- WHATSAPP SUPPORT — only for doubts, moved down -->
+<!-- WHATSAPP SUPPORT -->
 <div class="wa-section">
   <div class="wa-box">
     <div class="wa-icon">💬</div>
@@ -934,56 +905,63 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   </div>
 </div>
 
-<!-- SCRIPTS -->
 <script>
   /* ── REAL PERSISTENT TIMER (LocalStorage) ── */
   (function() {
     const KEY = 'ecomeasy_timer_end_v2';
-    const DURATION = 30 * 60 * 1000; // 30 min
-
+    const DURATION = 30 * 60 * 1000;
     let endTime = localStorage.getItem(KEY);
     if (!endTime || Date.now() > parseInt(endTime)) {
-      // Fresh visitor OR timer already expired before
       endTime = Date.now() + DURATION;
       localStorage.setItem(KEY, endTime);
     }
     endTime = parseInt(endTime);
-
     function updateTimer() {
       const remaining = endTime - Date.now();
       const el = document.getElementById('timerDisplay');
       const el2 = document.getElementById('stickyTimer');
       const note = document.getElementById('timerNote');
-
       if (remaining <= 0) {
-        // Timer expired — show expired state
         if (el) el.innerHTML = '<span class="timer-expired">⚠️ Offer Expire Ho Gaya!</span>';
         if (el2) el2.textContent = 'EXPIRED';
         if (note) note.textContent = 'Price ab ₹499 hai — discount khatam';
         clearInterval(timerInterval);
         return;
       }
-
       const m = Math.floor(remaining / 60000);
       const s = Math.floor((remaining % 60000) / 1000);
       const str = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
       if (el) el.textContent = str;
       if (el2) el2.textContent = str;
     }
-
     updateTimer();
     var timerInterval = setInterval(updateTimer, 1000);
   })();
 
-  /* ── HERO VIDEO PLAY ── */
+  /* ── HERO VIDEO PLAY — FIXED ── */
   function playHeroVideo() {
     const wrap = document.getElementById('heroVidWrap');
     const vid = document.getElementById('heroVid');
+    const overlay = document.getElementById('heroVidOverlay');
+
     if (wrap.classList.contains('playing')) return;
+
+    // Hide overlay first
+    overlay.style.display = 'none';
     wrap.classList.add('playing');
-    document.getElementById('heroVidOverlay').style.display = 'none';
+
+    // Show controls and play
     vid.controls = true;
-    vid.play();
+    vid.load(); // force reload in case preload=none didn't fetch
+
+    vid.play().catch(function(err) {
+      console.warn('Autoplay blocked or video error:', err);
+      // Fallback: open video in new tab
+      window.open('https://steep-waterfall-31b8.yashsethi733.workers.dev/', '_blank');
+      // Restore overlay so user can try again
+      overlay.style.display = 'flex';
+      wrap.classList.remove('playing');
+    });
   }
 
   /* ── FAQ TOGGLE ── */
@@ -1089,7 +1067,5 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     rzp.open();
   }
 </script>
-
-<script src="https://player.vimeo.com/api/player.js"></script>
 </body>
 </html>
