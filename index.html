@@ -1408,7 +1408,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   }
 
   function openRazorpay(userName, userPhone) {
-    fbq('track', 'InitiateCheckout', { value: 99, currency: 'INR', content_name: 'Meesho Auto Listing Tool' });
+    fbq('track', 'InitiateCheckout', { value: 199, currency: 'INR', content_name: 'Meesho Auto Listing Tool' });
     var options = {
       key: 'rzp_live_Soq8MomXhDXwsT',
       amount: 19900,
@@ -1417,7 +1417,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       description: '✅ Tool + 3 FREE Bonus (Low Shipping Trick + 2 guides)',
       image: 'https://i.ibb.co/gL9j2Ks2/images-5.png',
       handler: function(response) {
-        fbq('track', 'Purchase', { value: 99, currency: 'INR', content_name: 'Meesho Auto Listing Tool', content_type: 'product' });
+        fbq('track', 'Purchase', { value: 199, currency: 'INR', content_name: 'Meesho Auto Listing Tool', content_type: 'product' });
         var msg = encodeURIComponent('Hi! Maine abhi payment kar di hai ✅\nNaam: ' + userName + '\nWhatsApp No: ' + userPhone + '\nPayment ID: ' + response.razorpay_payment_id + '\nMujhe mera tool + 3 bonus chahiye! (Low Shipping Trick bhi)');
         window.location.href = 'https://wa.me/919213631880?text=' + msg;
       },
@@ -1426,7 +1426,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       theme: { color: '#ff6b00' },
       modal: {
         ondismiss: function() {
-          fbq('track', 'AddPaymentInfo', { value: 99, currency: 'INR' });
+          fbq('track', 'AddPaymentInfo', { value: 199, currency: 'INR' });
           setTimeout(function() { document.getElementById('exitOverlay').classList.add('active'); }, 400);
         }
       }
