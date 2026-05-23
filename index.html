@@ -28,7 +28,7 @@ fbq('track', 'PageView');
 fbq('track', 'ViewContent', {
   content_name: 'Meesho Auto Listing Tool',
   content_category: 'E-commerce Tool',
-  value: 199,
+  value: 99,
   currency: 'INR'
 });
 </script>
@@ -62,6 +62,42 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       background: #f8fafc;
       color: var(--text);
       line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════════
+       SPECIAL OFFER BANNER (10 min timer)
+    ══════════════════════════════════════ */
+    .special-offer-banner {
+      background: linear-gradient(90deg, #dc2626, #ef4444, #dc2626);
+      background-size: 200% 100%;
+      animation: banner-shift 3s ease-in-out infinite;
+      color: #fff;
+      padding: 10px 16px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    @keyframes banner-shift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+    .offer-banner-timer {
+      background: #fff;
+      color: #dc2626;
+      font-family: 'Baloo 2', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      padding: 2px 12px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      min-width: 60px;
+      display: inline-block;
+    }
+    .special-offer-banner.expired {
+      background: #64748b;
+      animation: none;
     }
 
     .marquee-bar {
@@ -145,6 +181,39 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       max-width: 540px;
       margin: 0 auto 28px;
     }
+
+    /* ── OFFER PRICE BADGE (inline in buttons) ── */
+    .offer-price-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .price-was {
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+    .price-now {
+      font-size: 20px;
+      font-weight: 800;
+    }
+    .offer-label-badge {
+      background: #fff;
+      color: #dc2626;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    /* When offer expires */
+    .offer-expired .price-was { display: none; }
+    .offer-expired .offer-label-badge { display: none; }
+    .offer-expired .price-now { font-size: 18px; }
 
     .live-stats {
       background: rgba(255,255,255,0.08);
@@ -402,6 +471,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     .price-badge { background: var(--brand); color: #fff; font-size: 12px; font-weight: 700; padding: 5px 16px; border-radius: 20px; display: inline-block; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
     .price-original { font-size: 16px; color: #94a3b8; text-decoration: line-through; margin-bottom: 4px; }
     .price-current { font-family: 'Baloo 2', sans-serif; font-size: 52px; font-weight: 800; color: #fbbf24; line-height: 1; }
+    .price-was-big { font-family: 'Baloo 2', sans-serif; font-size: 22px; font-weight: 700; color: #64748b; text-decoration: line-through; line-height: 1; margin-bottom: 2px; }
     .price-tax { font-size: 13px; color: #94a3b8; margin-bottom: 24px; }
     .price-features { list-style: none; text-align: left; margin-bottom: 28px; display: flex; flex-direction: column; gap: 10px; }
     .price-features li { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; }
@@ -412,6 +482,23 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
 
     .prepay-trust { background: var(--green-light); border: 1.5px solid #bbf7d0; border-radius: var(--radius); padding: 20px 24px; max-width: 440px; margin: 24px auto 0; display: flex; flex-direction: column; gap: 10px; }
     .prepay-row { display: flex; align-items: center; gap: 10px; font-size: 13px; color: #166534; font-weight: 600; }
+
+    /* ── OFFER MINI STRIP (above buy buttons) ── */
+    .offer-mini-strip {
+      background: linear-gradient(90deg, #dc2626, #b91c1c);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      white-space: nowrap;
+    }
+    .offer-mini-strip .mini-timer { font-family: 'Baloo 2', sans-serif; font-size: 15px; letter-spacing: 1px; }
+    .offer-mini-strip.expired { background: #64748b; }
 
     .wa-section { background: #f0fdf4; padding: 48px 20px; text-align: center; }
     .wa-box { background: var(--surface); border-radius: var(--radius); padding: 32px; max-width: 460px; margin: 0 auto; box-shadow: var(--shadow); border: 2px dashed #86efac; }
@@ -436,6 +523,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     .sticky-price { font-family: 'Baloo 2', sans-serif; }
     .sticky-price .old { font-size: 13px; color: var(--muted); text-decoration: line-through; }
     .sticky-price .new { font-size: 22px; font-weight: 800; color: var(--brand); }
+    .sticky-offer-badge { font-size: 10px; font-weight: 800; background: #dc2626; color: #fff; padding: 2px 7px; border-radius: 20px; vertical-align: middle; margin-left: 4px; }
 
     .text-center { text-align: center; }
     .mt-4 { margin-top: 16px; }
@@ -475,9 +563,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     .proof-img-card:hover { transform: scale(1.02); }
     .proof-img-card img { width: 100%; display: block; object-fit: cover; }
 
-    /* ══════════════════════════════════════════
-       EXIT POPUP — UPDATED DOWNSELL DESIGN
-    ══════════════════════════════════════════ */
+    /* EXIT POPUP */
     .exit-overlay {
       display: none; position: fixed; inset: 0;
       background: rgba(0,0,0,0.72); z-index: 9999;
@@ -492,8 +578,6 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     }
     @keyframes popIn { from { transform: scale(0.82); opacity:0; } to { transform: scale(1); opacity:1; } }
     .exit-close { position: absolute; top: 14px; right: 18px; font-size: 22px; color: #94a3b8; cursor: pointer; background: none; border: none; line-height: 1; }
-
-    /* top red urgency strip */
     .ep-urgency-strip {
       background: linear-gradient(90deg, #ef4444, #dc2626);
       color: #fff; font-size: 13px; font-weight: 700;
@@ -502,7 +586,6 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       animation: ep-pulse 1.5s ease-in-out infinite;
     }
     @keyframes ep-pulse { 0%,100%{opacity:1;} 50%{opacity:0.85;} }
-
     .ep-emoji { font-size: 44px; margin-bottom: 8px; display: block; }
     .exit-popup h2 {
       font-family: 'Baloo 2', sans-serif;
@@ -512,16 +595,9 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     .exit-popup .ep-sub {
       font-size: 13px; color: #64748b; margin-bottom: 20px; line-height: 1.5;
     }
-
-    /* price before/after */
-    .ep-price-before {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      margin-bottom: 6px;
-    }
+    .ep-price-before { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 6px; }
     .ep-was { font-size: 15px; color: #94a3b8; }
     .ep-was-amount { font-size: 22px; font-weight: 800; color: #94a3b8; text-decoration: line-through; }
-
-    /* CHECKBOX OFFER BOX */
     .ep-offer-box {
       background: linear-gradient(135deg, #fff7ed, #fff3e8);
       border: 2.5px solid #ff6b00;
@@ -544,43 +620,18 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     .ep-offer-box:hover { background: linear-gradient(135deg, #fff3e0, #ffe8cc); transform: scale(1.01); }
     .ep-offer-box.ticked { background: linear-gradient(135deg, #dcfce7, #bbf7d0); border-color: #16a34a; }
     .ep-offer-box.ticked::before { background: #16a34a; content: '✅ SELECTED'; }
-
-    .ep-check-row {
-      display: flex; align-items: center; gap: 14px;
-    }
-    .ep-checkbox {
-      width: 28px; height: 28px; border-radius: 8px;
-      border: 2.5px solid #ff6b00;
-      background: #fff;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; transition: all .2s;
-      font-size: 16px;
-    }
-    .ep-offer-box.ticked .ep-checkbox {
-      background: #16a34a; border-color: #16a34a; color: #fff;
-    }
+    .ep-check-row { display: flex; align-items: center; gap: 14px; }
+    .ep-checkbox { width: 28px; height: 28px; border-radius: 8px; border: 2.5px solid #ff6b00; background: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all .2s; font-size: 16px; }
+    .ep-offer-box.ticked .ep-checkbox { background: #16a34a; border-color: #16a34a; color: #fff; }
     .ep-check-text { flex: 1; text-align: left; }
-    .ep-check-title {
-      font-size: 15px; font-weight: 800; color: #1a1a2e; line-height: 1.3;
-    }
+    .ep-check-title { font-size: 15px; font-weight: 800; color: #1a1a2e; line-height: 1.3; }
     .ep-offer-box.ticked .ep-check-title { color: #14532d; }
     .ep-check-desc { font-size: 12px; color: #64748b; margin-top: 3px; line-height: 1.4; }
     .ep-offer-box.ticked .ep-check-desc { color: #166534; }
-    .ep-new-price {
-      font-family: 'Baloo 2', sans-serif;
-      font-size: 32px; font-weight: 800; color: #ff6b00;
-      text-align: right; white-space: nowrap; flex-shrink: 0;
-      line-height: 1;
-    }
+    .ep-new-price { font-family: 'Baloo 2', sans-serif; font-size: 32px; font-weight: 800; color: #ff6b00; text-align: right; white-space: nowrap; flex-shrink: 0; line-height: 1; }
     .ep-offer-box.ticked .ep-new-price { color: #16a34a; }
-    .ep-save-badge {
-      display: inline-block; background: #ff6b00; color: #fff;
-      font-size: 11px; font-weight: 800; padding: 2px 8px;
-      border-radius: 20px; margin-top: 4px;
-    }
+    .ep-save-badge { display: inline-block; background: #ff6b00; color: #fff; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 20px; margin-top: 4px; }
     .ep-offer-box.ticked .ep-save-badge { background: #16a34a; }
-
-    /* CTA button in popup */
     .ep-cta {
       width: 100%; font-size: 16px; padding: 15px;
       border-radius: 50px; border: none; cursor: pointer;
@@ -592,16 +643,8 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     }
     .ep-cta:disabled { background: #cbd5e1; box-shadow: none; cursor: not-allowed; }
     .ep-cta:not(:disabled):hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,107,0,0.5); }
-    .ep-cta::after {
-      content: '';
-      position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
-      background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.45) 50%, transparent 80%);
-      animation: btn-shimmer 2.2s ease-in-out infinite;
-      pointer-events: none;
-    }
+    .ep-cta::after { content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.45) 50%, transparent 80%); animation: btn-shimmer 2.2s ease-in-out infinite; pointer-events: none; }
     .ep-cta:disabled::after { display: none; }
-
-    /* hint text */
     .ep-hint { font-size: 11px; color: #94a3b8; margin-top: 10px; }
     .ep-skip { display: block; margin-top: 10px; font-size: 12px; color: #94a3b8; cursor: pointer; text-decoration: underline; }
 
@@ -660,6 +703,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       .exit-popup { padding: 24px 18px 20px; }
       .ep-new-price { font-size: 26px; }
       .exit-popup h2 { font-size: 19px; }
+      .special-offer-banner { font-size: 12px; gap: 8px; }
     }
     @media(max-width:380px) {
       .hero h1 { font-size: 22px; }
@@ -668,6 +712,15 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   </style>
 </head>
 <body>
+
+<!-- ══════════════════════════════════════
+     SPECIAL OFFER TOP BANNER (10 min)
+══════════════════════════════════════ -->
+<div class="special-offer-banner" id="specialOfferBanner">
+  <span>🔥 SPECIAL OFFER — Sirf</span>
+  <span class="offer-banner-timer" id="offerBannerTimer">10:00</span>
+  <span>ke liye &nbsp;|&nbsp; ₹199 → <strong>₹99 only!</strong> 🎉</span>
+</div>
 
 <!-- MARQUEE -->
 <div class="marquee-bar">
@@ -794,9 +847,19 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   </div>
 
   <!-- PRICE DISPLAY -->
-  <div class="hero-price-display" id="heroPriceDisplay">💳 Total: ₹199</div>
+  <div class="hero-price-display" id="heroPriceDisplay">
+    💳 Total: <span style="text-decoration:line-through;color:#64748b;font-size:13px;" id="heroPriceWas">₹199</span> → <span id="heroPriceNow" style="color:#4ade80;">₹99</span>
+    <span id="heroOfferBadge" style="background:#dc2626;color:#fff;font-size:11px;font-weight:800;padding:2px 8px;border-radius:20px;vertical-align:middle;margin-left:4px;">Special Offer 🔥</span>
+  </div>
 
-  <button class="btn-primary" id="heroBuyBtn" onclick="startPayment()">🚀 ₹199 mein Abhi Kharido + 3 Bonus FREE →</button>
+  <!-- OFFER MINI STRIP -->
+  <div class="offer-mini-strip" id="heroOfferStrip">
+    ⏰ Sirf <span class="mini-timer" id="heroMiniTimer">10:00</span> bacha hai &nbsp;|&nbsp; ₹99 mein milega — abhi kharido!
+  </div>
+
+  <button class="btn-primary" id="heroBuyBtn" onclick="startPayment()">
+    🚀 <span id="heroBtnText">₹99 mein Abhi Kharido</span> <span id="heroBtnWas" style="text-decoration:line-through;opacity:0.7;font-size:14px;margin-left:4px;">₹199</span> + 3 Bonus FREE →
+  </button>
   <div style="margin-top:10px;font-size:12px;color:#94a3b8;">✅ Payment ke baad turant WhatsApp pe tool + bonus milega</div>
   <div style="margin-top:12px;">
     <a href="https://wa.me/919213631880?text=Hi%21%20Maine%20abhi%20aapka%20Meesho%20Auto%20Listing%20Tool%20page%20dekha%20%F0%9F%91%80%20Mujhe%20kuch%20doubt%20hai%2C%20kya%20aap%20help%20kar%20sakte%20hain%3F" class="btn-whatsapp" style="font-size:14px;padding:11px 24px;">💬 Pehle Baat Karo — Free</a>
@@ -894,7 +957,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
         <div class="sub">Daily time saved with auto listing automation</div>
       </div>
     </div>
-    <p style="text-align:center;color:#64748b;font-size:12px;margin-top:12px;">Tool ki cost: ₹199 · Potential return: <strong style="color:#fbbf24;" id="roiVsPrice">100x+</strong></p>
+    <p style="text-align:center;color:#64748b;font-size:12px;margin-top:12px;">Tool ki cost: <span id="calcToolPrice">₹99</span> · Potential return: <strong style="color:#fbbf24;" id="roiVsPrice">100x+</strong></p>
   </div>
 </section>
 
@@ -1003,11 +1066,21 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   <div class="container">
     <h2 class="section-title">Ek Baar Ki Keemat, Lifetime Faida</h2>
     <p class="section-sub">No subscription · No hidden charges · Instant access</p>
+
+    <!-- OFFER MINI STRIP above price card -->
+    <div style="text-align:center;margin-bottom:12px;">
+      <div class="offer-mini-strip" id="pricingOfferStrip">
+        🔥 SPECIAL OFFER — Sirf <span class="mini-timer" id="pricingMiniTimer">10:00</span> bacha hai!
+      </div>
+    </div>
+
     <div class="price-card">
-      <span class="price-badge">🔥 Limited Time Offer</span>
+      <span class="price-badge">🔥 Special Offer — Limited Time</span>
       <div class="price-original">Regular price: ₹999</div>
-      <div class="price-current">₹199</div>
-      <div class="price-tax">+ taxes · One-time payment</div>
+      <!-- Was ₹199, Now ₹99 -->
+      <div class="price-was-big" id="pricingWas">₹199</div>
+      <div class="price-current" id="pricingNow">₹99</div>
+      <div class="price-tax" id="pricingTax">Special Offer Price · One-time payment · <span id="pricingOfferNote" style="color:#4ade80;font-weight:700;">Sirf 10 min ke liye!</span></div>
       <ul class="price-features">
         <li><span class="icon">✓</span><span>1-Click Auto Listing System</span></li>
         <li><span class="icon">✓</span><span>Unlimited product listings creation</span></li>
@@ -1022,10 +1095,12 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
         <span style="font-size:36px;flex-shrink:0;">🛡️</span>
         <div>
           <div style="font-size:15px;font-weight:800;color:#14532d;line-height:1.2;">7-Day Money Back Guarantee</div>
-          <div style="font-size:12px;color:#166534;margin-top:3px;font-weight:600;">Kaam na kare toh poora ₹199 wapas — zero sawaal</div>
+          <div style="font-size:12px;color:#166534;margin-top:3px;font-weight:600;">Kaam na kare toh poora paisa wapas — zero sawaal</div>
         </div>
       </div>
-      <button class="btn-primary" onclick="startPayment()" style="width:100%;font-size:18px;padding:18px;">🚀 Abhi Kharido — ₹199 Only</button>
+      <button class="btn-primary" onclick="startPayment()" style="width:100%;font-size:18px;padding:18px;" id="pricingBuyBtn">
+        🚀 Abhi Kharido — <span id="pricingBtnPrice">₹99</span> <span id="pricingBtnWas" style="text-decoration:line-through;opacity:0.65;font-size:14px;">₹199</span>
+      </button>
       <p style="text-align:center;font-size:12px;color:#94a3b8;margin-top:10px;margin-bottom:4px;">✅ Payment ke baad <strong style="color:#4ade80;">turant WhatsApp pe tool milega</strong> — koi wait nahi</p>
       <div style="text-align:center;margin-top:10px;margin-bottom:4px;">
         <p style="font-size:12px;color:#94a3b8;margin-bottom:8px;">Ya pehle baat karo, phir kharido 👇</p>
@@ -1117,11 +1192,13 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
 <!-- STICKY BUY BAR -->
 <div class="sticky-bar">
   <div class="sticky-price">
-    <div class="old">Regular ₹999</div>
-    <div class="new" id="stickyPriceNew">₹199 Only</div>
+    <div class="old" id="stickyOld">₹199</div>
+    <div class="new" id="stickyPriceNew">
+      ₹99 <span class="sticky-offer-badge" id="stickyOfferBadge">Special Offer</span>
+    </div>
   </div>
-  <div class="sticky-timer-text" style="text-align:center;font-size:12px;color:#ff6b00;font-weight:700;">
-    ⏰ <span id="stickyTimer">29:59</span> bacha hai
+  <div class="sticky-timer-text" style="text-align:center;font-size:12px;color:#dc2626;font-weight:700;">
+    🔥 <span id="stickyTimer">10:00</span> bacha!
   </div>
   <div style="display:flex;gap:8px;align-items:center;">
     <a href="https://wa.me/919213631880?text=Hi%21%20Maine%20abhi%20aapka%20Meesho%20Auto%20Listing%20Tool%20page%20dekha%20%F0%9F%91%80%20Mujhe%20kuch%20doubt%20hai%2C%20kya%20aap%20help%20kar%20sakte%20hain%3F"
@@ -1129,8 +1206,8 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
        style="display:inline-flex;align-items:center;gap:5px;background:#25d366;color:#fff;font-size:13px;font-weight:700;padding:11px 14px;border-radius:50px;text-decoration:none;white-space:nowrap;box-shadow:0 3px 12px rgba(37,211,102,0.4);">
       💬 Poochho
     </a>
-    <button class="btn-primary" onclick="startPayment()" style="white-space:nowrap;font-size:13px;padding:11px 16px;">
-      🛒 Abhi Kharido — ₹199
+    <button class="btn-primary" onclick="startPayment()" style="white-space:nowrap;font-size:13px;padding:11px 16px;" id="stickyBuyBtn">
+      🛒 ₹99 — Abhi Kharido
     </button>
   </div>
 </div>
@@ -1145,26 +1222,18 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     EXIT INTENT POPUP — DOWNSELL ₹199 → ₹99
-══════════════════════════════════════════ -->
+<!-- EXIT INTENT POPUP -->
 <div class="exit-overlay" id="exitOverlay">
   <div class="exit-popup">
     <button class="exit-close" onclick="closeExit()">✕</button>
-
     <div class="ep-urgency-strip">⚡ Ruko! Sirf Aaj Ke Liye Special Offer</div>
-
     <span class="ep-emoji">😱</span>
     <h2>Itni Jaldi Mat Jao!</h2>
-    <p class="ep-sub">Hum jaante hain ₹199 thoda zyada laga hoga. Isliye <strong>sirf aaj</strong> ke liye ek special deal hai — neche tick karo aur price khud dekho!</p>
-
-    <!-- WAS price -->
+    <p class="ep-sub">Hum jaante hain thoda zyada laga hoga. Isliye <strong>sirf aaj</strong> ke liye ek special deal hai — neche tick karo aur price khud dekho!</p>
     <div class="ep-price-before">
       <span class="ep-was">Normal price:</span>
       <span class="ep-was-amount">₹199</span>
     </div>
-
-    <!-- CHECKBOX OFFER BOX -->
     <div class="ep-offer-box" id="epOfferBox" onclick="toggleExitOffer()">
       <div class="ep-check-row">
         <div class="ep-checkbox" id="epCheckbox">✓</div>
@@ -1178,12 +1247,9 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
         </div>
       </div>
     </div>
-
-    <!-- CTA BUTTON — disabled until ticked -->
     <button class="ep-cta" id="epCtaBtn" onclick="exitBuy()" disabled>
       ☝️ Pehle Upar Tick Karo
     </button>
-
     <div class="ep-hint" id="epHint">Checkbox tick karo → button activate hoga → ₹99 pe checkout</div>
     <span class="exit-skip" onclick="closeExit()">Nahi chahiye, poora ₹199 dunga →</span>
   </div>
@@ -1211,6 +1277,106 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
 </div>
 
 <script>
+  // ══════════════════════════════════════════
+  // SPECIAL OFFER TIMER (10 minutes)
+  // ══════════════════════════════════════════
+  var _offerActive = true;
+  var _offerEnd = Date.now() + 10 * 60 * 1000;
+
+  function updateOfferTimer() {
+    var remaining = Math.max(0, _offerEnd - Date.now());
+    var m = Math.floor(remaining / 60000);
+    var s = Math.floor((remaining % 60000) / 1000);
+    var str = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+
+    // Update all timer displays
+    var els = ['offerBannerTimer', 'heroMiniTimer', 'pricingMiniTimer', 'stickyTimer'];
+    els.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.textContent = str;
+    });
+
+    if (remaining === 0 && _offerActive) {
+      _offerActive = false;
+      expireOffer();
+    }
+  }
+
+  function expireOffer() {
+    // Banner
+    var banner = document.getElementById('specialOfferBanner');
+    if (banner) { banner.classList.add('expired'); banner.innerHTML = '⏰ Special Offer Khatam Ho Gayi — Regular Price ₹199 Lagi Hai'; }
+
+    // Hero price
+    var wasEl = document.getElementById('heroPriceWas');
+    var nowEl = document.getElementById('heroPriceNow');
+    var badge = document.getElementById('heroOfferBadge');
+    var strip = document.getElementById('heroOfferStrip');
+    if (wasEl) wasEl.style.display = 'none';
+    if (nowEl) nowEl.textContent = '₹199';
+    if (badge) badge.style.display = 'none';
+    if (strip) { strip.classList.add('expired'); strip.innerHTML = '⏰ Offer Expire Ho Gayi — Regular Price ₹199'; }
+
+    // Hero button
+    var heroBtnText = document.getElementById('heroBtnText');
+    var heroBtnWas = document.getElementById('heroBtnWas');
+    if (heroBtnText) heroBtnText.textContent = '₹199 mein Abhi Kharido';
+    if (heroBtnWas) heroBtnWas.style.display = 'none';
+
+    // Pricing section
+    var pricingWas = document.getElementById('pricingWas');
+    var pricingNow = document.getElementById('pricingNow');
+    var pricingTax = document.getElementById('pricingTax');
+    var pricingOfferNote = document.getElementById('pricingOfferNote');
+    var pricingOfferStrip = document.getElementById('pricingOfferStrip');
+    if (pricingWas) pricingWas.style.display = 'none';
+    if (pricingNow) pricingNow.textContent = '₹199';
+    if (pricingOfferNote) pricingOfferNote.style.display = 'none';
+    if (pricingOfferStrip) { pricingOfferStrip.classList.add('expired'); pricingOfferStrip.textContent = '⏰ Offer Expire — Regular Price ₹199'; }
+
+    // Pricing button
+    var pricingBtnPrice = document.getElementById('pricingBtnPrice');
+    var pricingBtnWas = document.getElementById('pricingBtnWas');
+    if (pricingBtnPrice) pricingBtnPrice.textContent = '₹199';
+    if (pricingBtnWas) pricingBtnWas.style.display = 'none';
+
+    // Sticky bar
+    var stickyPrice = document.getElementById('stickyPriceNew');
+    var stickyBadge = document.getElementById('stickyOfferBadge');
+    var stickyOld = document.getElementById('stickyOld');
+    var stickyBtn = document.getElementById('stickyBuyBtn');
+    if (stickyPrice) stickyPrice.innerHTML = '₹199';
+    if (stickyBadge) stickyBadge.style.display = 'none';
+    if (stickyOld) stickyOld.textContent = '₹999';
+    if (stickyBtn) stickyBtn.textContent = '🛒 ₹199 — Abhi Kharido';
+
+    // Sticky timer text
+    var stickyTimerText = document.querySelector('.sticky-timer-text');
+    if (stickyTimerText) stickyTimerText.style.display = 'none';
+
+    // Calculator price note
+    var calcPrice = document.getElementById('calcToolPrice');
+    if (calcPrice) calcPrice.textContent = '₹199';
+  }
+
+  updateOfferTimer();
+  setInterval(updateOfferTimer, 1000);
+
+  // ── SESSION TIMER (30 min) ──
+  (function() {
+    var endTime = Date.now() + 30 * 60 * 1000;
+    function updateTimer() {
+      var remaining = Math.max(0, endTime - Date.now());
+      var m = Math.floor(remaining / 60000);
+      var s = Math.floor((remaining % 60000) / 1000);
+      var str = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+      var el = document.getElementById('timerDisplay');
+      if (el) el.textContent = str;
+    }
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  })();
+
   // ── VIDEO ──
   function playMiniVideo() {
     var wrapper = document.getElementById('miniVideoWrapper');
@@ -1222,23 +1388,6 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     video.play();
     overlay.style.display = 'none';
   }
-
-  // ── TIMER ──
-  (function() {
-    var endTime = Date.now() + 30 * 60 * 1000;
-    function updateTimer() {
-      var remaining = Math.max(0, endTime - Date.now());
-      var m = Math.floor(remaining / 60000);
-      var s = Math.floor((remaining % 60000) / 1000);
-      var str = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
-      var el = document.getElementById('timerDisplay');
-      var el2 = document.getElementById('stickyTimer');
-      if (el) el.textContent = str;
-      if (el2) el2.textContent = str;
-    }
-    updateTimer();
-    setInterval(updateTimer, 1000);
-  })();
 
   // ── FAQ ──
   function toggleFaq(btn) {
@@ -1256,8 +1405,9 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     var savedHrs = (savedMinsPerDay / 60).toFixed(1);
     var label = savedMinsPerDay >= 60 ? savedHrs + ' Ghante Saved' : Math.round(savedMinsPerDay) + '+ Minutes Saved';
     document.getElementById('roiResult').textContent = label;
+    var currentPrice = _offerActive ? 99 : 199;
     var monthlyValue = Math.round((savedMinsPerDay / 60) * 50 * 30);
-    var roi = monthlyValue > 0 ? Math.round(monthlyValue / 199) + 'x' : '50x+';
+    var roi = monthlyValue > 0 ? Math.round(monthlyValue / currentPrice) + 'x' : '100x+';
     document.getElementById('roiVsPrice').textContent = roi;
   }
   calcROI();
@@ -1267,26 +1417,102 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   function toggleFlipkart() {
     _flipkartSelected = !_flipkartSelected;
     var combo = document.getElementById('fkCombo');
-    var priceDisplay = document.getElementById('heroPriceDisplay');
-    var buyBtn = document.getElementById('heroBuyBtn');
-    var stickyPrice = document.getElementById('stickyPriceNew');
     combo.classList.toggle('checked', _flipkartSelected);
+
+    var heroPriceWas = document.getElementById('heroPriceWas');
+    var heroPriceNow = document.getElementById('heroPriceNow');
+    var heroOfferBadge = document.getElementById('heroOfferBadge');
+    var heroBtnText = document.getElementById('heroBtnText');
+    var heroBtnWas = document.getElementById('heroBtnWas');
+    var stickyPrice = document.getElementById('stickyPriceNew');
+    var stickyBadge = document.getElementById('stickyOfferBadge');
+    var stickyBtn = document.getElementById('stickyBuyBtn');
+
     if (_flipkartSelected) {
-      priceDisplay.textContent = '💳 Total: ₹299 (Meesho + Flipkart Combo 🎉)';
-      priceDisplay.style.color = '#fbbf24';
-      buyBtn.textContent = '🚀 ₹299 mein Dono Tools Kharido →';
-      if (stickyPrice) stickyPrice.textContent = '₹299 (Combo)';
+      // Flipkart combo = ₹299 fixed
+      if (heroPriceWas) heroPriceWas.style.display = 'none';
+      if (heroPriceNow) heroPriceNow.textContent = '₹299';
+      if (heroOfferBadge) heroOfferBadge.textContent = 'Combo Deal 🎉';
+      if (heroBtnText) heroBtnText.textContent = '₹299 mein Dono Tools Kharido';
+      if (heroBtnWas) heroBtnWas.style.display = 'none';
+      if (stickyPrice) stickyPrice.innerHTML = '₹299 <span class="sticky-offer-badge">Combo</span>';
+      if (stickyBtn) stickyBtn.textContent = '🛒 ₹299 — Combo Kharido';
     } else {
-      priceDisplay.textContent = '💳 Total: ₹199';
-      priceDisplay.style.color = '#4ade80';
-      buyBtn.textContent = '🚀 ₹199 mein Abhi Kharido + 3 Bonus FREE →';
-      if (stickyPrice) stickyPrice.textContent = '₹199 Only';
+      // Back to offer price
+      var currentPrice = _offerActive ? '₹99' : '₹199';
+      var currentAmt = _offerActive ? 9900 : 19900;
+      if (heroPriceWas) { heroPriceWas.style.display = _offerActive ? 'inline' : 'none'; heroPriceWas.textContent = '₹199'; }
+      if (heroPriceNow) heroPriceNow.textContent = currentPrice;
+      if (heroOfferBadge) { heroOfferBadge.style.display = _offerActive ? 'inline' : 'none'; heroOfferBadge.textContent = 'Special Offer 🔥'; }
+      if (heroBtnText) heroBtnText.textContent = currentPrice + ' mein Abhi Kharido';
+      if (heroBtnWas) heroBtnWas.style.display = _offerActive ? 'inline' : 'none';
+      if (stickyPrice) stickyPrice.innerHTML = currentPrice + (_offerActive ? ' <span class="sticky-offer-badge">Special Offer</span>' : '');
+      if (stickyBtn) stickyBtn.textContent = '🛒 ' + currentPrice + ' — Abhi Kharido';
     }
   }
 
-  // ══════════════════════════════════════════
-  // EXIT INTENT POPUP — DOWNSELL LOGIC
-  // ══════════════════════════════════════════
+  // ── MAIN PAYMENT ──
+  function startPayment() {
+    var amount, amtText, desc;
+
+    if (_flipkartSelected) {
+      amount = 29900;
+      amtText = '₹299';
+      desc = '✅ Meesho + Flipkart Combo Tools + 3 FREE Bonus';
+    } else if (_offerActive) {
+      amount = 9900;
+      amtText = '₹99';
+      desc = '✅ Meesho Tool + 3 FREE Bonus (Special Offer ₹99)';
+    } else {
+      amount = 19900;
+      amtText = '₹199';
+      desc = '✅ Meesho Tool + 3 FREE Bonus (Low Shipping Trick + 2 guides)';
+    }
+
+    fbq('track', 'InitiateCheckout', { value: amount/100, currency: 'INR', content_name: 'Meesho Auto Listing Tool' });
+
+    var options = {
+      key: 'rzp_live_Soq8MomXhDXwsT',
+      amount: amount,
+      currency: 'INR',
+      name: 'Autolisting tool',
+      description: desc,
+      image: 'https://i.ibb.co/gL9j2Ks2/images-5.png',
+      handler: function(response) {
+        fbq('track', 'Purchase', { value: amount/100, currency: 'INR', content_name: 'Meesho Auto Listing Tool', content_type: 'product' });
+        var combo = _flipkartSelected ? ' + Flipkart Tool' : '';
+        var msg = encodeURIComponent(
+          'Hi! Maine abhi payment kar di hai ✅\n' +
+          'Payment ID: ' + response.razorpay_payment_id + '\n' +
+          'Amount: ' + amtText + combo + '\n' +
+          'Mujhe mera tool + 3 bonus chahiye! (Low Shipping Trick bhi)\n' +
+          (_flipkartSelected ? 'Flipkart tool bhi chahiye! 🛍️' : '')
+        );
+        window.location.href = 'https://wa.me/919213631880?text=' + msg;
+      },
+      prefill: { name: '', email: '', contact: '' },
+      notes: {
+        product: _flipkartSelected ? 'meesho + flipkart combo' : 'meesho autolisting tool',
+        source_page: 'ecomeasy.store landing page',
+        offer_type: _offerActive ? 'special_offer_99' : 'regular_199',
+        flipkart_combo: _flipkartSelected ? 'yes' : 'no'
+      },
+      theme: { color: '#ff6b00' },
+      modal: {
+        ondismiss: function() {
+          fbq('track', 'AddPaymentInfo', { value: amount/100, currency: 'INR' });
+          if (!_exitShown) {
+            _exitShown = true;
+            setTimeout(function() { document.getElementById('exitOverlay').classList.add('active'); }, 400);
+          }
+        }
+      }
+    };
+    var rzp = new Razorpay(options);
+    rzp.open();
+  }
+
+  // ── EXIT INTENT ──
   var _exitOfferTicked = false;
   var _exitShown = false;
 
@@ -1343,11 +1569,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
         window.location.href = 'https://wa.me/919213631880?text=' + msg;
       },
       prefill: { name: '', email: '', contact: '' },
-      notes: {
-        product: 'meesho autolisting tool - exit downsell',
-        source_page: 'ecomeasy.store exit popup',
-        offer_type: 'exit_downsell_99'
-      },
+      notes: { product: 'meesho autolisting tool - exit downsell', offer_type: 'exit_downsell_99' },
       theme: { color: '#16a34a' },
       modal: {
         ondismiss: function() {
@@ -1371,13 +1593,11 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
         document.getElementById('exitOverlay').classList.add('active');
       }
     });
-    // Mobile: back button / page hide
     document.addEventListener('visibilitychange', function() {
       if (document.visibilityState === 'hidden' && !_exitShown) {
         _exitShown = true;
       }
     });
-    // Fallback: 45 sec timer
     setTimeout(function() {
       if (!_exitShown) {
         _exitShown = true;
@@ -1385,57 +1605,6 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       }
     }, 45000);
   })();
-
-  // ── MAIN PAYMENT (₹199 default) ──
-  function startPayment() {
-    var amount  = _flipkartSelected ? 29900 : 19900;
-    var amtText = _flipkartSelected ? '₹299' : '₹199';
-    var desc    = _flipkartSelected
-      ? '✅ Meesho + Flipkart Combo Tools + 3 FREE Bonus'
-      : '✅ Meesho Tool + 3 FREE Bonus (Low Shipping Trick + 2 guides)';
-
-    fbq('track', 'InitiateCheckout', { value: _flipkartSelected ? 299 : 199, currency: 'INR', content_name: 'Meesho Auto Listing Tool' });
-
-    var options = {
-      key: 'rzp_live_Soq8MomXhDXwsT',
-      amount: amount,
-      currency: 'INR',
-      name: 'Autolisting tool',
-      description: desc,
-      image: 'https://i.ibb.co/gL9j2Ks2/images-5.png',
-      handler: function(response) {
-        fbq('track', 'Purchase', { value: _flipkartSelected ? 299 : 199, currency: 'INR', content_name: 'Meesho Auto Listing Tool', content_type: 'product' });
-        var combo = _flipkartSelected ? ' + Flipkart Tool' : '';
-        var msg = encodeURIComponent(
-          'Hi! Maine abhi payment kar di hai ✅\n' +
-          'Payment ID: ' + response.razorpay_payment_id + '\n' +
-          'Amount: ' + amtText + combo + '\n' +
-          'Mujhe mera tool + 3 bonus chahiye! (Low Shipping Trick bhi)\n' +
-          (_flipkartSelected ? 'Flipkart tool bhi chahiye! 🛍️' : '')
-        );
-        window.location.href = 'https://wa.me/919213631880?text=' + msg;
-      },
-      prefill: { name: '', email: '', contact: '' },
-      notes: {
-        product: _flipkartSelected ? 'meesho + flipkart combo' : 'meesho autolisting tool',
-        source_page: 'ecomeasy.store landing page',
-        flipkart_combo: _flipkartSelected ? 'yes' : 'no'
-      },
-      theme: { color: '#ff6b00' },
-      modal: {
-        ondismiss: function() {
-          fbq('track', 'AddPaymentInfo', { value: _flipkartSelected ? 299 : 199, currency: 'INR' });
-          // Show exit popup if they dismiss payment
-          if (!_exitShown) {
-            _exitShown = true;
-            setTimeout(function() { document.getElementById('exitOverlay').classList.add('active'); }, 400);
-          }
-        }
-      }
-    };
-    var rzp = new Razorpay(options);
-    rzp.open();
-  }
 
   // ── SOCIAL PROOF ──
   (function() {
