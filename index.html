@@ -778,11 +778,11 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       <div class="fk-checkbox" id="fkCheck">✓</div>
       <div class="fk-label">
         <div class="fk-title">🛍️ Flipkart Tool Bhi Chahiye? Add karo!</div>
-        <div class="fk-sub">Meesho + Flipkart dono tools → sirf ₹399 mein (₹998 ki value)</div>
+        <div class="fk-sub">Meesho + Flipkart dono tools → sirf ₹299 mein (₹998 ki value)</div>
       </div>
       <div class="fk-prices">
         <div class="fk-orig">₹998</div>
-        <div class="fk-new">₹399</div>
+        <div class="fk-new">₹299</div>
       </div>
     </div>
     <div class="fk-detail">
@@ -1095,7 +1095,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     </div>
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Flipkart tool kaise milega? <span class="arrow">▼</span></button>
-      <div class="faq-a"><div class="faq-a-inner">Hero section mein "Flipkart Tool Bhi Chahiye?" wala box tick karo — ₹399 mein Meesho + Flipkart dono tools milenge. Ya seedha ecomeasy.store/shop pe jaake Flipkart tool alag se bhi le sakte ho.</div></div>
+      <div class="faq-a"><div class="faq-a-inner">Hero section mein "Flipkart Tool Bhi Chahiye?" wala box tick karo — ₹299 mein Meesho + Flipkart dono tools milenge. Ya seedha ecomeasy.store/shop pe jaake Flipkart tool alag se bhi le sakte ho.</div></div>
     </div>
   </div>
 </section>
@@ -1272,10 +1272,10 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     var stickyPrice = document.getElementById('stickyPriceNew');
     combo.classList.toggle('checked', _flipkartSelected);
     if (_flipkartSelected) {
-      priceDisplay.textContent = '💳 Total: ₹399 (Meesho + Flipkart Combo 🎉)';
+      priceDisplay.textContent = '💳 Total: ₹299 (Meesho + Flipkart Combo 🎉)';
       priceDisplay.style.color = '#fbbf24';
-      buyBtn.textContent = '🚀 ₹399 mein Dono Tools Kharido →';
-      if (stickyPrice) stickyPrice.textContent = '₹399 (Combo)';
+      buyBtn.textContent = '🚀 ₹299 mein Dono Tools Kharido →';
+      if (stickyPrice) stickyPrice.textContent = '₹299 (Combo)';
     } else {
       priceDisplay.textContent = '💳 Total: ₹199';
       priceDisplay.style.color = '#4ade80';
@@ -1388,13 +1388,13 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
 
   // ── MAIN PAYMENT (₹199 default) ──
   function startPayment() {
-    var amount  = _flipkartSelected ? 39900 : 19900;
-    var amtText = _flipkartSelected ? '₹399' : '₹199';
+    var amount  = _flipkartSelected ? 29900 : 19900;
+    var amtText = _flipkartSelected ? '₹299' : '₹199';
     var desc    = _flipkartSelected
       ? '✅ Meesho + Flipkart Combo Tools + 3 FREE Bonus'
       : '✅ Meesho Tool + 3 FREE Bonus (Low Shipping Trick + 2 guides)';
 
-    fbq('track', 'InitiateCheckout', { value: _flipkartSelected ? 399 : 199, currency: 'INR', content_name: 'Meesho Auto Listing Tool' });
+    fbq('track', 'InitiateCheckout', { value: _flipkartSelected ? 299 : 199, currency: 'INR', content_name: 'Meesho Auto Listing Tool' });
 
     var options = {
       key: 'rzp_live_Soq8MomXhDXwsT',
@@ -1404,7 +1404,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       description: desc,
       image: 'https://i.ibb.co/gL9j2Ks2/images-5.png',
       handler: function(response) {
-        fbq('track', 'Purchase', { value: _flipkartSelected ? 399 : 199, currency: 'INR', content_name: 'Meesho Auto Listing Tool', content_type: 'product' });
+        fbq('track', 'Purchase', { value: _flipkartSelected ? 299 : 199, currency: 'INR', content_name: 'Meesho Auto Listing Tool', content_type: 'product' });
         var combo = _flipkartSelected ? ' + Flipkart Tool' : '';
         var msg = encodeURIComponent(
           'Hi! Maine abhi payment kar di hai ✅\n' +
@@ -1424,7 +1424,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       theme: { color: '#ff6b00' },
       modal: {
         ondismiss: function() {
-          fbq('track', 'AddPaymentInfo', { value: _flipkartSelected ? 399 : 199, currency: 'INR' });
+          fbq('track', 'AddPaymentInfo', { value: _flipkartSelected ? 299 : 199, currency: 'INR' });
           // Show exit popup if they dismiss payment
           if (!_exitShown) {
             _exitShown = true;
