@@ -35,11 +35,8 @@ fbq('track', 'ViewContent', {
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
 /></noscript>
-<!-- End Meta Pixel Code -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Razorpay -->
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
   <style>
@@ -183,7 +180,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     }
     .timer-note { font-size: 11px; color: #94a3b8; margin-top: 4px; }
 
-    /* ── BTN PRIMARY — with shimmer sweep ── */
+    /* ── BTN PRIMARY — shimmer + vibrate ── */
     .btn-primary {
       display: inline-block;
       background: var(--brand);
@@ -199,10 +196,16 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       text-decoration: none;
       position: relative;
       overflow: hidden;
+      animation: btn-vibrate 3s ease-in-out infinite;
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,107,0,0.5); }
-    .btn-primary:active { transform: scale(0.98); }
-    /* Shimmer sweep effect */
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(255,107,0,0.5);
+      animation: none;
+    }
+    .btn-primary:active { transform: scale(0.98); animation: none; }
+
+    /* Shimmer sweep */
     .btn-primary::after {
       content: '';
       position: absolute;
@@ -210,14 +213,23 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       left: -100%;
       width: 60%;
       height: 100%;
-      background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.42) 50%, transparent 80%);
-      animation: btn-shimmer 2.2s ease-in-out infinite;
+      background: linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.55) 50%, transparent 80%);
+      animation: btn-shimmer 2s ease-in-out infinite;
       pointer-events: none;
     }
     @keyframes btn-shimmer {
       0%   { left: -100%; }
-      60%  { left: 130%; }
+      55%  { left: 130%; }
       100% { left: 130%; }
+    }
+    /* Subtle left-right vibrate */
+    @keyframes btn-vibrate {
+      0%, 100%  { transform: translateX(0); }
+      15%       { transform: translateX(-3px); }
+      30%       { transform: translateX(3px); }
+      45%       { transform: translateX(-2px); }
+      60%       { transform: translateX(2px); }
+      70%       { transform: translateX(0); }
     }
 
     .btn-whatsapp {
@@ -237,6 +249,66 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       box-shadow: 0 4px 16px rgba(37,211,102,0.35);
     }
     .btn-whatsapp:hover { transform: translateY(-2px); }
+
+    /* ── FLIPKART COMBO BOX ── */
+    .flipkart-combo {
+      background: rgba(255,255,255,0.07);
+      border: 1.5px solid rgba(255,165,0,0.5);
+      border-radius: 14px;
+      padding: 16px 18px;
+      max-width: 480px;
+      margin: 0 auto 22px;
+      text-align: left;
+      cursor: pointer;
+      transition: background .2s, border-color .2s;
+      user-select: none;
+    }
+    .flipkart-combo:hover { background: rgba(255,255,255,0.12); border-color: #fbbf24; }
+    .flipkart-combo.checked { background: rgba(255,165,0,0.15); border-color: #fbbf24; }
+    .fk-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .fk-checkbox {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      border: 2px solid #fbbf24;
+      background: transparent;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: background .15s;
+      font-size: 14px;
+      color: #fff;
+    }
+    .flipkart-combo.checked .fk-checkbox { background: #fbbf24; }
+    .fk-label {
+      flex: 1;
+    }
+    .fk-title { font-size: 14px; font-weight: 800; color: #fbbf24; line-height: 1.3; }
+    .fk-sub { font-size: 12px; color: #94a3b8; margin-top: 2px; }
+    .fk-prices { font-size: 13px; font-weight: 700; white-space: nowrap; text-align: right; }
+    .fk-orig { color: #64748b; text-decoration: line-through; font-size: 11px; }
+    .fk-new { color: #4ade80; font-size: 15px; }
+    .fk-detail {
+      display: none;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 12px;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+    .flipkart-combo.checked .fk-detail { display: block; }
+    /* price summary update */
+    .hero-price-display {
+      font-family: 'Baloo 2', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      color: #4ade80;
+      margin-bottom: 6px;
+      transition: all .3s;
+    }
 
     .mini-video-section {
       background: #0f172a;
@@ -300,6 +372,49 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       font-weight: 600;
       color: #fff;
       text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    }
+
+    /* ── HERO PROOF SCREENSHOTS (big, below hero) ── */
+    .hero-proof-section {
+      background: #0a0f1e;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .hero-proof-title {
+      font-family: 'Baloo 2', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .hero-proof-sub { font-size: 14px; color: #64748b; margin-bottom: 28px; }
+    .hero-proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .hero-proof-card {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      border: 2px solid rgba(255,255,255,0.08);
+      transition: transform .25s, box-shadow .25s;
+      cursor: zoom-in;
+    }
+    .hero-proof-card:hover {
+      transform: scale(1.04) translateY(-4px);
+      box-shadow: 0 16px 48px rgba(255,107,0,0.3);
+      border-color: rgba(255,107,0,0.4);
+    }
+    .hero-proof-card img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    @media(max-width:640px) {
+      .hero-proof-grid { grid-template-columns: 1fr; max-width: 360px; }
     }
 
     section { padding: 56px 20px; }
@@ -561,8 +676,6 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     .delay-2 { transition-delay: 0.16s; }
     .delay-3 { transition-delay: 0.24s; }
     .delay-4 { transition-delay: 0.32s; }
-    .delay-5 { transition-delay: 0.40s; }
-    .delay-6 { transition-delay: 0.48s; }
 
     .wa-float {
       position: fixed; bottom: 90px; right: 20px; z-index: 9990;
@@ -682,32 +795,15 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; animation: pulse-dot 1.5s ease-in-out infinite; }
     @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.4); } }
 
-    .pf-overlay {
+    /* Image zoom lightbox */
+    .img-lightbox {
       display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.72); z-index: 10000;
+      background: rgba(0,0,0,0.92); z-index: 10001;
       align-items: center; justify-content: center; padding: 20px;
+      cursor: zoom-out;
     }
-    .pf-overlay.active { display: flex; }
-    .pf-box {
-      background: #fff; border-radius: 20px; padding: 32px 28px;
-      max-width: 380px; width: 100%; text-align: center;
-      position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-      animation: popIn .3s cubic-bezier(.34,1.56,.64,1);
-    }
-    .pf-box h3 { font-family: 'Baloo 2', sans-serif; font-size: 22px; font-weight: 800; color: #1a1a2e; margin-bottom: 6px; }
-    .pf-box .pf-sub { font-size: 13px; color: #64748b; margin-bottom: 22px; }
-    .pf-field { text-align: left; margin-bottom: 14px; }
-    .pf-field label { font-size: 13px; font-weight: 700; color: #1a1a2e; display: block; margin-bottom: 5px; }
-    .pf-field input {
-      width: 100%; border: 2px solid #e2e8f0; border-radius: 10px;
-      padding: 12px 14px; font-size: 15px; outline: none;
-      transition: border-color .2s; font-family: 'Noto Sans', sans-serif; color: #1e293b;
-    }
-    .pf-field input:focus { border-color: #ff6b00; }
-    .pf-err { font-size: 12px; color: #ef4444; margin-top: 4px; min-height: 16px; display: block; }
-    .pf-trust { font-size: 11px; color: #94a3b8; margin-top: 14px; line-height: 1.5; }
-    .pf-close { position: absolute; top: 12px; right: 14px; background: none; border: none; font-size: 20px; color: #94a3b8; cursor: pointer; line-height: 1; }
-    .pf-why { background: #fff3e8; border-radius: 10px; padding: 10px 14px; font-size: 12px; color: #cc5500; font-weight: 600; margin-bottom: 18px; text-align: left; line-height: 1.5; }
+    .img-lightbox.active { display: flex; }
+    .img-lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.6); }
 
     @media(max-width:600px) {
       .sticky-bar { flex-direction: row; padding: 10px 14px; gap: 8px; align-items: center; }
@@ -744,7 +840,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       .trust-badge-small { display: none; }
       header { padding: 12px 16px; }
       .proof-screenshots { grid-template-columns: 1fr; }
-      .pf-box { padding: 28px 20px; }
+      .hero-proof-section { padding: 28px 16px; }
     }
     @media(max-width:380px) {
       .hero h1 { font-size: 22px; }
@@ -825,6 +921,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     <div class="timer-note">Yeh timer sirf aapke is session ke liye hai</div>
   </div>
 
+  <!-- 3 BONUS BOX -->
   <div style="max-width:420px;margin:0 auto 20px;background:rgba(251,191,36,0.12);border:1.5px solid #fbbf24;border-radius:16px;padding:16px 20px;text-align:left;">
     <div style="text-align:center;font-size:13px;font-weight:800;color:#fbbf24;margin-bottom:12px;letter-spacing:0.5px;text-transform:uppercase;">🎁 Aaj Kharido — 3 Bonus FREE Milenge</div>
     <div style="display:flex;flex-direction:column;gap:10px;">
@@ -833,7 +930,6 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
         <div style="flex:1;">
           <div style="font-size:13px;font-weight:800;color:#fbbf24;line-height:1.3;">🔥 Low Shipping Cost Trick</div>
           <div style="font-size:12px;color:#fff;margin-top:2px;font-weight:600;">Har order pe ₹50–100 bachao — secret strategy</div>
-          <div style="font-size:11px;color:#94a3b8;margin-top:2px;">Shipping cut karo → net profit directly badhega</div>
         </div>
         <div style="font-size:11px;color:#4ade80;font-weight:700;white-space:nowrap;text-align:right;">FREE<br><span style="text-decoration:line-through;color:#64748b;">₹499</span></div>
       </div>
@@ -857,12 +953,54 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     <div style="text-align:center;margin-top:12px;font-size:12px;color:#fbbf24;font-weight:600;">Total Bonus Value: <span style="text-decoration:line-through;color:#94a3b8;">₹1,097</span> → Aapko FREE 🎉</div>
   </div>
 
-  <button class="btn-primary" onclick="startPayment()">🚀 ₹99 mein Abhi Kharido + 3 Bonus FREE →</button>
+  <!-- ── FLIPKART COMBO OFFER ── -->
+  <div class="flipkart-combo" id="fkCombo" onclick="toggleFlipkart()">
+    <div class="fk-top">
+      <div class="fk-checkbox" id="fkCheck">✓</div>
+      <div class="fk-label">
+        <div class="fk-title">🛍️ Flipkart Tool Bhi Chahiye? Add karo!</div>
+        <div class="fk-sub">Meesho + Flipkart dono tools → sirf ₹299 mein (₹798 ki value)</div>
+      </div>
+      <div class="fk-prices">
+        <div class="fk-orig">₹798</div>
+        <div class="fk-new">₹299</div>
+      </div>
+    </div>
+    <div class="fk-detail">
+      ✅ Flipkart Auto Listing Tool bhi aayega<br>
+      ✅ Dono tools ek saath WhatsApp pe milenge<br>
+      ✅ Visit: <strong>ecomeasy.store/shop</strong> for Flipkart tool page<br>
+      💡 Sirf ₹200 extra mein Flipkart pe bhi automation shuru karo!
+    </div>
+  </div>
+
+  <!-- PRICE DISPLAY -->
+  <div class="hero-price-display" id="heroPriceDisplay">💳 Total: ₹99 (Sirf Meesho Tool)</div>
+
+  <button class="btn-primary" id="heroBuyBtn" onclick="startPayment()">🚀 ₹99 mein Abhi Kharido + 3 Bonus FREE →</button>
   <div style="margin-top:10px;font-size:12px;color:#94a3b8;">✅ Payment ke baad turant WhatsApp pe tool + bonus milega</div>
   <div style="margin-top:12px;">
     <a href="https://wa.me/919213631880?text=Hi%21%20Maine%20abhi%20aapka%20Meesho%20Auto%20Listing%20Tool%20page%20dekha%20%F0%9F%91%80%20Mujhe%20kuch%20doubt%20hai%2C%20kya%20aap%20help%20kar%20sakte%20hain%3F" class="btn-whatsapp" style="font-size:14px;padding:11px 24px;">💬 Pehle Baat Karo — Free</a>
   </div>
   <div style="margin-top:12px;font-size:13px;color:#94a3b8;">🔒 Razorpay secured · ⚡ Instant access · 🌐 ecomeasy.store</div>
+</div>
+
+<!-- ── HERO PROOF SCREENSHOTS (RIGHT BELOW HERO) ── -->
+<div class="hero-proof-section">
+  <div class="hero-proof-title">📱 Real Buyers ke Messages — Dekho Khud</div>
+  <p class="hero-proof-sub">Ye actual WhatsApp screenshots hain — edited nahi</p>
+  <div class="hero-proof-grid">
+    <div class="hero-proof-card" onclick="openLightbox('https://i.ibb.co/dqq928L/6091285828404448991.jpg')">
+      <img src="https://i.ibb.co/dqq928L/6091285828404448991.jpg" alt="Real buyer proof 1" loading="lazy" />
+    </div>
+    <div class="hero-proof-card" onclick="openLightbox('https://i.ibb.co/k6DY8KSJ/6091285828404448990.jpg')">
+      <img src="https://i.ibb.co/k6DY8KSJ/6091285828404448990.jpg" alt="Real buyer proof 2" loading="lazy" />
+    </div>
+    <div class="hero-proof-card" onclick="openLightbox('https://i.ibb.co/jZ44n77q/6091285828404448992.jpg')">
+      <img src="https://i.ibb.co/jZ44n77q/6091285828404448992.jpg" alt="Real buyer proof 3" loading="lazy" />
+    </div>
+  </div>
+  <p style="text-align:center;color:#475569;font-size:12px;margin-top:18px;">📷 Images tap karo zoom ke liye · Aur proof chahiye? <a href="https://wa.me/919213631880" style="color:#fbbf24;font-weight:700;">WhatsApp karo</a></p>
 </div>
 
 <!-- PROBLEM / SOLUTION -->
@@ -1000,15 +1138,15 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   </div>
 </section>
 
-<!-- REAL BUYER PROOF SCREENSHOTS -->
+<!-- REAL BUYER PROOF SCREENSHOTS (bottom section) -->
 <section style="background:#0f172a;padding:48px 20px;">
   <div class="container">
     <h2 class="section-title" style="color:#fff;">Real Buyers ke Real Messages 📱</h2>
     <p class="section-sub" style="color:#94a3b8;">Ye fake nahi hain — actual WhatsApp conversations</p>
     <div class="proof-screenshots">
-      <div class="proof-img-card"><img src="https://i.ibb.co/q3jg21yF/Screenshot-2026-05-19-000248.png" alt="Buyer Review Screenshot 1" loading="lazy" /></div>
-      <div class="proof-img-card"><img src="https://i.ibb.co/3mNZzf8n/Screenshot-2026-05-19-000253.png" alt="Buyer Review Screenshot 2" loading="lazy" /></div>
-      <div class="proof-img-card"><img src="https://i.ibb.co/9xHK54V/Screenshot-2026-05-19-000257.png" alt="Buyer Review Screenshot 3" loading="lazy" /></div>
+      <div class="proof-img-card"><img src="https://i.ibb.co/dqq928L/6091285828404448991.jpg" alt="Buyer Review Screenshot 1" loading="lazy" /></div>
+      <div class="proof-img-card"><img src="https://i.ibb.co/k6DY8KSJ/6091285828404448990.jpg" alt="Buyer Review Screenshot 2" loading="lazy" /></div>
+      <div class="proof-img-card"><img src="https://i.ibb.co/jZ44n77q/6091285828404448992.jpg" alt="Buyer Review Screenshot 3" loading="lazy" /></div>
     </div>
     <p style="text-align:center;color:#64748b;font-size:12px;margin-top:20px;">Aur bhi proof dekhne ke liye WhatsApp karo: <a href="https://wa.me/919213631880" style="color:#fbbf24;font-weight:700;">+91 92136 31880</a></p>
   </div>
@@ -1146,6 +1284,10 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       <button class="faq-q" onclick="toggleFaq(this)">Kya refund milega agar tool kaam na kare? <span class="arrow">▼</span></button>
       <div class="faq-a"><div class="faq-a-inner">Haan! Agar tool aapke system pe kaam nahi karta aur hum 7 din mein fix nahi kar paate, toh full refund diya jaayega. Aapka paisa safe hai — WhatsApp pe contact karo: +91 92136 31880</div></div>
     </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Flipkart tool kaise milega? <span class="arrow">▼</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Hero section mein "Flipkart Tool Bhi Chahiye?" wala box tick karo — ₹299 mein Meesho + Flipkart dono tools milenge. Ya seedha ecomeasy.store/shop pe jaake Flipkart tool alag se bhi le sakte ho.</div></div>
+    </div>
   </div>
 </section>
 
@@ -1163,11 +1305,11 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   <p style="margin-top:16px;font-size:12px;color:#64748b;">© 2026 ecomeasy · All rights reserved · <a href="https://ecomeasy.store" style="color:#64748b;">ecomeasy.store</a></p>
 </footer>
 
-<!-- ── STICKY BUY BAR — UPDATED TEXT ── -->
+<!-- STICKY BUY BAR -->
 <div class="sticky-bar">
   <div class="sticky-price">
     <div class="old">Regular ₹999</div>
-    <div class="new">₹99 Only</div>
+    <div class="new" id="stickyPriceNew">₹99 Only</div>
   </div>
   <div class="sticky-timer-text" style="text-align:center;font-size:12px;color:#ff6b00;font-weight:700;">
     ⏰ <span id="stickyTimer">29:59</span> bacha hai
@@ -1178,7 +1320,6 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
        style="display:inline-flex;align-items:center;gap:5px;background:#25d366;color:#fff;font-size:13px;font-weight:700;padding:11px 14px;border-radius:50px;text-decoration:none;white-space:nowrap;box-shadow:0 3px 12px rgba(37,211,102,0.4);">
       💬 Poochho
     </a>
-    <!-- ✅ FIXED: Clear text — buyer confuse nahi hoga -->
     <button class="btn-primary" onclick="startPayment()" style="white-space:nowrap;font-size:13px;padding:11px 16px;">
       🛒 Abhi Kharido — ₹99
     </button>
@@ -1211,30 +1352,9 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   </div>
 </div>
 
-<!-- PREFILL MODAL -->
-<div class="pf-overlay" id="prefillModal">
-  <div class="pf-box">
-    <button class="pf-close" onclick="closePrefill()">✕</button>
-    <div style="font-size:32px;margin-bottom:8px;">🚀</div>
-    <h3>Almost Done!</h3>
-    <p class="pf-sub">Sirf naam aur phone dein — payment ke baad tool turant bheja jaayega</p>
-    <div class="pf-why">ℹ️ Ye information isliye chahiye taaki payment ke baad hum aapko <strong>WhatsApp pe turant tool bhej saken</strong>. Koi spam nahi hoga.</div>
-    <div class="pf-field">
-      <label>👤 Aapka Naam *</label>
-      <input type="text" id="pfName" placeholder="Jaise: Rahul Kumar" maxlength="50"
-             oninput="document.getElementById('pfNameErr').textContent=''" />
-      <span class="pf-err" id="pfNameErr"></span>
-    </div>
-    <div class="pf-field">
-      <label>📱 WhatsApp Number *</label>
-      <input type="tel" id="pfPhone" placeholder="10-digit mobile number" maxlength="10"
-             oninput="document.getElementById('pfPhoneErr').textContent=''"
-             onkeypress="return event.charCode >= 48 && event.charCode <= 57" />
-      <span class="pf-err" id="pfPhoneErr"></span>
-    </div>
-    <button class="btn-primary" onclick="submitPrefill()" style="width:100%;font-size:16px;padding:15px;">💳 Aage Badho — Payment Karo</button>
-    <p class="pf-trust">🔒 Aapka data safe hai — sirf tool delivery ke liye use hoga · Razorpay secured payment</p>
-  </div>
+<!-- IMAGE LIGHTBOX -->
+<div class="img-lightbox" id="imgLightbox" onclick="closeLightbox()">
+  <img id="lightboxImg" src="" alt="Proof screenshot" />
 </div>
 
 <!-- WHATSAPP FLOATING BUTTON -->
@@ -1242,7 +1362,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
 <a href="https://wa.me/919213631880?text=Hi%21%20Maine%20abhi%20aapka%20Meesho%20Auto%20Listing%20Tool%20page%20dekha%20%F0%9F%91%80%20Mujhe%20kuch%20doubt%20hai%2C%20kya%20aap%20help%20kar%20sakte%20hain%3F"
    target="_blank" class="wa-float" aria-label="WhatsApp pe baat karo">💬</a>
 
-<!-- WHATSAPP NUDGE POPUP -->
+<!-- WHATSAPP NUDGE -->
 <div class="wa-nudge" id="waNudge">
   <div class="wa-nudge-head">
     <div class="wa-nudge-title">💬 Koi doubt hai?</div>
@@ -1254,6 +1374,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
 </div>
 
 <script>
+  // ── VIDEO ──
   function playMiniVideo() {
     var wrapper = document.getElementById('miniVideoWrapper');
     var video = document.getElementById('miniDemoVideo');
@@ -1265,6 +1386,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     overlay.style.display = 'none';
   }
 
+  // ── TIMER ──
   (function() {
     let endTime = Date.now() + 30 * 60 * 1000;
     function updateTimer() {
@@ -1281,6 +1403,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     setInterval(updateTimer, 1000);
   })();
 
+  // ── FAQ ──
   function toggleFaq(btn) {
     const item = btn.closest('.faq-item');
     const isOpen = item.classList.contains('open');
@@ -1288,6 +1411,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     if (!isOpen) item.classList.add('open');
   }
 
+  // ── ROI CALCULATOR ──
   function calcROI() {
     const listings = parseInt(document.getElementById('listingInput').value) || 30;
     const mins = parseInt(document.getElementById('timeInput').value) || 5;
@@ -1301,6 +1425,29 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   }
   calcROI();
 
+  // ── FLIPKART COMBO ──
+  var _flipkartSelected = false;
+  function toggleFlipkart() {
+    _flipkartSelected = !_flipkartSelected;
+    var combo = document.getElementById('fkCombo');
+    var priceDisplay = document.getElementById('heroPriceDisplay');
+    var buyBtn = document.getElementById('heroBuyBtn');
+    var stickyPrice = document.getElementById('stickyPriceNew');
+    combo.classList.toggle('checked', _flipkartSelected);
+    if (_flipkartSelected) {
+      priceDisplay.textContent = '💳 Total: ₹299 (Meesho + Flipkart Combo 🎉)';
+      priceDisplay.style.color = '#fbbf24';
+      buyBtn.textContent = '🚀 ₹299 mein Dono Tools Kharido →';
+      if (stickyPrice) stickyPrice.textContent = '₹299 (Combo)';
+    } else {
+      priceDisplay.textContent = '💳 Total: ₹99 (Sirf Meesho Tool)';
+      priceDisplay.style.color = '#4ade80';
+      buyBtn.textContent = '🚀 ₹99 mein Abhi Kharido + 3 Bonus FREE →';
+      if (stickyPrice) stickyPrice.textContent = '₹99 Only';
+    }
+  }
+
+  // ── EXIT INTENT ──
   (function() {
     let shown = false;
     document.addEventListener('mouseleave', function(e) {
@@ -1315,6 +1462,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     window.open('https://wa.me/919213631880?text=' + msg, '_blank');
   }
 
+  // ── SOCIAL PROOF ──
   (function() {
     const buyers = [
       { name: 'Rahul Kumar', city: 'Delhi', color: '#3b82f6', time: '2 minute pehle' },
@@ -1340,6 +1488,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     setTimeout(function() { showNotif(); setInterval(showNotif, 12000); }, 6000);
   })();
 
+  // ── LIVE VIEWERS ──
   (function() {
     const base = 18, range = 12;
     let current = base + Math.floor(Math.random() * range);
@@ -1352,6 +1501,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     }, 4500);
   })();
 
+  // ── WA NUDGE ──
   (function() {
     var nudgeShown = false;
     setTimeout(function() {
@@ -1371,6 +1521,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     }, 45000);
   })();
 
+  // ── SCROLL REVEAL ──
   (function() {
     var revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
     var observer = new IntersectionObserver(function(entries) {
@@ -1381,52 +1532,53 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     revealEls.forEach(function(el) { observer.observe(el); });
   })();
 
-  var _collectedName  = '';
-  var _collectedPhone = '';
+  // ── LIGHTBOX ──
+  function openLightbox(src) {
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('imgLightbox').classList.add('active');
+  }
+  function closeLightbox() {
+    document.getElementById('imgLightbox').classList.remove('active');
+  }
 
+  // ── PAYMENT — direct Razorpay, no prefill form ──
   function startPayment() {
-    document.getElementById('pfName').value  = '';
-    document.getElementById('pfPhone').value = '';
-    document.getElementById('pfNameErr').textContent  = '';
-    document.getElementById('pfPhoneErr').textContent = '';
-    document.getElementById('prefillModal').classList.add('active');
-  }
+    fbq('track', 'InitiateCheckout', { value: _flipkartSelected ? 299 : 99, currency: 'INR', content_name: 'Meesho Auto Listing Tool' });
+    var amount  = _flipkartSelected ? 29900 : 9900;
+    var amtText = _flipkartSelected ? '₹299' : '₹99';
+    var desc    = _flipkartSelected
+      ? '✅ Meesho + Flipkart Combo Tools + 3 FREE Bonus'
+      : '✅ Meesho Tool + 3 FREE Bonus (Low Shipping Trick + 2 guides)';
 
-  function closePrefill() { document.getElementById('prefillModal').classList.remove('active'); }
-
-  function submitPrefill() {
-    var name  = document.getElementById('pfName').value.trim();
-    var phone = document.getElementById('pfPhone').value.trim();
-    var valid = true;
-    if (!name || name.length < 2) { document.getElementById('pfNameErr').textContent = 'Apna naam likho (2+ characters)'; valid = false; }
-    if (!/^[6-9]\d{9}$/.test(phone)) { document.getElementById('pfPhoneErr').textContent = 'Valid 10-digit Indian mobile number likho'; valid = false; }
-    if (!valid) return;
-    _collectedName  = name;
-    _collectedPhone = phone;
-    closePrefill();
-    openRazorpay(name, phone);
-  }
-
-  function openRazorpay(userName, userPhone) {
-    fbq('track', 'InitiateCheckout', { value: 99, currency: 'INR', content_name: 'Meesho Auto Listing Tool' });
     var options = {
       key: 'rzp_live_Soq8MomXhDXwsT',
-      amount: 9900,
+      amount: amount,
       currency: 'INR',
       name: 'Autolisting tool',
-      description: '✅ Tool + 3 FREE Bonus (Low Shipping Trick + 2 guides)',
+      description: desc,
       image: 'https://i.ibb.co/gL9j2Ks2/images-5.png',
       handler: function(response) {
-        fbq('track', 'Purchase', { value: 99, currency: 'INR', content_name: 'Meesho Auto Listing Tool', content_type: 'product' });
-        var msg = encodeURIComponent('Hi! Maine abhi payment kar di hai ✅\nNaam: ' + userName + '\nWhatsApp No: ' + userPhone + '\nPayment ID: ' + response.razorpay_payment_id + '\nMujhe mera tool + 3 bonus chahiye! (Low Shipping Trick bhi)');
+        fbq('track', 'Purchase', { value: _flipkartSelected ? 299 : 99, currency: 'INR', content_name: 'Meesho Auto Listing Tool', content_type: 'product' });
+        var combo = _flipkartSelected ? ' + Flipkart Tool' : '';
+        var msg = encodeURIComponent(
+          'Hi! Maine abhi payment kar di hai ✅\n' +
+          'Payment ID: ' + response.razorpay_payment_id + '\n' +
+          'Amount: ' + amtText + combo + '\n' +
+          'Mujhe mera tool + 3 bonus chahiye! (Low Shipping Trick bhi)\n' +
+          ((_flipkartSelected) ? 'Flipkart tool bhi chahiye! 🛍️' : '')
+        );
         window.location.href = 'https://wa.me/919213631880?text=' + msg;
       },
-      prefill: { name: userName, email: '', contact: userPhone },
-      notes: { product: 'meesho autolisting tool + low shipping bonus', customer_name: userName, customer_phone: userPhone, source_page: 'ecomeasy.store landing page' },
+      prefill: { name: '', email: '', contact: '' },
+      notes: {
+        product: _flipkartSelected ? 'meesho + flipkart combo' : 'meesho autolisting tool + low shipping bonus',
+        source_page: 'ecomeasy.store landing page',
+        flipkart_combo: _flipkartSelected ? 'yes' : 'no'
+      },
       theme: { color: '#ff6b00' },
       modal: {
         ondismiss: function() {
-          fbq('track', 'AddPaymentInfo', { value: 99, currency: 'INR' });
+          fbq('track', 'AddPaymentInfo', { value: _flipkartSelected ? 299 : 99, currency: 'INR' });
           setTimeout(function() { document.getElementById('exitOverlay').classList.add('active'); }, 400);
         }
       }
