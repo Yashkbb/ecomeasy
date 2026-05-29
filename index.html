@@ -746,65 +746,109 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     /* ── BUYER SCREENSHOTS SECTION ───────────────── */
     .proof-screenshots {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      max-width: 720px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 960px;
       margin: 0 auto;
     }
     .proof-img-card {
       border-radius: 14px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-      transition: transform .2s;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.4);
+      transition: transform .2s, box-shadow .2s;
     }
-    .proof-img-card:hover { transform: scale(1.02); }
+    .proof-img-card:hover { transform: scale(1.03); box-shadow: 0 12px 36px rgba(0,0,0,0.55); }
     .proof-img-card img {
       width: 100%;
       display: block;
       object-fit: cover;
     }
 
-    /* ── MOBILE RESPONSIVE ───────────────────────── */
-    @media(max-width:600px) {
-      .sticky-bar { flex-direction: row; padding: 10px 14px; gap: 8px; align-items: center; }
-      .sticky-price .old { display: none; }
-      .sticky-price .new { font-size: 18px; }
-      .sticky-timer-text { display: none; }
-      .sticky-bar .btn-primary { font-size: 14px; padding: 11px 18px; white-space: nowrap; }
-      .hero { padding: 36px 16px 32px; }
-      .hero h1 { font-size: 26px; }
-      .hero p { font-size: 14px; }
-      .live-stats { gap: 16px; padding: 12px 16px; }
-      .stat-num { font-size: 18px; }
-      .timer-digits { font-size: 26px; }
-      .ps-grid { grid-template-columns: 1fr; }
-      .features-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-      .feat-card { padding: 16px 14px; }
-      .feat-icon { font-size: 22px; }
-      .feat-card h3 { font-size: 13px; }
-      .feat-card p { font-size: 12px; }
-      .testi-grid { grid-template-columns: 1fr; }
-      .price-card { padding: 28px 20px; }
-      .price-current { font-size: 42px; }
-      .trust-chip { font-size: 11px; padding: 5px 10px; }
-      .founder-card { flex-direction: column; }
-      .founder-avatar { width: 60px; height: 60px; font-size: 24px; }
-      section { padding: 40px 16px; }
-      .section-title { font-size: 22px; }
-      .faq-q { font-size: 14px; padding: 14px 16px; }
-      footer { padding-bottom: 80px; }
-      .sp-notif { max-width: 240px; font-size: 11px; bottom: 72px; }
-      .prepay-trust { padding: 16px; }
-      .prepay-row { font-size: 12px; }
-      .wa-box { padding: 24px 16px; }
-      .trust-badge-small { display: none; }
-      header { padding: 12px 16px; }
-      .proof-screenshots { grid-template-columns: 1fr; }
+    /* ── HERO PROOF SECTION ──────────────────────── */
+    .hero-proof-section {
+      background: linear-gradient(180deg, #1a1a2e 0%, #0f172a 100%);
+      padding: 40px 20px 52px;
     }
-    @media(max-width:380px) {
-      .hero h1 { font-size: 22px; }
-      .features-grid { grid-template-columns: 1fr; }
+    .hero-proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .hero-proof-item {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1.5px solid rgba(255,255,255,0.13);
+      box-shadow: 0 10px 32px rgba(0,0,0,0.5);
+      transition: transform .22s, box-shadow .22s;
+    }
+    .hero-proof-item:hover {
+      transform: scale(1.035);
+      box-shadow: 0 16px 44px rgba(0,0,0,0.65);
+    }
+    .hero-proof-item img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* ── SOCIAL PROOF NOTIFICATION ──────────────── */
+    .sp-notif {
+      position: fixed;
+      bottom: 80px;
+      left: 16px;
+      background: #fff;
+      border-radius: 14px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+      border-left: 4px solid var(--green);
+      z-index: 999;
+      max-width: 280px;
+      transform: translateX(-320px);
+      transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+      pointer-events: none;
+    }
+    .sp-notif.show { transform: translateX(0); }
+    .sp-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 800; color: #fff;
+      flex-shrink: 0;
+    }
+    .sp-text { font-size: 12px; line-height: 1.4; }
+    .sp-name { font-weight: 700; color: var(--dark); }
+    .sp-action { color: var(--muted); }
+    .sp-time { color: var(--green); font-weight: 600; font-size: 11px; margin-top: 2px; }
+
+    /* ── LIVE VIEWERS COUNTER ────────────────────── */
+    .live-viewers {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 30px;
+      padding: 7px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+    .live-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      animation: pulse-dot 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
     }
 
     /* ── EXIT INTENT POPUP ───────────────────────── */
@@ -874,61 +918,50 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     .exit-popup .btn-primary { width: 100%; }
     .exit-skip { display: block; margin-top: 12px; font-size: 12px; color: #94a3b8; cursor: pointer; text-decoration: underline; }
 
-    /* ── SOCIAL PROOF NOTIFICATION ──────────────── */
-    .sp-notif {
-      position: fixed;
-      bottom: 80px;
-      left: 16px;
-      background: #fff;
-      border-radius: 14px;
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.15);
-      border-left: 4px solid var(--green);
-      z-index: 999;
-      max-width: 280px;
-      transform: translateX(-320px);
-      transition: transform .4s cubic-bezier(.34,1.56,.64,1);
-      pointer-events: none;
+    /* ── MOBILE RESPONSIVE ───────────────────────── */
+    @media(max-width:600px) {
+      .sticky-bar { flex-direction: row; padding: 10px 14px; gap: 8px; align-items: center; }
+      .sticky-price .old { display: none; }
+      .sticky-price .new { font-size: 18px; }
+      .sticky-timer-text { display: none; }
+      .sticky-bar .btn-primary { font-size: 14px; padding: 11px 18px; white-space: nowrap; }
+      .hero { padding: 36px 16px 32px; }
+      .hero h1 { font-size: 26px; }
+      .hero p { font-size: 14px; }
+      .live-stats { gap: 16px; padding: 12px 16px; }
+      .stat-num { font-size: 18px; }
+      .timer-digits { font-size: 26px; }
+      .ps-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .feat-card { padding: 16px 14px; }
+      .feat-icon { font-size: 22px; }
+      .feat-card h3 { font-size: 13px; }
+      .feat-card p { font-size: 12px; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .price-card { padding: 28px 20px; }
+      .price-current { font-size: 42px; }
+      .trust-chip { font-size: 11px; padding: 5px 10px; }
+      .founder-card { flex-direction: column; }
+      .founder-avatar { width: 60px; height: 60px; font-size: 24px; }
+      section { padding: 40px 16px; }
+      .section-title { font-size: 22px; }
+      .faq-q { font-size: 14px; padding: 14px 16px; }
+      footer { padding-bottom: 80px; }
+      .sp-notif { max-width: 240px; font-size: 11px; bottom: 72px; }
+      .prepay-trust { padding: 16px; }
+      .prepay-row { font-size: 12px; }
+      .wa-box { padding: 24px 16px; }
+      .trust-badge-small { display: none; }
+      header { padding: 12px 16px; }
+      /* Proof grids — 2 columns on mobile */
+      .proof-screenshots { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .hero-proof-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
     }
-    .sp-notif.show { transform: translateX(0); }
-    .sp-avatar {
-      width: 38px; height: 38px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; font-weight: 800; color: #fff;
-      flex-shrink: 0;
-    }
-    .sp-text { font-size: 12px; line-height: 1.4; }
-    .sp-name { font-weight: 700; color: var(--dark); }
-    .sp-action { color: var(--muted); }
-    .sp-time { color: var(--green); font-weight: 600; font-size: 11px; margin-top: 2px; }
-
-    /* ── LIVE VIEWERS COUNTER ────────────────────── */
-    .live-viewers {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 30px;
-      padding: 7px 16px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 18px;
-    }
-    .live-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: #4ade80;
-      animation: pulse-dot 1.5s ease-in-out infinite;
-    }
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.4); }
+    @media(max-width:380px) {
+      .hero h1 { font-size: 22px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .proof-screenshots { grid-template-columns: 1fr; }
+      .hero-proof-grid { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
@@ -1081,6 +1114,69 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   </div>
   <div style="margin-top:12px;font-size:13px;color:#94a3b8;">
     🔒 Razorpay secured · ⚡ Instant access · 🌐 ecomeasy.store
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ── HERO PROOF SECTION — right after hero ────────────── -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="hero-proof-section">
+  <div style="max-width:980px;margin:0 auto;">
+
+    <!-- Section header -->
+    <div style="text-align:center;margin-bottom:28px;">
+      <span style="display:inline-block;background:rgba(255,107,0,0.15);border:1.5px solid rgba(255,107,0,0.45);
+        border-radius:30px;padding:7px 20px;font-size:13px;font-weight:700;color:#fbbf24;letter-spacing:0.5px;margin-bottom:14px;">
+        📱 Real WhatsApp Messages — Unfiltered
+      </span>
+      <h2 style="font-family:'Baloo 2',sans-serif;font-size:clamp(22px,4vw,32px);font-weight:800;
+        color:#fff;margin-bottom:8px;">Buyers Khud Bol Rahe Hain 🔥</h2>
+      <p style="font-size:14px;color:#94a3b8;max-width:500px;margin:0 auto;">
+        Ye screenshots edit nahi hue — aapke jaise real Meesho sellers ke actual WhatsApp messages
+      </p>
+    </div>
+
+    <!-- 3×3 Big proof grid -->
+    <div class="hero-proof-grid">
+      <div class="hero-proof-item">
+        <img src="https://i.ibb.co/QvFYdZFQ/Whats-App-Image-2026-05-28-at-9-18-16-PM-1.jpg" alt="Buyer proof 1" loading="lazy" />
+      </div>
+      <div class="hero-proof-item">
+        <img src="https://i.ibb.co/cSKVNgDB/Whats-App-Image-2026-05-28-at-9-18-16-PM-2.jpg" alt="Buyer proof 2" loading="lazy" />
+      </div>
+      <div class="hero-proof-item">
+        <img src="https://i.ibb.co/qM5QCC0r/Whats-App-Image-2026-05-28-at-9-18-16-PM.jpg" alt="Buyer proof 3" loading="lazy" />
+      </div>
+      <div class="hero-proof-item">
+        <img src="https://i.ibb.co/ks8cT9Ry/Whats-App-Image-2026-05-28-at-9-18-17-PM-1.jpg" alt="Buyer proof 4" loading="lazy" />
+      </div>
+      <div class="hero-proof-item">
+        <img src="https://i.ibb.co/wh15fwVf/Whats-App-Image-2026-05-28-at-9-18-17-PM.jpg" alt="Buyer proof 5" loading="lazy" />
+      </div>
+      <div class="hero-proof-item">
+        <img src="https://i.ibb.co/KcYqDmYZ/Whats-App-Image-2026-05-28-at-9-18-15-PM-1.jpg" alt="Buyer proof 6" loading="lazy" />
+      </div>
+      <div class="hero-proof-item">
+        <img src="https://i.ibb.co/Zz2WYVxn/Whats-App-Image-2026-05-28-at-9-18-15-PM-2.jpg" alt="Buyer proof 7" loading="lazy" />
+      </div>
+      <div class="hero-proof-item">
+        <img src="https://i.ibb.co/gZ2kLLf9/Whats-App-Image-2026-05-28-at-9-18-15-PM-3.jpg" alt="Buyer proof 8" loading="lazy" />
+      </div>
+      <div class="hero-proof-item">
+        <img src="https://i.ibb.co/1tddvVVm/Whats-App-Image-2026-05-28-at-9-18-15-PM.jpg" alt="Buyer proof 9" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- CTA below proof grid -->
+    <div style="text-align:center;margin-top:30px;">
+      <p style="font-size:14px;color:#94a3b8;margin-bottom:14px;">
+        Inhi sellers ki tarah aap bhi time bachao aur sales badhao 👆
+      </p>
+      <button onclick="startPayment()" class="btn-primary" style="font-size:17px;padding:16px 40px;">
+        🚀 ₹99 mein Abhi Kharido — Real Results Guarantee
+      </button>
+    </div>
+
   </div>
 </div>
 
@@ -1281,31 +1377,37 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
 
 <!-- ── REAL BUYER PROOF SCREENSHOTS ───────────────────────────── -->
 <section style="background:#0f172a;padding:48px 20px;">
-  <div class="container">
+  <div style="max-width:980px;margin:0 auto;">
     <h2 class="section-title" style="color:#fff;">Real Buyers ke Real Messages 📱</h2>
     <p class="section-sub" style="color:#94a3b8;">Ye fake nahi hain — actual WhatsApp conversations</p>
 
     <div class="proof-screenshots">
       <div class="proof-img-card">
-        <img 
-          src="https://i.ibb.co/q3jg21yF/Screenshot-2026-05-19-000248.png" 
-          alt="Buyer Review Screenshot 1"
-          loading="lazy"
-        />
+        <img src="https://i.ibb.co/QvFYdZFQ/Whats-App-Image-2026-05-28-at-9-18-16-PM-1.jpg" alt="Buyer Message Screenshot 1" loading="lazy" />
       </div>
       <div class="proof-img-card">
-        <img 
-          src="https://i.ibb.co/3mNZzf8n/Screenshot-2026-05-19-000253.png" 
-          alt="Buyer Review Screenshot 2"
-          loading="lazy"
-        />
+        <img src="https://i.ibb.co/cSKVNgDB/Whats-App-Image-2026-05-28-at-9-18-16-PM-2.jpg" alt="Buyer Message Screenshot 2" loading="lazy" />
       </div>
       <div class="proof-img-card">
-        <img 
-          src="https://i.ibb.co/9xHK54V/Screenshot-2026-05-19-000257.png" 
-          alt="Buyer Review Screenshot 3"
-          loading="lazy"
-        />
+        <img src="https://i.ibb.co/qM5QCC0r/Whats-App-Image-2026-05-28-at-9-18-16-PM.jpg" alt="Buyer Message Screenshot 3" loading="lazy" />
+      </div>
+      <div class="proof-img-card">
+        <img src="https://i.ibb.co/ks8cT9Ry/Whats-App-Image-2026-05-28-at-9-18-17-PM-1.jpg" alt="Buyer Message Screenshot 4" loading="lazy" />
+      </div>
+      <div class="proof-img-card">
+        <img src="https://i.ibb.co/wh15fwVf/Whats-App-Image-2026-05-28-at-9-18-17-PM.jpg" alt="Buyer Message Screenshot 5" loading="lazy" />
+      </div>
+      <div class="proof-img-card">
+        <img src="https://i.ibb.co/KcYqDmYZ/Whats-App-Image-2026-05-28-at-9-18-15-PM-1.jpg" alt="Buyer Message Screenshot 6" loading="lazy" />
+      </div>
+      <div class="proof-img-card">
+        <img src="https://i.ibb.co/Zz2WYVxn/Whats-App-Image-2026-05-28-at-9-18-15-PM-2.jpg" alt="Buyer Message Screenshot 7" loading="lazy" />
+      </div>
+      <div class="proof-img-card">
+        <img src="https://i.ibb.co/gZ2kLLf9/Whats-App-Image-2026-05-28-at-9-18-15-PM-3.jpg" alt="Buyer Message Screenshot 8" loading="lazy" />
+      </div>
+      <div class="proof-img-card">
+        <img src="https://i.ibb.co/1tddvVVm/Whats-App-Image-2026-05-28-at-9-18-15-PM.jpg" alt="Buyer Message Screenshot 9" loading="lazy" />
       </div>
     </div>
 
@@ -1395,7 +1497,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
         <li><span class="icon">✓</span><span>WhatsApp support included</span></li>
         <li><span class="icon">✓</span><span>Lifetime access — no renewal</span></li>
       </ul>
-      <!-- GUARANTEE BADGE — bold, above buy button -->
+      <!-- GUARANTEE BADGE -->
       <div style="background:linear-gradient(135deg,#dcfce7,#bbf7d0);border:2px solid #4ade80;
         border-radius:14px;padding:16px 20px;margin-bottom:16px;
         display:flex;align-items:center;gap:14px;text-align:left;">
@@ -1414,12 +1516,10 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
         🚀 Abhi Kharido — ₹99 Only
       </button>
 
-      <!-- TRUST LINE BELOW BUY BUTTON -->
       <p style="text-align:center;font-size:12px;color:#94a3b8;margin-top:10px;margin-bottom:4px;">
         ✅ Payment ke baad <strong style="color:#4ade80;">turant WhatsApp pe tool milega</strong> — koi wait nahi
       </p>
 
-      <!-- WHATSAPP ALTERNATIVE -->
       <div style="text-align:center;margin-top:10px;margin-bottom:4px;">
         <p style="font-size:12px;color:#94a3b8;margin-bottom:8px;">Ya pehle baat karo, phir kharido 👇</p>
         <a href="https://wa.me/919213631880?text=Hi%21%20Maine%20abhi%20aapka%20Meesho%20Auto%20Listing%20Tool%20page%20dekha%20%F0%9F%91%80%20Mujhe%20kuch%20doubt%20hai%2C%20kya%20aap%20help%20kar%20sakte%20hain%3F"
