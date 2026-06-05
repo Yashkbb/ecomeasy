@@ -28,7 +28,7 @@ fbq('track', 'PageView');
 fbq('track', 'ViewContent', {
   content_name: 'Flipkart Auto Listing Tool',
   content_category: 'E-commerce Tool',
-  value: 199,
+  value: 99,
   currency: 'INR'
 });
 </script>
@@ -152,50 +152,6 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       margin: 0 auto 28px;
     }
 
-    /* ══ LIFETIME ACCESS BADGE ══ */
-    .lifetime-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #fbbf24 100%);
-      background-size: 200% 100%;
-      animation: shine-badge 3s linear infinite;
-      color: #1a1a2e;
-      font-family: 'Baloo 2', sans-serif;
-      font-size: clamp(20px, 4.5vw, 34px);
-      font-weight: 800;
-      padding: 14px 32px;
-      border-radius: 16px;
-      margin: 0 auto 24px;
-      max-width: 520px;
-      letter-spacing: 0.5px;
-      box-shadow: 0 8px 32px rgba(251,191,36,0.45), 0 0 0 3px rgba(251,191,36,0.25);
-      position: relative;
-      overflow: hidden;
-    }
-    .lifetime-badge::after {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 60%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
-      animation: sweep-badge 2.5s ease-in-out infinite;
-    }
-    @keyframes shine-badge {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-    @keyframes sweep-badge {
-      0% { left: -100%; }
-      60%, 100% { left: 160%; }
-    }
-    .lifetime-sub {
-      font-size: 13px;
-      font-weight: 600;
-      color: rgba(26,26,46,0.7);
-      display: block;
-      margin-top: 4px;
-    }
-
     /* LIVE STATS BAR */
     .live-stats {
       background: rgba(255,255,255,0.08);
@@ -232,7 +188,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     }
     .timer-note { font-size: 11px; color: #94a3b8; margin-top: 4px; }
 
-    /* ══ CTA BUTTON WITH SWEEP + VIBRATION ══ */
+    /* CTA BUTTONS */
     .btn-primary {
       display: inline-block;
       background: var(--brand);
@@ -246,45 +202,9 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       box-shadow: 0 4px 20px rgba(255,107,0,0.45);
       transition: transform .15s, box-shadow .15s;
       text-decoration: none;
-      position: relative;
-      overflow: hidden;
-      animation: btn-vibe 4s ease-in-out infinite;
     }
-    /* Light sweep */
-    .btn-primary::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 55%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.38), transparent);
-      animation: btn-sweep 2.8s ease-in-out infinite;
-      pointer-events: none;
-    }
-    @keyframes btn-sweep {
-      0% { left: -100%; }
-      55%, 100% { left: 160%; }
-    }
-    /* Subtle vibration */
-    @keyframes btn-vibe {
-      0%, 85%, 100% { transform: translateY(0) rotate(0deg); }
-      87% { transform: translateY(-2px) rotate(-0.4deg); }
-      89% { transform: translateY(1px) rotate(0.4deg); }
-      91% { transform: translateY(-1px) rotate(-0.2deg); }
-      93% { transform: translateY(0.5px) rotate(0.2deg); }
-      95% { transform: translateY(0) rotate(0deg); }
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px) !important;
-      box-shadow: 0 8px 28px rgba(255,107,0,0.5);
-      animation: btn-sweep-only 2.8s ease-in-out infinite;
-    }
-    @keyframes btn-sweep-only {
-      0% { }
-      55%, 100% { }
-    }
-    .btn-primary:active { transform: scale(0.98) !important; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,107,0,0.5); }
+    .btn-primary:active { transform: scale(0.98); }
 
     .btn-whatsapp {
       display: inline-flex;
@@ -876,7 +796,6 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       .proof-screenshots { grid-template-columns: 1fr; }
       .email-popup { padding: 28px 18px; }
       .email-popup h2 { font-size: 20px; }
-      .lifetime-badge { font-size: 18px; padding: 12px 20px; }
     }
     @media(max-width:380px) {
       .hero h1 { font-size: 22px; }
@@ -1096,17 +1015,6 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       box-shadow: 0 4px 20px rgba(255,107,0,0.4);
       font-family: 'Noto Sans', sans-serif;
       transition: transform .15s;
-      position: relative;
-      overflow: hidden;
-    }
-    .ep-btn-pay::after {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 55%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.38), transparent);
-      animation: btn-sweep 2.8s ease-in-out infinite;
     }
     .ep-btn-pay:hover { transform: translateY(-2px); }
     .ep-btn-pay:active { transform: scale(0.98); }
@@ -1182,30 +1090,9 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     </div>
   </div>
 
-  <span class="hero-tag">🚀 ecomeasy — Flipkart &amp; Meesho #1 Auto Listing Tool</span>
-  <h1><span class="highlight">Flipkart + Meesho</span> Auto Listing Tool —<br>Dono Milenge Sirf ₹199 Mein!</h1>
-
-  <!-- PLATFORM PILLS -->
-  <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:20px;">
-    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,214,0,0.15);border:1.5px solid #fbbf24;border-radius:30px;padding:8px 18px;font-size:13px;font-weight:800;color:#fbbf24;">
-      🛒 Flipkart Seller
-    </div>
-    <div style="font-size:20px;color:#fff;font-weight:800;align-self:center;">+</div>
-    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(244,63,94,0.15);border:1.5px solid #f43f5e;border-radius:30px;padding:8px 18px;font-size:13px;font-weight:800;color:#fb7185;">
-      🛍️ Meesho Seller
-    </div>
-    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(74,222,128,0.15);border:1.5px solid #4ade80;border-radius:30px;padding:8px 18px;font-size:13px;font-weight:800;color:#4ade80;">
-      ✅ Dono Ek Saath!
-    </div>
-  </div>
-
-  <!-- ══ BIG LIFETIME ACCESS BADGE ══ -->
-  <div class="lifetime-badge">
-    🔐 LIFETIME ACCESS IN ₹199
-    <span class="lifetime-sub">Ek baar pay karo — Flipkart + Meesho dono tool hamesha ke liye aapka!</span>
-  </div>
-
-  <p>Flipkart aur Meesho pe manual listing mein ghante barbaad ho rahe hain? 10 listings banane mein pura din chala jaata hai — ab nahi! Humara tool sirf 1 minute mein dono platforms pe 10 listings auto-create karta hai. 🚀</p>
+  <span class="hero-tag">🚀 ecomeasy Flipkart #1 tool</span>
+  <h1>Meesho + Flipkart Auto Listing Tool — Dono Milenge ₹99 Mein,<br><span class="highlight">Tool</span></h1>
+  <p>Flipkart pe manual listing mein ghante barbaad ho rahe hain? 10 listings banane mein pura din chala jaata hai — ab nahi! Humara tool sirf 1 minute mein 10 listings auto-create karta hai. 🚀</p>
 
   <!-- HERO VIDEO -->
   <div class="mini-video-wrapper" id="miniVideoWrapper" onclick="playMiniVideo()" style="max-width:560px;margin:0 auto 28px;">
@@ -1287,7 +1174,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   </div>
 
   <button class="btn-primary" onclick="startPayment()">
-    🚀 Buy Now ₹199 — Lifetime Access →
+    🚀 ₹99 mein Abhi Kharido + 3 Bonus FREE →
   </button>
   <div style="margin-top:10px;font-size:12px;color:#94a3b8;">
     ✅ Payment ke baad turant WhatsApp pe tool + bonus milega
@@ -1305,27 +1192,26 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
 <!-- PROBLEM / SOLUTION -->
 <section class="prob-sol">
   <div class="container">
-    <h2 class="section-title">Kya Aap Bhi Flipkart &amp; Meesho Pe Manual Listing Karke Thak Gye Ho?</h2>
+    <h2 class="section-title">Kya Aap Bhi Flipkart Pe Manual Listing Karke Thak Gye Ho?</h2>
     <p class="section-sub">Agar haan, toh ye tool specifically aapke liye bana hai</p>
     <div class="ps-grid">
       <div class="ps-card problem">
         <h3>❌ Pehle Ki Situation</h3>
         <ul>
-          <li><span>😓</span> <span>Flipkart + Meesho dono pe alag-alag listing karna padta tha</span></li>
           <li><span>😓</span> <span>Ek listing upload karne mein bahut time lagta tha</span></li>
           <li><span>😓</span> <span>Multiple listings banana boring aur repetitive tha</span></li>
           <li><span>😓</span> <span>Competitors zyada listings karke sales le ja rahe the</span></li>
-          <li><span>😓</span> <span>Dono platforms manage karna bahut mushkil tha</span></li>
+          <li><span>😓</span> <span>Manual listing ki wajah se growth slow ho rahi thi</span></li>
         </ul>
       </div>
       <div class="ps-card solution">
-        <h3>✅ Flipkart + Meesho Tool ke Baad</h3>
+        <h3>✅ Flipkart autolisting tool ke Baad</h3>
         <ul>
-          <li><span>🚀</span> <span>Flipkart pe 1 click mein multiple product listings create</span></li>
-          <li><span>🚀</span> <span>Meesho pe bhi same speed se listings — dono ek saath!</span></li>
+          <li><span>🚀</span> <span>1 click mein multiple product listings create</span></li>
           <li><span>🚀</span> <span>Product details auto-fill — no manual work</span></li>
-          <li><span>🚀</span> <span>10 minute mein 20–30 listings ready on both platforms</span></li>
+          <li><span>🚀</span> <span>10 minute mein 20–30 listings ready</span></li>
           <li><span>🚀</span> <span>Zyada listings = zyada visibility = zyada orders</span></li>
+          <li><span>🚀</span> <span>Time save karke seller faster scale kar raha hai</span></li>
         </ul>
       </div>
     </div>
@@ -1336,56 +1222,37 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
 <section class="features">
   <div class="container">
     <h2 class="section-title">Kya Milega Aapko?</h2>
-    <p class="section-sub">Ek tool — Flipkart + Meesho dono ke liye complete automation system</p>
-
-    <!-- Platform tabs visual -->
-    <div style="display:flex;justify-content:center;gap:12px;margin-bottom:24px;flex-wrap:wrap;">
-      <div style="background:#fff;border:2px solid #fbbf24;border-radius:12px;padding:10px 20px;display:flex;align-items:center;gap:8px;">
-        <span style="font-size:20px;">🛒</span>
-        <div>
-          <div style="font-size:13px;font-weight:800;color:#1a1a2e;">Flipkart Tool</div>
-          <div style="font-size:11px;color:#64748b;">Auto listing + bulk upload</div>
-        </div>
-      </div>
-      <div style="background:#fff;border:2px solid #f43f5e;border-radius:12px;padding:10px 20px;display:flex;align-items:center;gap:8px;">
-        <span style="font-size:20px;">🛍️</span>
-        <div>
-          <div style="font-size:13px;font-weight:800;color:#1a1a2e;">Meesho Tool</div>
-          <div style="font-size:11px;color:#64748b;">Auto listing + bulk upload</div>
-        </div>
-      </div>
-    </div>
-
+    <p class="section-sub">Ek tool mein complete seller automation system</p>
     <div class="features-grid">
       <div class="feat-card">
         <div class="feat-icon">⚡</div>
         <h3>1-Click Auto Listing</h3>
-        <p>Flipkart + Meesho dono pe sirf ek click mein multiple product listings create karo.</p>
+        <p>Sirf ek click mein multiple product listings create karo — no manual मेहनत.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon">📝</div>
         <h3>Auto Product Fill</h3>
-        <p>Title, description, category, size, color — dono platforms pe sab details automatically fill.</p>
+        <p>Title, description, category, size, color — sab details automatically fill.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon">🖼️</div>
         <h3>Image Auto Upload</h3>
-        <p>Product images Flipkart + Meesho dono pe instantly upload — bina baar-baar select kiye.</p>
+        <p>Product images instantly upload ho jaati hain bina baar-baar select kiye.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon">🚀</div>
         <h3>Bulk Listing Speed</h3>
-        <p>10 minute mein 20–30 listings dono platforms pe create karke double visibility boost karo.</p>
+        <p>10 minute mein 20–30 listings create karke visibility boost karo.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon">💰</div>
-        <h3>Double Income Sources</h3>
-        <p>Flipkart + Meesho dono pe active rehkar double income stream banao — ek tool se.</p>
+        <h3>Shipping Cost Optimization</h3>
+        <p>Different listings test karke low shipping cost aur better margins pao.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon">📈</div>
-        <h3>2x Higher Visibility</h3>
-        <p>Dono platforms pe listings = 2x impressions = 2x clicks = 2x orders. Simple math!</p>
+        <h3>Higher Visibility</h3>
+        <p>Zyada listings = zyada impressions = zyada clicks = zyada orders.</p>
       </div>
     </div>
   </div>
@@ -1418,7 +1285,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       </div>
     </div>
     <p style="text-align:center;color:#64748b;font-size:12px;margin-top:12px;">
-      Tool ki cost: ₹199 · Potential return: 
+      Tool ki cost: ₹99 · Potential return: 
       <strong style="color:#fbbf24;" id="roiVsPrice">100x+</strong>
     </p>
   </div>
@@ -1510,7 +1377,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
           </div>
         </div>
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Mujhe laga ₹199 mein normal tool hoga, but honestly ye meri listing speed 5x kar gaya. Competitors ko catch up karna easy ho gaya."</p>
+        <p class="testi-text">"Mujhe laga ₹99 mein normal tool hoga, but honestly ye meri listing speed 5x kar gaya. Competitors ko catch up karna easy ho gaya."</p>
         <span class="verified-badge">✅ Verified Buyer</span>
       </div>
     </div>
@@ -1607,8 +1474,8 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     <div class="price-card">
       <span class="price-badge">🔥 Limited Time Offer</span>
       <div class="price-original">Regular price: ₹999</div>
-      <div class="price-current">₹199</div>
-      <div class="price-tax">+ taxes · One-time payment · Lifetime Access</div>
+      <div class="price-current">₹99</div>
+      <div class="price-tax">+ taxes · One-time payment</div>
       <ul class="price-features">
         <li><span class="icon">✓</span><span>1-Click Auto Listing System</span></li>
         <li><span class="icon">✓</span><span>Unlimited product listings creation</span></li>
@@ -1617,7 +1484,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
         <li><span class="icon">✓</span><span>Shipping cost optimization support</span></li>
         <li><span class="icon">✓</span><span>5x faster listing speed</span></li>
         <li><span class="icon">✓</span><span>WhatsApp support included</span></li>
-        <li><span class="icon">✓</span><span>🔐 Lifetime access — no renewal ever</span></li>
+        <li><span class="icon">✓</span><span>Lifetime access — no renewal</span></li>
       </ul>
       <div style="background:linear-gradient(135deg,#dcfce7,#bbf7d0);border:2px solid #4ade80;
         border-radius:14px;padding:16px 20px;margin-bottom:16px;
@@ -1628,13 +1495,13 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
             7-Day Money Back Guarantee
           </div>
           <div style="font-size:12px;color:#166534;margin-top:3px;font-weight:600;">
-            Kaam na kare toh poora ₹199 wapas — zero sawaal
+            Kaam na kare toh poora ₹99 wapas — zero sawaal
           </div>
         </div>
       </div>
 
       <button class="btn-primary" onclick="startPayment()" style="width:100%;font-size:18px;padding:18px;">
-        🚀 Buy Now ₹199 — Lifetime Access
+        🚀 Abhi Kharido — ₹99 Only
       </button>
 
       <p style="text-align:center;font-size:12px;color:#94a3b8;margin-top:10px;margin-bottom:4px;">
@@ -1696,7 +1563,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
         <li style="font-size:13px;color:#1e293b;display:flex;gap:8px;"><span>✅</span><span><strong>Instant delivery</strong> — payment ke baad WhatsApp pe tool link milega</span></li>
         <li style="font-size:13px;color:#1e293b;display:flex;gap:8px;"><span>✅</span><span><strong>7-day refund</strong> — agar tool aapke PC pe kaam na kare</span></li>
-        <li style="font-size:13px;color:#1e293b;display:flex;gap:8px;"><span>✅</span><span><strong>No hidden charges</strong> — ek baar ₹199 bas</span></li>
+        <li style="font-size:13px;color:#1e293b;display:flex;gap:8px;"><span>✅</span><span><strong>No hidden charges</strong> — ek baar ₹99 bas</span></li>
         <li style="font-size:13px;color:#1e293b;display:flex;gap:8px;"><span>✅</span><span><strong>Support available</strong> — Mon–Sat 10AM–8PM WhatsApp pe</span></li>
       </ul>
     </div>
@@ -1729,7 +1596,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
         Kya ye one-time payment hai? <span class="arrow">▼</span>
       </button>
       <div class="faq-a">
-        <div class="faq-a-inner">Haan, sirf ek baar ₹199. Lifetime access milega — koi monthly charge nahi.</div>
+        <div class="faq-a-inner">Haan, sirf ek baar payment. Lifetime access milega — koi monthly charge nahi.</div>
       </div>
     </div>
     <div class="faq-item">
@@ -1793,13 +1660,20 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
 <div class="sticky-bar">
   <div class="sticky-price">
     <div class="old">Regular ₹999</div>
-    <div class="new">₹199 Only</div>
+    <div class="new">₹99 Only</div>
   </div>
   <div class="sticky-timer-text" style="text-align:center;font-size:12px;color:#ff6b00;font-weight:700;">
     ⏰ <span id="stickyTimer">29:59</span> bacha hai
   </div>
   <div style="display:flex;gap:8px;align-items:center;">
-    <button class="btn-primary" onclick="startPayment()" style="white-space:nowrap;">🚀 Buy Now ₹199</button>
+    <a href="https://wa.me/919213631880?text=Hi%21%20Maine%20abhi%20aapka%20Flipkart%20Auto%20Listing%20Tool%20page%20dekha%20%F0%9F%91%80%20Mujhe%20kuch%20doubt%20hai%2C%20kya%20aap%20help%20kar%20sakte%20hain%3F"
+       target="_blank"
+       style="display:inline-flex;align-items:center;gap:5px;background:#25d366;color:#fff;
+              font-size:13px;font-weight:700;padding:11px 14px;border-radius:50px;
+              text-decoration:none;white-space:nowrap;box-shadow:0 3px 12px rgba(37,211,102,0.4);">
+      💬 Poochho
+    </a>
+    <button class="btn-primary" onclick="startPayment()" style="white-space:nowrap;">🚀 Kharido</button>
   </div>
 </div>
 
@@ -1819,19 +1693,21 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     <button class="exit-close" onclick="closeExit()">✕</button>
     <div class="ep-tag">🚨 Ruko! Sirf Aaj Tak</div>
     <h2>Kya Sach Mein Jaana Chahte Ho?</h2>
-    <p>Ye ₹199 ka offer sirf aaj ke liye hai. Kal wapas aao toh price wapas ₹999 ho sakta hai.</p>
+    <p>Ye ₹99 ka offer sirf aaj ke liye hai. Kal wapas aao toh price wapas ₹999 ho sakta hai.</p>
     <div class="exit-price-row">
       <div class="exit-old">₹999</div>
-      <div class="exit-new">₹199</div>
+      <div class="exit-new">₹99</div>
     </div>
     <button class="btn-primary" onclick="closeExit(); startPayment();">
-      🚀 Haan, Abhi Buy Karta Hoon!
+      🚀 Haan, Abhi Kharidta Hoon!
     </button>
     <span class="exit-skip" onclick="closeExit(); redirectToWhatsApp();">Nahi chahiye, jaata hoon →</span>
   </div>
 </div>
 
-<!-- EMAIL COLLECTION MODAL -->
+<!-- ═══════════════════════════════════════════ -->
+<!-- EMAIL COLLECTION MODAL (NEW)               -->
+<!-- ═══════════════════════════════════════════ -->
 <div class="email-overlay" id="emailOverlay">
   <div class="email-popup">
     <span class="ep-icon">📧</span>
@@ -1844,7 +1720,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     </div>
     <input type="email" id="userEmailInput" placeholder="aapka@email.com" autocomplete="email" />
     <button class="ep-btn-pay" onclick="proceedWithEmail()">
-      🔒 Aage Badho — ₹199 Pay Karo
+      🔒 Aage Badho — ₹99 Pay Karo
     </button>
     <button class="ep-skip" onclick="proceedWithEmail()">Email nahi dena, skip karo →</button>
     <div class="ep-privacy">🔒 Aapki email safe hai — spam nahi karenge</div>
@@ -1924,7 +1800,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       : Math.round(savedMinsPerDay) + '+ Minutes Saved';
     document.getElementById('roiResult').textContent = label;
     var monthlyValue = Math.round((savedMinsPerDay / 60) * 50 * 30);
-    var roi = monthlyValue > 0 ? Math.round(monthlyValue / 199) + 'x' : '100x+';
+    var roi = monthlyValue > 0 ? Math.round(monthlyValue / 99) + 'x' : '100x+';
     document.getElementById('roiVsPrice').textContent = roi;
   }
   calcROI();
@@ -2041,6 +1917,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   /* Step 1: Buy button click → email modal dikhao */
   function startPayment() {
     document.getElementById('emailOverlay').classList.add('active');
+    /* Focus email input after animation */
     setTimeout(function() {
       var inp = document.getElementById('userEmailInput');
       if (inp) inp.focus();
@@ -2053,17 +1930,17 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     document.getElementById('emailOverlay').classList.remove('active');
 
     fbq('track', 'InitiateCheckout', {
-      value: 199,
+      value: 99,
       currency: 'INR',
       content_name: 'Flipkart Auto Listing Tool'
     });
 
     var options = {
       key: 'rzp_live_Soq8MomXhDXwsT',
-      amount: 19900,
+      amount: 9900,
       currency: 'INR',
       name: 'Flipkart Autolisting Tool',
-      description: '✅ Flipkart + Meesho Tool + 3 FREE Bonus — Lifetime Access',
+      description: '✅ Flipkart Tool + 3 FREE Bonus',
       image: 'https://i.ibb.co/gL9j2Ks2/images-5.png',
       prefill: {
         name: '',
@@ -2077,7 +1954,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       theme: { color: '#ff6b00' },
       handler: function(response) {
         fbq('track', 'Purchase', {
-          value: 199,
+          value: 99,
           currency: 'INR',
           content_name: 'Flipkart Auto Listing Tool',
           content_type: 'product'
@@ -2087,13 +1964,13 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
           'Hi! Maine abhi payment kar di hai ✅\n' +
           'Payment ID: ' + response.razorpay_payment_id +
           emailLine + '\n' +
-          'Mujhe mera Flipkart + Meesho Auto Listing Tool aur setup video kahan milega? Dono chahiye 🙏'
+          'Mujhe mera Flipkart tool aur setup video kahan milega?'
         );
         window.location.href = 'https://wa.me/919213631880?text=' + msg;
       },
       modal: {
         ondismiss: function() {
-          fbq('track', 'AddPaymentInfo', { value: 199, currency: 'INR' });
+          fbq('track', 'AddPaymentInfo', { value: 99, currency: 'INR' });
           setTimeout(function() {
             document.getElementById('exitOverlay').classList.add('active');
           }, 400);
