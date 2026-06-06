@@ -40,7 +40,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- Razorpay -->
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+ 
 
   <style>
     :root {
@@ -1935,50 +1935,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
       content_name: 'Flipkart Auto Listing Tool'
     });
 
-    var options = {
-      key: 'rzp_live_Soq8MomXhDXwsT',
-      amount: 9900,
-      currency: 'INR',
-      name: 'Flipkart Autolisting Tool',
-      description: '✅ Flipkart Tool + 3 FREE Bonus',
-      image: 'https://i.ibb.co/gL9j2Ks2/images-5.png',
-      prefill: {
-        name: '',
-        email: collectedEmail,
-        contact: ''
-      },
-      notes: {
-        product: 'flipkart autolisting tool',
-        buyer_email: collectedEmail
-      },
-      theme: { color: '#ff6b00' },
-      handler: function(response) {
-        fbq('track', 'Purchase', {
-          value: 99,
-          currency: 'INR',
-          content_name: 'Flipkart Auto Listing Tool',
-          content_type: 'product'
-        });
-        var emailLine = collectedEmail ? '\nMeri email: ' + collectedEmail : '';
-        var msg = encodeURIComponent(
-          'Hi! Maine abhi payment kar di hai ✅\n' +
-          'Payment ID: ' + response.razorpay_payment_id +
-          emailLine + '\n' +
-          'Mujhe mera Flipkart tool aur setup video kahan milega?'
-        );
-        window.location.href = 'https://wa.me/919213631880?text=' + msg;
-      },
-      modal: {
-        ondismiss: function() {
-          fbq('track', 'AddPaymentInfo', { value: 99, currency: 'INR' });
-          setTimeout(function() {
-            document.getElementById('exitOverlay').classList.add('active');
-          }, 400);
-        }
-      }
-    };
-    var rzp = new Razorpay(options);
-    rzp.open();
+    window.location.href = 'https://rzp.io/rzp/x9kVhOa';
   }
 
   /* Close email modal on overlay click */
