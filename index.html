@@ -1829,7 +1829,13 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
         </div>
       </div>
     </div>
-
+<!-- AFTER PAY CONFIRM (app users ke liye) -->
+<div id="afterPayBtn" style="display:none;padding:0 14px 10px;">
+  <button onclick="confirmUpiPayment()"
+          style="width:100%;background:#16a34a;color:#fff;font-size:14px;font-weight:700;padding:13px;border:none;border-radius:50px;cursor:pointer;box-shadow:0 4px 16px rgba(22,163,74,0.3);">
+    ✅ Payment Ho Gayi — Tool Bhejo WhatsApp Pe
+  </button>
+</div>
     <!-- CONFIRM BUTTON (for QR scanners) -->
     <div style="padding:0 14px 14px;">
       <button onclick="confirmUpiPayment()"
@@ -2119,13 +2125,11 @@ function startPaymentTimer() {
 
 /* Called when any UPI app button is tapped */
 function handleUpiClick(e, deeplink) {
-  /* Let the app deep-link open, then after 1.5s redirect to WhatsApp */
-  setTimeout(function(){
-    redirectAfterPayment();
-  }, 1500);
-  /* Don't prevent default — deeplink should still fire */
+  /* UPI app khulne do — kuch mat karo */
+  /* Confirm button se user khud WhatsApp jayega */
+  document.getElementById('afterPayBtn').style.display = 'block';
+  document.getElementById('afterPayBtn').scrollIntoView({behavior:'smooth', block:'nearest'});
 }
-
 /* Called by QR confirm button */
 function confirmUpiPayment() {
   redirectAfterPayment();
