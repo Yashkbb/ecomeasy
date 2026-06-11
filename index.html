@@ -39,8 +39,7 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Razorpay -->
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  
 
   <style>
     :root {
@@ -1709,6 +1708,88 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
   </div>
 </div>
 
+<!-- PAYMENT OVERLAY -->
+<div class="exit-overlay" id="paymentOverlay" style="align-items:flex-start;overflow-y:auto;padding:20px 16px;">
+  <div style="background:#fff;border-radius:20px;padding:28px 20px;max-width:420px;width:100%;margin:auto;position:relative;">
+    <button onclick="document.getElementById('paymentOverlay').classList.remove('active')" 
+            style="position:absolute;top:12px;right:16px;font-size:22px;color:#94a3b8;cursor:pointer;background:none;border:none;">✕</button>
+
+    <!-- HEADER -->
+    <div style="text-align:center;margin-bottom:16px;">
+      <div style="font-size:13px;font-weight:700;color:#64748b;margin-bottom:4px;">PAY KARO</div>
+      <div style="font-family:'Baloo 2',sans-serif;font-size:42px;font-weight:800;color:#1a1a2e;line-height:1;">₹99</div>
+      <div style="font-size:13px;color:#64748b;margin-top:4px;">Flipkart + Meesho Tool + 3 FREE Bonuses</div>
+    </div>
+
+    <!-- TIMER -->
+    <div id="payTimerBox" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#fff8e1;border:1.5px solid #fbbf24;border-radius:12px;padding:11px 16px;margin-bottom:18px;">
+      <span style="font-size:18px;">⏰</span>
+      <span style="font-size:13px;font-weight:600;color:#92400e;">Offer expire hoga:</span>
+      <span id="payTimerCount" style="font-family:'Baloo 2',sans-serif;font-size:24px;font-weight:800;color:#d97706;min-width:64px;">10:00</span>
+    </div>
+
+    <!-- QR CODE -->
+    <div style="background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:16px;padding:20px;text-align:center;margin-bottom:14px;">
+      <div style="font-size:12px;font-weight:700;color:#64748b;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;">📱 Scan Karo — PhonePe / GPay / Paytm / Koi bhi UPI App</div>
+      <img src="https://i.ibb.co/B5g4sKC9/Whats-App-Image-2026-06-11-at-6-00-39-PM-1.jpg" 
+           alt="PhonePe QR Code" 
+           style="width:190px;height:190px;border-radius:12px;border:1.5px solid #e2e8f0;object-fit:contain;background:#fff;" />
+      <div style="font-size:14px;font-weight:700;color:#1a1a2e;margin-top:10px;">Yash Kumar</div>
+      <div style="font-size:12px;color:#64748b;margin-top:2px;">ecomeasy.store</div>
+    </div>
+
+    <!-- UPI APP BUTTONS -->
+    <div style="margin-bottom:14px;">
+      <div style="font-size:12px;font-weight:700;color:#64748b;margin-bottom:10px;text-align:center;">Ya seedha kisi bhi app se bhejo 👇</div>
+      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+        <a href="phonepe://pay?pa=ecomeasy@axl&pn=Yash%20Kumar&am=99&cu=INR" 
+           style="display:inline-flex;align-items:center;gap:6px;background:#5f2fcf;color:#fff;font-size:13px;font-weight:700;padding:10px 16px;border-radius:30px;text-decoration:none;">
+          💜 PhonePe
+        </a>
+        <a href="tez://upi/pay?pa=ecomeasy@axl&pn=Yash%20Kumar&am=99&cu=INR" 
+           style="display:inline-flex;align-items:center;gap:6px;background:#1a73e8;color:#fff;font-size:13px;font-weight:700;padding:10px 16px;border-radius:30px;text-decoration:none;">
+          🔵 Google Pay
+        </a>
+        <a href="paytmmp://pay?pa=ecomeasy@axl&pn=Yash%20Kumar&am=99&cu=INR" 
+           style="display:inline-flex;align-items:center;gap:6px;background:#00b9f1;color:#fff;font-size:13px;font-weight:700;padding:10px 16px;border-radius:30px;text-decoration:none;">
+          🔷 Paytm
+        </a>
+      </div>
+    </div>
+
+    <!-- MANUAL UPI INPUT -->
+    <div style="background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:12px;padding:14px;margin-bottom:16px;">
+      <div style="font-size:13px;font-weight:700;color:#1a1a2e;margin-bottom:8px;">Ya apna UPI ID dale — notification aayega:</div>
+      <div style="display:flex;gap:8px;">
+        <input type="text" id="manualUpiInput" placeholder="name@oksbi ya name@ybl" 
+               style="flex:1;padding:10px 12px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:14px;outline:none;font-family:'Noto Sans',sans-serif;" />
+        <button onclick="sendManualUPI()" 
+                style="background:#ff6b00;color:#fff;font-size:14px;font-weight:700;padding:10px 16px;border:none;border-radius:10px;cursor:pointer;white-space:nowrap;">
+          Send →
+        </button>
+      </div>
+      <div id="manualUpiMsg" style="font-size:12px;color:#64748b;margin-top:6px;min-height:16px;"></div>
+      <div style="font-size:11px;color:#94a3b8;margin-top:6px;">⚡ UPI ID dalne pe aapki UPI app pe ₹99 ki payment request aayegi</div>
+    </div>
+
+    <!-- CONFIRM BUTTON -->
+    <button onclick="confirmUpiPayment()" 
+            style="width:100%;background:#16a34a;color:#fff;font-size:16px;font-weight:700;padding:16px;border:none;border-radius:50px;cursor:pointer;box-shadow:0 4px 16px rgba(22,163,74,0.4);font-family:'Noto Sans',sans-serif;">
+      ✅ Maine Payment Kar Di — Tool Lena Hai
+    </button>
+    <div style="text-align:center;font-size:12px;color:#94a3b8;margin-top:8px;">
+      Button dabao → WhatsApp pe auto-message jayega 📲
+    </div>
+
+    <!-- TRUST ROW -->
+    <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:14px;">
+      <span style="font-size:11px;color:#16a34a;font-weight:600;">🔒 Safe UPI Payment</span>
+      <span style="font-size:11px;color:#16a34a;font-weight:600;">⚡ Instant Tool Access</span>
+      <span style="font-size:11px;color:#16a34a;font-weight:600;">📞 Support Available</span>
+    </div>
+  </div>
+</div>
+
 <!-- EXIT INTENT POPUP -->
 <div class="exit-overlay" id="exitOverlay">
   <div class="exit-popup">
@@ -1948,60 +2029,42 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
 
   /* Step 2: Email liya (ya skip) → Razorpay kholo */
   function proceedWithEmail() {
-    collectedEmail = document.getElementById('userEmailInput').value.trim();
-    document.getElementById('emailOverlay').classList.remove('active');
+  collectedEmail = document.getElementById('userEmailInput').value.trim();
+  document.getElementById('emailOverlay').classList.remove('active');
+  fbq('track', 'InitiateCheckout', { value: 99, currency: 'INR' });
+  document.getElementById('paymentOverlay').classList.add('active');
+  startPaymentTimer();
+}
 
-    fbq('track', 'InitiateCheckout', {
-      value: 99,
-      currency: 'INR',
-      content_name: 'Meesho And Flipkart Auto Listing Tool'
-    });
+function startPaymentTimer() {
+  var secs = 600;
+  var iv = setInterval(function(){
+    secs--;
+    var m = Math.floor(secs/60), s = secs%60;
+    var el = document.getElementById('payTimerCount');
+    if(el) el.textContent = String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+    if(secs <= 60 && el) el.style.color = '#dc2626';
+    if(secs <= 0) clearInterval(iv);
+  }, 1000);
+}
 
-    var options = {
-      key: 'rzp_live_SzU1ELhxMQWITk',
-      amount: 9900,
-      currency: 'INR',
-      name: 'Meesho And Flipkart Autolisting Tool',
-      description: '✅ Flipkart + Meesho Tool + 3 FREE Bonus',
-      image: 'https://i.ibb.co/gL9j2Ks2/images-5.png',
-      prefill: {
-        name: '',
-        email: collectedEmail,
-        contact: ''
-      },
-      notes: {
-        product: 'meesho and flipkart autolisting tool',
-        buyer_email: collectedEmail
-      },
-      theme: { color: '#ff6b00' },
-      handler: function(response) {
-        fbq('track', 'Purchase', {
-          value: 99,
-          currency: 'INR',
-          content_name: 'Meesho And Flipkart Auto Listing Tool',
-          content_type: 'product'
-        });
-        var emailLine = collectedEmail ? '\nMeri email: ' + collectedEmail : '';
-        var msg = encodeURIComponent(
-          'Hi! Maine abhi payment kar di hai ✅\n' +
-'Payment ID: ' + response.razorpay_payment_id +
-emailLine + '\n' +
-'Mujhe mera Flipkart + Meesho tool aur setup video kahan milega?'
-        );
-        window.location.href = 'https://wa.me/918595735564?text=' + msg;
-      },
-      modal: {
-        ondismiss: function() {
-          fbq('track', 'AddPaymentInfo', { value: 99, currency: 'INR' });
-          setTimeout(function() {
-            document.getElementById('exitOverlay').classList.add('active');
-          }, 400);
-        }
-      }
-    };
-    var rzp = new Razorpay(options);
-    rzp.open();
+function sendManualUPI() {
+  var upi = document.getElementById('manualUpiInput').value.trim();
+  if(!upi || !upi.includes('@')) {
+    document.getElementById('manualUpiMsg').textContent = '❌ Sahi UPI ID dalo, jaise: name@oksbi';
+    return;
   }
+  var link = 'upi://pay?pa=' + encodeURIComponent(upi) + '&pn=Yash%20Kumar&am=99&cu=INR&tn=Flipkart%20Meesho%20Tool';
+  document.getElementById('manualUpiMsg').textContent = '⏳ UPI app khul rahi hai...';
+  window.location.href = link;
+}
+
+function confirmUpiPayment() {
+  fbq('track', 'Purchase', { value: 99, currency: 'INR' });
+  var emailLine = collectedEmail ? '\nEmail: ' + collectedEmail : '';
+  var msg = encodeURIComponent('Hi! Maine ₹99 ki UPI payment kar di hai ✅' + emailLine + '\nMujhe Flipkart + Meesho tool aur setup video chahiye!');
+  window.location.href = 'https://wa.me/918595735564?text=' + msg;
+}
 
   /* Close email modal on overlay click */
   document.getElementById('emailOverlay').addEventListener('click', function(e) {
