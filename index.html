@@ -1772,7 +1772,6 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
     💬 WhatsApp Karo — Free
   </a>
 </div>
-<script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
 <!-- SCRIPTS -->
 <script>
   /* MINI VIDEO PLAY */
@@ -1950,42 +1949,20 @@ src="https://www.facebook.com/tr?id=865687835806352&ev=PageView&noscript=1"
 function proceedWithEmail() {
   collectedEmail = document.getElementById('userEmailInput').value.trim();
   document.getElementById('emailOverlay').classList.remove('active');
+
+  /* Re-init pixel with advanced matching (email gets SHA-256 hashed automatically) */
+  if (collectedEmail) {
+    fbq('init', '865687835806352', { em: collectedEmail });
+  }
+
   fbq('track', 'InitiateCheckout', { value: 99, currency: 'INR' });
 
-  const cashfree = Cashfree({ mode: "production" });
-
-  fetch("https://api.cashfree.com/pg/orders", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-version": "2023-08-01",
-      "x-client-id": "cfsk_ma_prod_9ba01c544138878140c4bc179d2005c6_c58903e1".split('_').slice(0,5).join('_'),
-      "x-client-secret": "cfsk_ma_prod_9ba01c544138878140c4bc179d2005c6_c58903e1"
-    },
-    body: JSON.stringify({
-      order_id: "order_" + Date.now(),
-      order_amount: 99,
-      order_currency: "INR",
-      customer_details: {
-        customer_id: "cust_" + Date.now(),
-        customer_email: collectedEmail || "guest@ecomeasy.store",
-        customer_phone: "9999999999"
-      },
-      order_meta: {
-        return_url: "https://wa.me/918595735564?text=" + encodeURIComponent("Hi! Maine ₹99 ki payment kar di hai ✅\nEmail: " + (collectedEmail || "N/A") + "\nMujhe Flipkart + Meesho tool aur 3 bonus guides chahiye!")
-      }
-    })
-  })
-  .then(r => r.json())
-  .then(data => {
-    cashfree.checkout({
-      paymentSessionId: data.payment_session_id,
-      redirectTarget: "_self"
-    });
-  })
-  .catch(err => {
-    alert("Payment load nahi hua, WhatsApp karo: +91 8595735564");
-  });
+  /* Redirect to hosted Cashfree Payment Form */
+  var formUrl = "https://payments.cashfree.com/forms/Ecomeasy";
+  if (collectedEmail) {
+    formUrl += "?email=" + encodeURIComponent(collectedEmail);
+  }
+  window.location.href = formUrl;
 }
   /* Close email modal on overlay click */
   document.getElementById('emailOverlay').addEventListener('click', function(e) {
