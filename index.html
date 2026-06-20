@@ -107,7 +107,23 @@ fbq('track', 'ViewContent', { content_name: 'Meesho And Flipkart Auto Listing To
   .compat-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px; }
   .compat-chip { display:flex; align-items:center; gap:6px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14); border-radius:8px; padding:6px 11px; font-size:11.5px; font-weight:600; color:#cfe3da; }
   .cta-row { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top:6px; }
-  .btn-primary { display:inline-flex; align-items:center; gap:8px; background: var(--gold); color:#1a1306; font-size:16px; font-weight:700; padding:15px 28px; border-radius:10px; border:none; cursor:pointer; box-shadow:0 10px 28px rgba(201,149,45,.32); text-decoration:none; }
+  .btn-primary { display:inline-flex; align-items:center; gap:8px; background: var(--gold); color:#1a1306; font-size:16px; font-weight:700; padding:15px 28px; border-radius:10px; border:none; cursor:pointer; box-shadow:0 10px 28px rgba(201,149,45,.32); text-decoration:none; position:relative; overflow:hidden; animation: btnShake 3.4s ease-in-out infinite; }
+  .btn-primary::after { content:''; position:absolute; top:0; left:-60%; width:35%; height:100%; background: linear-gradient(115deg, transparent, rgba(255,255,255,.65), transparent); transform: skewX(-20deg); animation: btnSweep 2.8s ease-in-out infinite; }
+  @keyframes btnShake {
+    0%, 96%, 100% { transform: translateX(0); }
+    96.5% { transform: translateX(-3px); }
+    97.5% { transform: translateX(3px); }
+    98.5% { transform: translateX(-2px); }
+    99.5% { transform: translateX(2px); }
+  }
+  @keyframes btnSweep {
+    0% { left: -60%; }
+    45%, 100% { left: 130%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primary { animation: none; }
+    .btn-primary::after { animation: none; display:none; }
+  }
   .btn-primary:active{ transform: scale(.98); }
   .btn-whatsapp { display:inline-flex; align-items:center; gap:8px; background:#1f8a52; color:#fff; font-size:14px; font-weight:700; padding:13px 22px; border-radius:10px; border:none; cursor:pointer; text-decoration:none; }
   .hero-note { margin-top:14px; font-size:12px; color:#9fc2b3; }
@@ -134,8 +150,8 @@ fbq('track', 'ViewContent', { content_name: 'Meesho And Flipkart Auto Listing To
   .mini-proof-track { display:flex; gap:12px; width:max-content; animation: miniProofScroll 26s linear infinite; }
   .mini-proof-viewport:hover .mini-proof-track { animation-play-state: paused; }
   @keyframes miniProofScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  .mini-proof-item { flex:0 0 130px; border-radius:9px; overflow:hidden; border:1px solid var(--border); box-shadow:0 4px 12px rgba(13,59,46,.08); }
-  .mini-proof-item img { width:100%; display:block; pointer-events:none; -webkit-user-drag:none; }
+  .mini-proof-item { flex:0 0 130px; height:172px; border-radius:9px; overflow:hidden; border:1px solid var(--border); box-shadow:0 4px 12px rgba(13,59,46,.08); background: var(--teal-50); }
+  .mini-proof-item img { width:100%; height:100%; object-fit:cover; display:block; pointer-events:none; -webkit-user-drag:none; }
   .mini-proof-more { flex:0 0 130px; border-radius:9px; border:1px dashed var(--border); display:flex; align-items:center; justify-content:center; text-align:center; font-size:11.5px; font-weight:700; color:var(--teal-700); padding:10px; background:var(--teal-50); text-decoration:none; }
   @media (prefers-reduced-motion: reduce) { .mini-proof-track { animation: none; overflow-x:auto; } }
 
@@ -235,9 +251,7 @@ fbq('track', 'ViewContent', { content_name: 'Meesho And Flipkart Auto Listing To
   /* ===== receipt (ROI + pricing) ===== */
   .receipt {
     background: var(--surface); max-width: 420px; margin:0 auto; position:relative;
-    box-shadow: var(--shadow-lg); padding: 30px 26px 22px;
-    -webkit-mask-image: radial-gradient(circle at 8px 8px, transparent 8px, black 8.5px);
-    -webkit-mask-size: 16px 16px; -webkit-mask-repeat: repeat-x; -webkit-mask-position: top left;
+    box-shadow: var(--shadow-lg); padding: 30px 26px 22px; border-radius: 6px;
   }
   .receipt::before, .receipt::after {
     content:''; position:absolute; left:0; right:0; height:10px;
@@ -344,6 +358,16 @@ fbq('track', 'ViewContent', { content_name: 'Meesho And Flipkart Auto Listing To
 
   /* wa float */
   .wa-float { position:fixed; bottom:80px; right:18px; z-index:9990; width:52px; height:52px; border-radius:50%; background:#1f8a52; color:#fff; display:flex; align-items:center; justify-content:center; font-size:24px; box-shadow:0 6px 18px rgba(31,138,82,.45); text-decoration:none; }
+
+  /* email modal */
+  .email-overlay { display:none; position:fixed; inset:0; background:rgba(10,38,32,.78); z-index:10000; align-items:center; justify-content:center; padding:20px; }
+  .email-overlay.active { display:flex; }
+  .email-popup { background:var(--surface); border-radius:16px; padding:30px 24px 24px; max-width:380px; width:100%; text-align:center; box-shadow:var(--shadow-lg); }
+  .email-popup h2 { font-size:18px; font-weight:700; color:var(--teal-900); margin-bottom:6px; }
+  .email-popup .sub { font-size:12.5px; color:var(--muted); margin-bottom:16px; }
+  .email-popup input { width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:8px; font-size:14px; margin-bottom:10px; }
+  .ep-pay { width:100%; background:var(--gold); color:#1a1306; font-size:15px; font-weight:700; padding:13px; border:none; border-radius:8px; cursor:pointer; }
+  .ep-skip { display:block; margin-top:8px; font-size:12px; color:var(--muted); background:none; border:none; cursor:pointer; text-decoration:underline; width:100%; }
 </style>
 </head>
 <body>
@@ -373,11 +397,16 @@ fbq('track', 'ViewContent', { content_name: 'Meesho And Flipkart Auto Listing To
         <div class="compat-chip">🍎 Mac</div>
         <div class="compat-chip">✅ Chrome browser</div>
       </div>
+      <div class="compat-row">
+        <div class="compat-chip">🛒 Flipkart + Meesho dono — ₹99 mein</div>
+        <div class="compat-chip">♾️ Lifetime Faida</div>
+        <div class="compat-chip">🚫 No Hidden Charges</div>
+      </div>
       <div class="cta-row">
         <button class="btn-primary" onclick="startPayment()">₹99 mein Kharido + 3 Bonus →</button>
         <a href="https://wa.me/918595735564?text=Hi%21%20Maine%20abhi%20aapka%20Flipkart%20%2B%20Meesho%20Auto%20Listing%20Tool%20page%20dekha%20%F0%9F%91%80%20Mujhe%20kuch%20doubt%20hai%2C%20kya%20aap%20help%20kar%20sakte%20hain%3F" class="btn-whatsapp">💬 Pehle Baat Karo</a>
       </div>
-      <div class="hero-note">✅ Payment ke baad turant WhatsApp pe tool + 3 bonus guides milenge</div>
+      <div class="hero-note">✅ Payment ke baad tool turant <strong style="color:#fff;">Gmail aur WhatsApp dono par</strong> milega + 3 bonus guides</div>
       <div class="stat-strip">
         <div class="s"><b class="mono">2,847</b><span>Sellers</span></div>
         <div class="s"><b class="mono">5.0★</b><span>Avg Rating</span></div>
@@ -709,13 +738,13 @@ fbq('track', 'ViewContent', { content_name: 'Meesho And Flipkart Auto Listing To
       <div class="old-price" style="text-decoration:none;">+ taxes · one-time payment</div>
       <hr>
       <ul>
-        <li><span class="ck">✓</span>1-Click Auto Listing System</li>
+        <li><span class="ck">✓</span>Flipkart + Meesho — dono ka 1-Click Auto Listing</li>
         <li><span class="ck">✓</span>Unlimited listings creation</li>
         <li><span class="ck">✓</span>Auto-fill title, description &amp; details</li>
         <li><span class="ck">✓</span>Bulk image upload automation</li>
         <li><span class="ck">✓</span>Shipping cost optimization</li>
-        <li><span class="ck">✓</span>WhatsApp support included</li>
-        <li><span class="ck">✓</span>Lifetime access — no renewal</li>
+        <li><span class="ck">✓</span>Tool milega Gmail + WhatsApp dono par</li>
+        <li><span class="ck">✓</span>Lifetime access — no renewal, no hidden charges</li>
       </ul>
       <hr>
       <div style="background:var(--good-bg);border-radius:10px;padding:12px 14px;margin-bottom:16px;font-size:12.5px;color:var(--good);font-weight:600;">
@@ -791,6 +820,16 @@ fbq('track', 'ViewContent', { content_name: 'Meesho And Flipkart Auto Listing To
   </div>
 </div>
 
+<div class="email-overlay" id="emailOverlay">
+  <div class="email-popup">
+    <h2>📧 Tool Gmail + WhatsApp Dono Pe Milega</h2>
+    <p class="sub">Apna email dalo — payment ke baad tool, setup video aur 3 bonuses Gmail pe bhi bhejenge (WhatsApp pe toh milega hi).</p>
+    <input type="email" id="userEmailInput" placeholder="aapka@gmail.com" autocomplete="email" />
+    <button class="ep-pay" id="epPayBtn" onclick="proceedWithEmail()">🔒 Aage Badho — ₹99 Pay Karo</button>
+    <button class="ep-skip" onclick="proceedWithEmail()">Email nahi dena, skip karo →</button>
+  </div>
+</div>
+
 <a href="https://wa.me/918595735564?text=Hi%21%20Maine%20abhi%20aapka%20Flipkart%20%2B%20Meesho%20Auto%20Listing%20Tool%20page%20dekha%20%F0%9F%91%80%20Mujhe%20kuch%20doubt%20hai%2C%20kya%20aap%20help%20kar%20sakte%20hain%3F" target="_blank" class="wa-float">💬</a>
 
 <script>
@@ -831,6 +870,15 @@ fbq('track', 'ViewContent', { content_name: 'Meesho And Flipkart Auto Listing To
   }
   calcROI();
 
+  // If a proof screenshot fails to load, hide just that card instead of
+  // leaving a blank gap in the scrolling strip.
+  document.querySelectorAll('.mini-proof-item img, .proof-item img').forEach(function(img){
+    img.addEventListener('error', function(){
+      var card = this.closest('.mini-proof-item, .proof-item');
+      if (card) card.style.display = 'none';
+    });
+  });
+
   (function() {
     var shown = false;
     document.addEventListener('mouseleave', function(e) {
@@ -843,13 +891,31 @@ fbq('track', 'ViewContent', { content_name: 'Meesho And Flipkart Auto Listing To
     window.open('https://wa.me/918595735564?text=' + msg, '_blank');
   }
 
-  // Direct redirect to the hosted Cashfree payment form — no custom checkout API/modal.
+  // Email captured here is used for: (1) Meta Pixel advanced matching, (2) sending
+  // the tool to Gmail in addition to WhatsApp, (3) best-effort prefill on the
+  // hosted Cashfree form via the `email` query param — verify the exact prefill
+  // param name in your Cashfree Payment Form dashboard settings if it doesn't
+  // auto-fill, since hosted forms vary in what params they accept.
   var CASHFREE_FORM_URL = 'https://payments.cashfree.com/forms/Ecomeasy';
 
   function startPayment() {
-    fbq('track', 'InitiateCheckout', { value: 99, currency: 'INR' });
-    window.location.href = CASHFREE_FORM_URL;
+    document.getElementById('emailOverlay').classList.add('active');
+    setTimeout(function(){ var i=document.getElementById('userEmailInput'); if(i) i.focus(); }, 150);
   }
+
+  function proceedWithEmail() {
+    var email = document.getElementById('userEmailInput').value.trim();
+    document.getElementById('emailOverlay').classList.remove('active');
+    if (email) { fbq('init', '865687835806352', { em: email }); }
+    fbq('track', 'InitiateCheckout', { value: 99, currency: 'INR' });
+
+    var url = CASHFREE_FORM_URL;
+    if (email) { url += (url.indexOf('?') > -1 ? '&' : '?') + 'email=' + encodeURIComponent(email); }
+    window.location.href = url;
+  }
+
+  document.getElementById('emailOverlay').addEventListener('click', function(e){ if (e.target === this) proceedWithEmail(); });
+  document.getElementById('userEmailInput').addEventListener('keydown', function(e){ if (e.key === 'Enter') proceedWithEmail(); });
 
   /* ===== LIVE AUTOFILL DEMO LOGIC ===== */
   var demoData = {
