@@ -861,14 +861,20 @@ fbq('track', 'ViewContent', { content_name: 'Meesho And Flipkart Auto Listing To
 
   /* ===== PAYMENT FLOW =====
      1. "Kharido" button click
-     2. FB Pixel: InitiateCheckout (= "Initiate Payment" in SuperProfile)
+     2. FB Pixel: InitiateCheckout fires HERE on this domain (ecomeasy.store)
      3. Redirect to SuperProfile checkout
-     SuperProfile fires its own "Payment Complete" event natively when
-     payment succeeds — we also add Purchase pixel here as a fallback
-     via URL param detection on page load.
+     NOTE: InitiateCheckout pixel should be UNCHECKED/disabled in SuperProfile's
+     advance settings to avoid double-firing. Purchase pixel stays on SuperProfile
+     side since that's where payment actually completes.
   ===== */
 
   function startPayment() {
+    fbq('track', 'InitiateCheckout', {
+      content_name: 'Meesho And Flipkart Auto Listing Tool',
+      content_category: 'E-commerce Tool',
+      value: 99,
+      currency: 'INR'
+    });
     window.location.href = SUPERPROFILE_URL;
   }
 
