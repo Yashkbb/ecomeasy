@@ -905,21 +905,22 @@ fbq('track', 'ViewContent', { content_name: 'Meesho And Flipkart Auto Listing To
   ===== */
   var CASHFREE_FORM_URL = 'https://upi-payment-system.yashsethi733.workers.dev/pay?amount=99&pixel=1';
 
-  function startPayment() {
-    document.getElementById('emailOverlay').classList.add('active');
-    setTimeout(function(){
-      var i = document.getElementById('userEmailInput');
-      if (i) i.focus();
-    }, 150);
+ function startPayment() {
+  if (typeof fbq === 'function') {
+    fbq('track', 'InitiateCheckout', { value: 99, currency: 'INR' });
   }
-
+  document.getElementById('emailOverlay').classList.add('active');
+  setTimeout(function(){
+    var i = document.getElementById('userEmailInput');
+    if (i) i.focus();
+  }, 150);
+}
 function proceedWithEmail() {
   document.getElementById('emailOverlay').classList.remove('active');
 
   var emailVal = document.getElementById('userEmailInput').value.trim();
 
   if (typeof fbq === 'function') {
-    fbq('track', 'InitiateCheckout', { value: 99, currency: 'INR' });
     fbq('track', 'AddPaymentInfo', { value: 99, currency: 'INR' });
   }
 
@@ -930,7 +931,6 @@ function proceedWithEmail() {
 
   window.location.href = finalUrl;
 }
-
   /* Close email popup on backdrop click */
   document.getElementById('emailOverlay').addEventListener('click', function(e){
     if (e.target === this) proceedWithEmail();
