@@ -1950,8 +1950,6 @@ function proceedWithEmail() {
   collectedEmail = document.getElementById('userEmailInput').value.trim();
   document.getElementById('emailOverlay').classList.remove('active');
 
-  /* Re-init pixel with advanced matching (email gets SHA-256 hashed automatically) */
- 
   fbq('track', 'InitiateCheckout', { value: 99, currency: 'INR' });
 
   /* Redirect to hosted Cashfree Payment Form */
