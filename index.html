@@ -133,20 +133,23 @@ fbq('track', 'ViewContent', { content_name: 'EcomEasy Vardaan Bundle Pack', cont
   @media(max-width:860px){ .hero-grid{ grid-template-columns:1fr; gap:24px; } }
 
   .hero-title-block { grid-column:1; grid-row:1; }
-  .hero-rating-block { grid-column:1; grid-row:2; }
-  .hero-compat-block { grid-column:1; grid-row:3; }
-  .hero-cta-block { grid-column:1; grid-row:4; }
-  .hero-video-block { grid-column:2; grid-row:1 / 5; align-self:center; }
+  .hero-desc-block { grid-column:1; grid-row:2; }
+  .hero-rating-block { grid-column:1; grid-row:3; }
+  .hero-compat-block { grid-column:1; grid-row:4; }
+  .hero-cta-block { grid-column:1; grid-row:5; }
+  .hero-video-block { grid-column:2; grid-row:1 / 6; align-self:center; }
 
   @media(max-width:860px){
     .hero-title-block { grid-column:1; grid-row:auto; order:1; }
     .hero-video-block { grid-column:1; grid-row:auto; order:2; align-self:auto; }
-    .hero-rating-block { grid-column:1; grid-row:auto; order:3; }
-    .hero-compat-block { grid-column:1; grid-row:auto; order:4; }
-    .hero-cta-block { grid-column:1; grid-row:auto; order:5; }
+    .hero-desc-block { grid-column:1; grid-row:auto; order:3; }
+    .hero-rating-block { grid-column:1; grid-row:auto; order:4; }
+    .hero-compat-block { grid-column:1; grid-row:auto; order:5; }
+    .hero-cta-block { grid-column:1; grid-row:auto; order:6; }
   }
 
   .hero-title-block .eyebrow { color: var(--gold-light); } .hero-title-block .eyebrow::before{ background:var(--gold-light); }
+  .hero-desc { font-size:15px; line-height:1.6; color:#cfe3da; max-width:520px; }
   .hero h1 { font-size: clamp(28px, 4.2vw, 44px); font-weight:700; line-height:1.15; margin:14px 0 0; }
   .hero h1 .accent { background: linear-gradient(120deg, var(--gold-light), var(--gold) 60%, #ffdf8a); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
@@ -410,6 +413,8 @@ fbq('track', 'ViewContent', { content_name: 'EcomEasy Vardaan Bundle Pack', cont
   .sticky-bar { position:fixed; bottom:0; left:0; right:0; background:var(--surface); border-top:1px solid var(--border); padding:11px 18px; display:flex; align-items:center; justify-content:space-between; gap:10px; z-index:200; box-shadow:0 -6px 20px rgba(0,0,0,.08); }
   .sticky-price .old { font-size:11px; color:var(--muted); text-decoration:line-through; }
   .sticky-price .new { font-family:'JetBrains Mono',monospace; font-size:18px; font-weight:700; background: linear-gradient(120deg, var(--teal-900), var(--teal-700)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .sticky-countdown { display:flex; align-items:center; gap:5px; font-size:10.5px; font-weight:700; color:var(--gold-dark); margin-top:3px; white-space:nowrap; }
+  .sticky-countdown .sc-timer { font-family:'JetBrains Mono',monospace; background:var(--gold-light); border-radius:4px; padding:1px 5px; color:#1a1306; }
 
   @media(max-width:600px){
     section{ padding:44px 18px; }
@@ -422,6 +427,21 @@ fbq('track', 'ViewContent', { content_name: 'EcomEasy Vardaan Bundle Pack', cont
     .demo-platform-switch{ flex-direction:column; }
     .demo-controls{ flex-direction:column; align-items:stretch; }
     .btn-autofill{ justify-content:center; }
+    .sticky-countdown{ font-size:9.5px; }
+  }
+
+  /* ===== header mobile fix (WhatsApp button) ===== */
+  @media(max-width:480px){
+    header{ padding:10px 12px; gap:8px; }
+    .brand{ gap:6px; min-width:0; flex-shrink:1; overflow:hidden; }
+    .brand-dots{ display:none; }
+    .logo{ font-size:14px; white-space:nowrap; }
+    .logo .domain{ font-size:8.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .btn-wa-sm{ flex-shrink:0; padding:8px 11px; font-size:11.5px; gap:4px; white-space:nowrap; }
+  }
+  @media(max-width:360px){
+    .logo{ font-size:12.5px; }
+    .btn-wa-sm{ padding:7px 9px; font-size:10.5px; }
   }
 
   /* exit popup */
@@ -459,6 +479,40 @@ fbq('track', 'ViewContent', { content_name: 'EcomEasy Vardaan Bundle Pack', cont
   .email-popup .btn-primary { width:100%; justify-content:center; margin-top:6px; }
   .email-note { font-size:11px; color:var(--muted); margin-top:12px; }
 
+  /* ===== WA nudge popup (support pre-purchase touchpoint) ===== */
+  .wa-nudge {
+    position: fixed;
+    bottom: 90px;
+    left: 16px;
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow-lg);
+    border-left: 4px solid #25d366;
+    z-index: 9988;
+    max-width: 270px;
+    display: none;
+  }
+  .wa-nudge.show { display: block; animation: slideInLeftV .4s cubic-bezier(.34,1.56,.64,1); }
+  @keyframes slideInLeftV {
+    from { transform: translateX(-300px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  .wa-nudge-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; }
+  .wa-nudge-title { font-size:14px; font-weight:700; color:var(--teal-900); }
+  .wa-nudge-close { background:none; border:none; font-size:18px; color:var(--muted); cursor:pointer; line-height:1; padding:0; }
+  .wa-nudge-body { font-size:12px; color:var(--muted); margin-bottom:12px; line-height:1.5; }
+  .wa-nudge-btn { display:inline-flex; align-items:center; gap:6px; background:#25d366; color:#fff; font-size:13px; font-weight:700; padding:9px 16px; border-radius:30px; text-decoration:none; width:100%; justify-content:center; box-sizing:border-box; }
+  @media(max-width:480px){ .wa-nudge{ left:10px; right:10px; max-width:none; bottom:74px; } }
+
+  /* ===== dedicated pre-purchase WhatsApp support section ===== */
+  .wa-support-section { background:#f0fdf4; padding:48px 24px; text-align:center; }
+  .wa-support-box { background:var(--surface); border-radius:var(--radius); padding:32px; max-width:460px; margin:0 auto; box-shadow:var(--shadow); border:2px dashed #86efac; }
+  .wa-support-icon { font-size:44px; margin-bottom:12px; }
+  .wa-support-box h2 { font-size:20px; font-weight:700; color:var(--teal-900); margin-bottom:8px; }
+  .wa-support-box p { font-size:14px; color:var(--muted); margin-bottom:20px; }
+  .wa-support-timings { font-size:12px; color:var(--muted); margin-top:12px; }
+
   /* ===== scroll-reveal animation ===== */
   .reveal { opacity:0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1); }
   .reveal.in-view { opacity:1; transform: translateY(0); }
@@ -485,13 +539,6 @@ fbq('track', 'ViewContent', { content_name: 'EcomEasy Vardaan Bundle Pack', cont
   <div class="urgency-ticker-track" id="urgencyTicker"></div>
 </div>
 
-<div class="countdown-bar">
-  <span class="cd-label">⏳ Launch price khatam hone mein:</span>
-  <span class="countdown-timer">
-    <span class="cd-box" id="cdHours">00</span>:<span class="cd-box" id="cdMins">00</span>:<span class="cd-box" id="cdSecs">00</span>
-  </span>
-</div>
-
 <header>
   <div class="brand">
     <div class="brand-dots"><span></span><span></span><span></span></div>
@@ -516,7 +563,7 @@ fbq('track', 'ViewContent', { content_name: 'EcomEasy Vardaan Bundle Pack', cont
       <div class="browser-frame">
         <div class="browser-topbar">
           <div class="browser-dots"><span></span><span></span><span></span></div>
-          <div class="browser-addr"><span class="browser-ext-icon">⚡</span> meesho.com/seller/listing</div>
+          <div class="browser-addr"><span class="browser-ext-icon">⚡</span> ecomeasy.store/vardaan-bundle</div>
         </div>
         <div class="browser-body" id="miniVideoWrapper" onclick="playMiniVideo()">
           <video id="miniDemoVideo" src="https://pub-c599eb800f744776a60c49f792a9de2e.r2.dev/ecomeasy_features.mp4" playsinline preload="metadata"></video>
@@ -526,6 +573,10 @@ fbq('track', 'ViewContent', { content_name: 'EcomEasy Vardaan Bundle Pack', cont
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="hero-desc-block">
+      <p class="hero-desc">Meesho aur Flipkart par listing, shipping aur competitor research — sab kuch ek click mein. Vardaan Bundle ke 4 tools se apna selling kaam fast, easy aur profitable banao.</p>
     </div>
 
     <div class="hero-rating-block">
@@ -550,7 +601,7 @@ fbq('track', 'ViewContent', { content_name: 'EcomEasy Vardaan Bundle Pack', cont
 
     <div class="hero-cta-block">
       <div class="cta-row">
-        <button class="btn-primary" onclick="startPayment()">Buy Vardaan Bundle — ₹99 →</button>
+        <button class="btn-primary" onclick="startPayment()">🚀 ₹99 mein Abhi Kharido — 4 Tools + 3 Bonus →</button>
         <a href="https://wa.me/918595735564?text=Hi%21%20Maine%20abhi%20aapka%20EcomEasy%20Vardaan%20Bundle%20Pack%20page%20dekha%20%F0%9F%91%80%20Mujhe%20kuch%20doubt%20hai%2C%20kya%20aap%20help%20kar%20sakte%20hain%3F" class="btn-whatsapp">💬 Pehle Baat Karo</a>
       </div>
       <div class="hero-note">✅ Payment ke baad sab kuch turant <strong style="color:#fff;">WhatsApp par</strong> milega</div>
@@ -913,6 +964,19 @@ fbq('track', 'ViewContent', { content_name: 'EcomEasy Vardaan Bundle Pack', cont
   </div>
 </section>
 
+<!-- WHATSAPP PRE-PURCHASE SUPPORT SECTION -->
+<div class="wa-support-section">
+  <div class="wa-support-box">
+    <div class="wa-support-icon">💬</div>
+    <h2>Kharidne Se Pehle Koi Sawaal?</h2>
+    <p>Seedha WhatsApp karo — hum real humans hain, bots nahi. Aapke saare doubts clear karenge before you spend a single rupee.</p>
+    <a href="https://wa.me/918595735564?text=Hi%21%20Maine%20abhi%20aapka%20EcomEasy%20Vardaan%20Bundle%20Pack%20page%20dekha%20%F0%9F%91%80%20Mujhe%20kuch%20doubt%20hai%2C%20kya%20aap%20help%20kar%20sakte%20hain%3F" class="btn-whatsapp">
+      <span>💬</span> WhatsApp Par Baat Karo
+    </a>
+    <div class="wa-support-timings">Available: Mon–Sat, 10 AM – 8 PM IST</div>
+  </div>
+</div>
+
 <!-- TRUST STRIP -->
 <div class="trust-strip">
   <div class="container" style="text-align:center;">
@@ -958,7 +1022,7 @@ fbq('track', 'ViewContent', { content_name: 'EcomEasy Vardaan Bundle Pack', cont
       <div style="background:var(--good-bg);border-radius:10px;padding:12px 14px;margin-bottom:16px;font-size:12.5px;color:var(--good);font-weight:600;">
         🛡️ 7-Day Money Back Guarantee — kaam na kare toh poora ₹99 wapas
       </div>
-      <button class="btn-primary" onclick="startPayment()" style="width:100%;justify-content:center;">Buy Vardaan Bundle — ₹99</button>
+      <button class="btn-primary" onclick="startPayment()" style="width:100%;justify-content:center;">🚀 Abhi Kharido — Bundle ₹99 Only</button>
       <p style="text-align:center;font-size:11.5px;color:var(--muted);margin-top:12px;">✅ Payment ke baad turant WhatsApp pe sab kuch milega</p>
       <div style="text-align:center;margin-top:12px;">
         <a href="https://wa.me/918595735564?text=Hi%21%20Maine%20abhi%20aapka%20EcomEasy%20Vardaan%20Bundle%20Pack%20page%20dekha%20%F0%9F%91%80%20Mujhe%20kuch%20doubt%20hai%2C%20kya%20aap%20help%20kar%20sakte%20hain%3F" class="btn-whatsapp" style="width:100%;justify-content:center;display:flex;">💬 Pehle Baat Karo — Free</a>
@@ -1009,10 +1073,14 @@ fbq('track', 'ViewContent', { content_name: 'EcomEasy Vardaan Bundle Pack', cont
 </footer>
 
 <div class="sticky-bar">
-  <div class="sticky-price"><div class="old">Regular ₹999</div><div class="new mono">₹99 Only</div></div>
+  <div class="sticky-price">
+    <div class="old">Regular ₹999</div>
+    <div class="new mono">₹99 Only</div>
+    <div class="sticky-countdown">⏳ Offers end in <span class="sc-timer mono"><span id="cdHoursS">00</span>:<span id="cdMinsS">00</span>:<span id="cdSecsS">00</span></span></div>
+  </div>
   <div style="display:flex;gap:8px;align-items:center;">
     <a href="https://wa.me/918595735564?text=Hi%21%20Maine%20abhi%20aapka%20EcomEasy%20Vardaan%20Bundle%20Pack%20page%20dekha%20%F0%9F%91%80%20Mujhe%20kuch%20doubt%20hai%2C%20kya%20aap%20help%20kar%20sakte%20hain%3F" target="_blank" class="btn-whatsapp" style="padding:10px 14px;font-size:12.5px;">💬 Poochho</a>
-    <button class="btn-primary" onclick="startPayment()" style="padding:10px 18px;font-size:14px;">Buy Now</button>
+    <button class="btn-primary" onclick="startPayment()" style="padding:10px 18px;font-size:14px;">🚀 Kharido</button>
   </div>
 </div>
 
@@ -1048,6 +1116,20 @@ fbq('track', 'ViewContent', { content_name: 'EcomEasy Vardaan Bundle Pack', cont
 </div>
 
 <a href="https://wa.me/918595735564?text=Hi%21%20Maine%20abhi%20aapka%20EcomEasy%20Vardaan%20Bundle%20Pack%20page%20dekha%20%F0%9F%91%80%20Mujhe%20kuch%20doubt%20hai%2C%20kya%20aap%20help%20kar%20sakte%20hain%3F" target="_blank" class="wa-float">💬</a>
+
+<!-- WA NUDGE POPUP -->
+<div class="wa-nudge" id="waNudge">
+  <div class="wa-nudge-head">
+    <div class="wa-nudge-title">💬 Koi doubt hai?</div>
+    <button class="wa-nudge-close" onclick="document.getElementById('waNudge').style.display='none'">✕</button>
+  </div>
+  <div class="wa-nudge-body">
+    Free mein WhatsApp pe pooch lo — koi pressure nahi. Real human jawab dega, bot nahi 🙏
+  </div>
+  <a href="https://wa.me/918595735564?text=Hi%21%20Maine%20abhi%20aapka%20EcomEasy%20Vardaan%20Bundle%20Pack%20page%20dekha%20%F0%9F%91%80%20Mujhe%20kuch%20doubt%20hai%2C%20kya%20aap%20help%20kar%20sakte%20hain%3F" target="_blank" class="wa-nudge-btn">
+    💬 WhatsApp Karo — Free
+  </a>
+</div>
 
 <div class="live-toast" id="liveToast">
   <div class="lt-icon">🛒</div>
@@ -1113,12 +1195,34 @@ fbq('track', 'ViewContent', { content_name: 'EcomEasy Vardaan Bundle Pack', cont
     document.addEventListener('mouseleave', function(e) {
       if (e.clientY <= 0 && !shown) { shown = true; document.getElementById('exitOverlay').classList.add('active'); }
     });
+    setTimeout(function() {
+      if (!shown) { shown = true; document.getElementById('exitOverlay').classList.add('active'); }
+    }, 40000);
   })();
   function closeExit() { document.getElementById('exitOverlay').classList.remove('active'); }
   function redirectToWhatsApp() {
     var msg = encodeURIComponent('Hi! Maine abhi aapka EcomEasy Vardaan Bundle Pack page dekha 👀\nMujhe kuch doubt hai, kya aap help kar sakte hain?');
     window.open('https://wa.me/918595735564?text=' + msg, '_blank');
   }
+
+  /* ===== WA NUDGE POPUP ===== */
+  (function() {
+    var nudgeShown = false;
+    setTimeout(function() {
+      if (!nudgeShown) {
+        nudgeShown = true;
+        var nudge = document.getElementById('waNudge');
+        nudge.classList.add('show');
+        setTimeout(function() {
+          if (nudge.classList.contains('show')) {
+            nudge.style.opacity = '0';
+            nudge.style.transition = 'opacity 0.5s ease';
+            setTimeout(function() { nudge.classList.remove('show'); nudge.style.opacity=''; nudge.style.transition=''; }, 500);
+          }
+        }, 12000);
+      }
+    }, 45000);
+  })();
 
   /* =====================================================================
      PAYMENT FLOW — direct to Cashfree
@@ -1319,7 +1423,8 @@ fbq('track', 'ViewContent', { content_name: 'EcomEasy Vardaan Bundle Pack', cont
 
   /* ===== COUNTDOWN TIMER =====
      Resets every 4 hours so there's always "time left" on the offer.
-     Purely a visual urgency cue — not tied to an actual price change. */
+     Purely a visual urgency cue — not tied to an actual price change.
+     Drives BOTH the top countdown-bar and the sticky-bar countdown. */
   (function(){
     var WINDOW_MS = 4 * 60 * 60 * 1000;
     function tick(){
@@ -1328,9 +1433,23 @@ fbq('track', 'ViewContent', { content_name: 'EcomEasy Vardaan Bundle Pack', cont
       var h = Math.floor(remaining / 3600000);
       var m = Math.floor((remaining % 3600000) / 60000);
       var s = Math.floor((remaining % 60000) / 1000);
-      document.getElementById('cdHours').textContent = String(h).padStart(2,'0');
-      document.getElementById('cdMins').textContent = String(m).padStart(2,'0');
-      document.getElementById('cdSecs').textContent = String(s).padStart(2,'0');
+      var hh = String(h).padStart(2,'0');
+      var mm = String(m).padStart(2,'0');
+      var ss = String(s).padStart(2,'0');
+
+      var h0 = document.getElementById('cdHours');
+      var m0 = document.getElementById('cdMins');
+      var s0 = document.getElementById('cdSecs');
+      if (h0) h0.textContent = hh;
+      if (m0) m0.textContent = mm;
+      if (s0) s0.textContent = ss;
+
+      var hS = document.getElementById('cdHoursS');
+      var mS = document.getElementById('cdMinsS');
+      var sS = document.getElementById('cdSecsS');
+      if (hS) hS.textContent = hh;
+      if (mS) mS.textContent = mm;
+      if (sS) sS.textContent = ss;
     }
     tick();
     setInterval(tick, 1000);
@@ -1362,7 +1481,7 @@ fbq('track', 'ViewContent', { content_name: 'EcomEasy Vardaan Bundle Pack', cont
   /* ===== SCROLL REVEAL ===== */
   (function(){
     var singleTargets = document.querySelectorAll(
-      '.section-head, .compare-wrap, .panel-mock, .demo-shell, .receipt, .id-card, .chat-frame, .proof-scroll, .price-receipt, .bundle-grid, .bonus-grid'
+      '.section-head, .compare-wrap, .panel-mock, .demo-shell, .receipt, .id-card, .chat-frame, .proof-scroll, .price-receipt, .bundle-grid, .bonus-grid, .wa-support-box'
     );
     singleTargets.forEach(function(el){ el.classList.add('reveal'); });
     document.querySelectorAll('.faq-item').forEach(function(el){ el.classList.add('reveal'); });
